@@ -1,0 +1,69 @@
+- name: awsm.css
+  url: https://igoradamenko.github.io/awsm.css/
+  src: https://unpkg.com/awsm.css/dist/awsm.min.css
+  file: awsm.css
+
+- name: bahunya
+  url: https://kimeiga.github.io/bahunya/
+  src: https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css
+  file: bahunya.css
+
+- name: kacit
+  url: https://kimeiga.github.io/kacit/
+  src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
+  file: kacit.css
+
+- name: marx
+  url: https://mblode.github.io/marx/
+  src: https://unpkg.com/marx-css/css/marx.min.css
+  file: marx.css
+
+- name: minicss
+  url: https://minicss.org/
+  src: https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@v3.0.1/dist/mini-default.min.css
+  file: minicss.css
+
+- name: 'no-class'
+  url: https://davidpaulsson.github.io/no-class/
+  src: https://davidpaulsson.github.io/no-class/css/no-class.min.css
+  file: no-class.css
+
+- name: sakura
+  url: https://oxal.org/projects/sakura/
+  src: https://unpkg.com/sakura.css/css/sakura.css
+  file: sakura.css
+
+- name: sakura-vader
+  url: https://oxal.org/projects/sakura/
+  src: https://unpkg.com/sakura.css/css/sakura-vader.css
+  file: sakura-vader.css
+
+- name: stylize
+  url: https://vasanthv.github.io/stylize.css/
+  src: https://vasanthv.github.io/stylize.css/stylize.css
+  file: stylize.css
+
+- name: tacit
+  url: https://yegor256.github.io/tacit/
+  src: https://cdn.jsdelivr.net/gh/yegor256/tacit@gh-pages/tacit-css-1.5.0.min.css
+  file: tacit.css
+
+- name: vanilla
+  url: https://vanillacss.com/
+  src: https://vanillacss.com/vanilla.css
+  file: vanilla.css
+
+- name: water
+  url: https://kognise.github.io/water.css/
+  src: https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.css
+  file: water.css
+
+- name: water-dark
+  url: https://kognise.github.io/water.css/
+  src: https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.css
+  file: water-dark.css
+
+- name: writ
+  url: https://writ.cmcenroe.me/
+  src: https://writ.cmcenroe.me/1.0.4/writ.min.css
+  file: writ.css

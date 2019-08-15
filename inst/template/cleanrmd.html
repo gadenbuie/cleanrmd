@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+$for(author-meta)$
+  <meta name="author" content="$author-meta$" />
+$endfor$
+$if(date-meta)$
+  <meta name="dcterms.date" content="$date-meta$" />
+$endif$
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+
+$if(theme-picker)$
+<link id="theme-picker-style" rel="stylesheet" />
+$endif$
+
+$for(css)$
+  <link rel="stylesheet" href="$css$" />
+$endfor$
+$if(disable-font-awesome)$
+$else$
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+</head>
+<body>
+
+$if(theme-picker)$
+<div id="theme-picker"></div>
+$endif$
+
+
+<main>
+$if(title)$
+<h1 class="title toc-ignore">$title$</h1>
+$endif$
+$if(subtitle)$
+<h2 class="subtitle toc-ignore">$subtitle$</h2>
+$endif$
+$if(date)$
+<p class="date">$date$</p>
+$endif$
+$if(author)$
+<p class="author">$for(author)$$author$$sep$, $endfor$</p>
+$endif$
+
+$if(toc)$$toc$$endif$
+
+$body$
+
+$for(include-after)$
+$include-after$
+$endfor$
+</main>
+
+$if(mathjax-url)$
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "$mathjax-url$";
+  document.getElementsByTagName("head")[0].appendChild(script);
+});
+</script>
+$endif$
+
+<style type="text/css" charset="utf-8">
+main {
+  max-width: 34em;
+  margin: auto;
+  padding: 0 2em;
+}
+
+img {
+  max-width: 100%;
+}
+</style>
+
+$if(theme-picker)$
+<!--
+  Enable theme picker
+
+  The $theme-picker$ pandoc var expects JSON array with name, src of themes
+-->
+<script>
+  const picker = document.getElementById('theme-picker')
+  const themes = $theme-picker$
+  const tps = document.createElement('select')
+
+  let optBlank = document.createElement('option')
+  optBlank.setAttribute('value', '')
+  optBlank.textContent = '-- Bare HTML --'
+  tps.appendChild(optBlank)
+
+  for (let theme of themes) {
+    let opt = document.createElement('option')
+    opt.setAttribute('value', theme.src)
+    opt.textContent = theme.name
+    tps.appendChild(opt)
+  }
+
+  picker.appendChild(tps)
+
+  picker.addEventListener('change', () => {
+    let themeHref = document.querySelector('#theme-picker select').value
+    let linkCss = document.getElementById('theme-picker-style').setAttribute('href', themeHref)
+  })
+</script>
+
+<style>
+#theme-picker {
+  display: block;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  padding: 10px;
+}
+</style>
+$endif$
+</body>
+</html>

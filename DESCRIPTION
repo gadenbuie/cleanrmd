@@ -1,0 +1,23 @@
+Package: cleanrmd
+Title: Clean Class-Less R Markdown HTML Documents
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Garrick",
+           family = "Aden-Buie",
+           role = c("aut", "cre"),
+           email = "garrick@adenbuie.com",
+           comment = c(ORCID = "0000-0002-7111-0077"))
+Description: A collection of clean R Markdown HTML document
+    templates using classy-looking classless CSS styles.
+License: MIT + file LICENSE
+Imports: 
+    htmltools,
+    jsonlite,
+    rmarkdown,
+    utils
+Suggests: 
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
