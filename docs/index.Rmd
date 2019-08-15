@@ -6,6 +6,7 @@ date: '`r strftime(Sys.time(), "%B %d, %Y")`'
 output: 
   cleanrmd::html_document_clean:
     theme: NULL
+    dev: svg
 ---
 
 ```{r setup, include=FALSE}
