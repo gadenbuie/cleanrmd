@@ -50,16 +50,16 @@ $endif$
 
 <main>
 $if(title)$
-<h1 class="title toc-ignore">$title$</h1>
+<h1 id="title" class="toc-ignore">$title$</h1>
 $endif$
 $if(subtitle)$
-<h2 class="subtitle toc-ignore">$subtitle$</h2>
+<h2 id="subtitle" class="toc-ignore">$subtitle$</h2>
 $endif$
 $if(date)$
-<p class="date">$date$</p>
+<p id="date">$date$</p>
 $endif$
 $if(author)$
-<p class="author">$for(author)$$author$$sep$, $endfor$</p>
+<p id="author">$for(author)$$author$$sep$, $endfor$</p>
 $endif$
 
 $if(toc)$$toc$$endif$
@@ -99,14 +99,18 @@ $if(theme-picker)$
 <!--
   Enable theme picker
 
-  The $theme-picker$ pandoc var expects JSON array with name, src of themes
+  The theme-picker pandoc var expects JSON array with name, src of themes
 -->
 <script>
   const picker = document.getElementById('theme-picker')
   const themes = $theme-picker$
   const tps = document.createElement('select')
 
-  let optBlank = document.createElement('option')
+  const setCSS = (href) => {
+    document.getElementById('theme-picker-style').setAttribute('href', href)
+  }
+
+  const optBlank = document.createElement('option')
   optBlank.setAttribute('value', '')
   optBlank.textContent = '-- Bare HTML --'
   tps.appendChild(optBlank)
@@ -115,6 +119,10 @@ $if(theme-picker)$
     let opt = document.createElement('option')
     opt.setAttribute('value', theme.src)
     opt.textContent = theme.name
+    if (theme.name === 'tacit') {
+      opt.selected = true
+      setCSS(theme.src)
+    }
     tps.appendChild(opt)
   }
 
@@ -122,17 +130,18 @@ $if(theme-picker)$
 
   picker.addEventListener('change', () => {
     let themeHref = document.querySelector('#theme-picker select').value
-    let linkCss = document.getElementById('theme-picker-style').setAttribute('href', themeHref)
+    setCSS(themeHref)
   })
 </script>
 
 <style>
 #theme-picker {
   display: block;
-  position: absolute;
-  top: 2%;
-  right: 2%;
+  position: fixed;
+  top: 0%;
+  right: 0%;
   padding: 10px;
+  background: inherit;
 }
 </style>
 $endif$
