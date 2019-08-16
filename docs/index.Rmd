@@ -6,6 +6,7 @@ date: '`r strftime(Sys.time(), "%B %d, %Y")`'
 output: 
   cleanrmd::html_document_clean:
     theme: NULL
+    self_contained: false
     dev: svg
 ---
 
@@ -13,22 +14,99 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+<https://github.com/gadenbuie/cleanrmd>
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+**cleanrmd is...**
+
+> A collection of clean R Markdown HTML document templates using classy-looking classless CSS styles.
+
+Sometimes you want to create a simple HTML file from your R Markdown source.
+You want something small to share with collaborators.
+You want a simple, readable document that you can email or just push to the web.
+
+`cleanrmd` gives you a small, responsive HTML file that 
+works great with R Markdown and pandoc and
+doesn't rely on classes for styling so that
+it works in practically any browser.
+
+Just because `cleanrmd` doesn't use classes doesn't mean you don't have to!
+Feel free to use these themes as a starting point to add your own style and customization.
+
+## It's still R Markdown
+
+This is an R Markdown document. 
+Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
+For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+## R Code
+
+```{r summaries}
+mtcars <- mtcars[, c("mpg", "cyl", "wt", "qsec")]
+summary(mtcars)
 ```
 
-## Including Plots
+## Plots
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r plots}
+plot(mtcars$wt, mtcars$mpg, col = mtcars$cyl, pch = 16)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Tables
+
+```{r tables}
+knitr::kable(mtcars[1:6, ], caption = "A subset of mtcars")
+```
+
+---
+
+## Headers (Header 2)
+
+### Header 3
+
+#### Header 4
+
+#### Header 5
+
+##### Header 6
+
+## Block Quotes
+
+We know from the Markdown syntax that paragraphs that start with `>` are converted to block quotes. 
+
+> "If it weren't for my lawyer, I'd still be in prison. It went a lot faster with two people digging."
+>
+> --- Joe Martin
+
+> "Great people talk about ideas, average people talk about things, and small people talk about wine."
+>
+> --- Fran Lebowitz
+
+## Images
+
+![Is it safe to come out yet?](https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2601&q=800)
+
+## Lists
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit torquent posuere penatibus ullamcorper, 
+primis feugiat gravida risus phasellus placerat duis blandit elementum cubilia, 
+mus porta ante fringilla etiam condimentum consequat imperdiet quisque netus. 
+
+- Lorem ipsum dolor sit amet consectetur, adipiscing elit turpis sollicitudin.
+- Pellentesque neque habitant hendrerit metus mattis, risus volutpat nam ac.
+- Dictum turpis vitae curae parturient pretium, massa per pulvinar.
+- Vestibulum id fringilla fermentum volutpat tempus, malesuada interdum velit maecenas.
+
+Mattis varius conubia ornare turpis interdum laoreet, duis iaculis torquent purus ut id, 
+parturient aptent luctus curae vel. 
+Odio blandit dis proin quis ullamcorper sapien imperdiet lacus, 
+neque per eros a posuere donec mauris purus, 
+cursus potenti et auctor himenaeos aliquet diam.
+
+1. Lorem ipsum dolor sit amet consectetur, adipiscing elit pretium.
+1. Habitant interdum egestas pellentesque pharetra rutrum, ornare nisi netus luctus.
+1. Euismod convallis rutrum fermentum sodales hac, magna tristique mollis lacinia.
+1. Habitant nisi orci ad imperdiet sollicitudin, eu egestas sociosqu.
