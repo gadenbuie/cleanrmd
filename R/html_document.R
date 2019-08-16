@@ -48,7 +48,6 @@ html_document_clean <- function(
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
 
-
   mathjax_url <- if (!is.null(mathjax) && mathjax %in% c("default", "local")) {
     mathjax_local <- Sys.getenv("RMARKDOWN_MATHJAX_PATH", unset = NA)
     if (mathjax == "local" && is.na(mathjax_local)) {
@@ -82,12 +81,13 @@ html_document_clean <- function(
         cleanrmd_file("template", "cleanrmd.html")
       ),
     ),
-    clean_supporting = !keep_md,
+    clean_supporting = FALSE,
     base_format = rmarkdown::html_document_base(
-      self_contained = TRUE, template = NULL,
+      template = NULL,
       theme = NULL,
       mathjax = mathjax,
-      extra_dependencies = deps
+      extra_dependencies = deps,
+      ...
     )
   )
 }
