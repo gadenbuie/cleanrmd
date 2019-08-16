@@ -87,7 +87,7 @@ We know from the Markdown syntax that paragraphs that start with `>` are convert
 
 ## Images
 
-![Is it safe to come out yet?](https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2601&q=800)
+![Is it safe to come out yet? Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) on Unsplash.](https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2601&q=800)
 
 ## Lists
 
