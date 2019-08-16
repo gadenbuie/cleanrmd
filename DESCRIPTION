@@ -2,14 +2,59 @@ Package: cleanrmd
 Title: Clean Class-Less R Markdown HTML Documents
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Garrick",
-           family = "Aden-Buie",
-           role = c("aut", "cre"),
-           email = "garrick@adenbuie.com",
-           comment = c(ORCID = "0000-0002-7111-0077"))
+    c(person(given = "Garrick",
+             family = "Aden-Buie",
+             role = c("aut", "cre"),
+             email = "garrick@adenbuie.com",
+             comment = c(ORCID = "0000-0002-7111-0077")),
+      person(given = "Igor",
+             family = "Adamenko",
+             role = c("ctb", "cph"),
+             comment = "Author of awsm.css"),
+      person(given = "Hakan",
+             family = "Alpay",
+             role = c("ctb", "cph"),
+             comment = "Author of bahunya"),
+      person(given = "Yegor",
+             family = "Bugayenko",
+             role = c("ctb", "cph"),
+             comment = "Author of tacit and kacit"),
+      person(given = "Matthew",
+             family = "Blode",
+             role = c("ctb", "cph"),
+             comment = "Author of marx"),
+      person(given = "Angelos",
+             family = "Chalaris",
+             role = c("ctb", "cph"),
+             comment = "Author of mini.css"),
+      person(given = "David",
+             family = "Paulsson",
+             role = c("ctb", "cph"),
+             comment = "Author of no-class"),
+      person(given = "Mitesh",
+             family = "Shah",
+             role = c("ctb", "cph"),
+             comment = "Author of sakura"),
+      person(given = "Jack",
+             family = "Crawford",
+             role = c("ctb", "cph"),
+             comment = "Author of stylize"),
+      person(given = "Bradley",
+             family = "Taunt",
+             role = c("ctb", "cph"),
+             comment = "Author of vanilla"),
+      person(family = "Kognise",
+             role = c("ctb", "cph"),
+             comment = "Author of water.css"),
+      person(given = "Curtis",
+             family = "McEnroe",
+             role = c("ctb", "cph"),
+             comment = "Author of writ"))
 Description: A collection of clean R Markdown HTML document
     templates using classy-looking classless CSS styles.
 License: MIT + file LICENSE
+URL: https://github.com/gadenbuie/cleanrmd
+BugReports: https://github.com/gadenbuie/cleanrmd/issues
 Imports: 
     htmltools,
     jsonlite,
@@ -21,5 +66,3 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-URL: https://github.com/gadenbuie/cleanrmd
-BugReports: https://github.com/gadenbuie/cleanrmd/issues
