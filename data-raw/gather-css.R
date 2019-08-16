@@ -12,5 +12,5 @@ purrr::walk(themes, ~ {
 })
 
 # Store themes as internal data frame
-cleanrmd_theme_list <- purrr::map_dfr(themes, ~ .)
+cleanrmd_theme_list <- purrr::map_dfr(themes, ~.)
 usethis::use_data(cleanrmd_theme_list, internal = TRUE, overwrite = TRUE)

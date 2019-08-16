@@ -52,8 +52,8 @@ base R Markdown HTML output formatter \code{\link{html_document_base}}}
 \item{...}{Arguments passed on to \code{rmarkdown::html_document_base}
 \describe{
   \item{smart}{Produce typographically correct output, converting straight
-quotes to curly quotes, \code{---} to em-dashes, \code{--} to en-dashes, and
-\code{...} to ellipses.}
+quotes to curly quotes, --- to em-dashes, -- to en-dashes, and ... to
+ellipses.}
   \item{theme}{Visual theme ("default", "cerulean", "journal", "flatly",
 "darkly", "readable", "spacelab", "united", "cosmo", "lumen", "paper",
 "sandstone", "simplex", or "yeti"). Pass \code{NULL} for no theme (in this

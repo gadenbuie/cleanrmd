@@ -11,7 +11,6 @@
 #'   document's `<head>`? Only enable if you are including FontAwesome icons
 #'   in your HTML document.
 #' @inheritParams rmarkdown::html_document
-#' @inheritParams rmarkdown::html_document_base
 #' @inheritDotParams rmarkdown::html_document_base
 #' @export
 html_document_clean <- function(
@@ -30,7 +29,6 @@ html_document_clean <- function(
   pandoc_args = NULL,
   extra_dependencies = NULL
 ) {
-
   deps <- c(
     if (!is.null(theme)) list(cleanrmd_theme_dep(theme)),
     extra_dependencies
@@ -41,10 +39,15 @@ html_document_clean <- function(
   pandoc_args <- c(
     pandoc_args,
     if (!use_fontawesome) c("--variable", "disable-fontawesome"),
-    if (is.null(theme)) c("--variable", paste0(
-      "theme-picker=",
-      jsonlite::toJSON(cleanrmd_theme_list[, c("name", "src")])
-    )),
+    if (is.null(theme)) {
+      c(
+        "--variable",
+        paste0(
+          "theme-picker=",
+          jsonlite::toJSON(cleanrmd_theme_list[, c("name", "src")])
+        )
+      )
+    },
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
 
@@ -52,24 +55,38 @@ html_document_clean <- function(
     mathjax_local <- Sys.getenv("RMARKDOWN_MATHJAX_PATH", unset = NA)
     if (mathjax == "local" && is.na(mathjax_local)) {
       rlang::warn(
-        glue("Please use `Sys.setenv('RMARKDOWN_MATHJAX_PATH')` to set local mathjax location.",
-             "Falling back to online mathjax from https://mathjax.rstudio.com")
+        glue(
+          "Please use `Sys.setenv('RMARKDOWN_MATHJAX_PATH')` to set local mathjax location.",
+          "Falling back to online mathjax from https://mathjax.rstudio.com"
+        )
       )
     }
-    mathjax_path <- ifelse(mathjax == "default" || is.na(mathjax_local),
-                           "https://mathjax.rstudio.com/latest",
-                           mathjax_local)
+    mathjax_path <- ifelse(
+      mathjax == "default" || is.na(mathjax_local),
+      "https://mathjax.rstudio.com/latest",
+      mathjax_local
+    )
     file.path(mathjax_path, "MathJax.js?config=TeX-AMS-MML_HTMLorMML")
-  } else mathjax
+  } else {
+    mathjax
+  }
 
   if (!is.null(mathjax_url)) {
-    pandoc_args <- c(pandoc_args, "--mathjax", "--variable",
-                     paste0("mathjax-url:", mathjax_url))
+    pandoc_args <- c(
+      pandoc_args,
+      "--mathjax",
+      "--variable",
+      paste0("mathjax-url:", mathjax_url)
+    )
   }
 
   rmarkdown::output_format(
     knitr = rmarkdown::knitr_options_html(
-      fig_width, fig_height, fig_retina, keep_md, dev
+      fig_width,
+      fig_height,
+      fig_retina,
+      keep_md,
+      dev
     ),
     pandoc = rmarkdown::pandoc_options(
       to = "html5",
