@@ -39,8 +39,8 @@
   file: sakura-vader.css
 
 - name: stylize
-  url: https://vasanthv.github.io/stylize.css/
-  src: https://vasanthv.github.io/stylize.css/stylize.css
+  url: https://gadenbuie.github.io/stylize.css/
+  src: https://gadenbuie.github.io/stylize.css/stylize.min.css
   file: stylize.css
 
 - name: tacit

@@ -34,7 +34,8 @@ Feel free to use these themes as a starting point to add your own style and cust
 
 ## It's still R Markdown
 
-This is an R Markdown document. 
+This is an R Markdown document.
+(View [the source for this file](https://github.com/gadenbuie/cleanrmd/blob/master/docs/index.Rmd).)
 Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
 For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
@@ -87,7 +88,7 @@ We know from the Markdown syntax that paragraphs that start with `>` are convert
 
 ## Images
 
-![Is it safe to come out yet? Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) on Unsplash.](https://images.unsplash.com/photo-1494256997604-768d1f608cac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2601&q=800)
+![Is it safe to come out yet? Photo by [Mikhail Vasilyev](https://unsplash.com/@miklevasilyev) on Unsplash.](mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg)
 
 ## Lists
 

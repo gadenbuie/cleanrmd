@@ -13,7 +13,7 @@
 #' - [no-class](https://davidpaulsson.github.io/no-class/)
 #' - [sakura](https://oxal.org/projects/sakura/)
 #' - [sakura-vader](https://oxal.org/projects/sakura/)
-#' - [stylize](https://vasanthv.github.io/stylize.css/)
+#' - [stylize](https://gadenbuie.github.io/stylize.css/) (forked from [vasanthv/stylize.css](https://github.com/vasanthv/stylize.css)
 #' - [tacit](https://yegor256.github.io/tacit/)
 #' - [vanilla](https://vanillacss.com/)
 #' - [water](https://kognise.github.io/water.css/)
