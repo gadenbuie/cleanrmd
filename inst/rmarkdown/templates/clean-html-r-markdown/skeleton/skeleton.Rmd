@@ -3,8 +3,9 @@ title: "Title"
 author: "Author"
 date: "Date"
 output: 
-  cleanrmd::clean_html_document:
-    theme: no-class
+  cleanrmd::html_document_clean:
+    theme: stylize  # see cleanrmd::cleanrmd_themes()
+                    # or set to NULL for dynamic theme picker (requires internet)
 ---
 
 ```{r setup, include=FALSE}
