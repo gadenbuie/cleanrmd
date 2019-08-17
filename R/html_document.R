@@ -8,10 +8,9 @@
 #'
 #' @param theme The class-less CSS theme to use, one of [cleanrmd_themes()].
 #' @param use_fontawesome Should links to FontAwesome be included in the HTML
-#'   document's `<head>`? Only enable if you are including FontAwesome icons
-#'   in your HTML document.
+#'   document's `<head>`? Only enable if you are including FontAwesome icons in
+#'   your HTML document.
 #' @inheritParams rmarkdown::html_document
-#' @inheritDotParams rmarkdown::html_document_base
 #' @export
 html_document_clean <- function(
   ...,
@@ -54,8 +53,8 @@ html_document_clean <- function(
   mathjax_url <- if (!is.null(mathjax) && mathjax %in% c("default", "local")) {
     mathjax_local <- Sys.getenv("RMARKDOWN_MATHJAX_PATH", unset = NA)
     if (mathjax == "local" && is.na(mathjax_local)) {
-      rlang::warn(
-        glue(
+      warning(
+        paste(
           "Please use `Sys.setenv('RMARKDOWN_MATHJAX_PATH')` to set local mathjax location.",
           "Falling back to online mathjax from https://mathjax.rstudio.com"
         )

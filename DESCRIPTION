@@ -55,6 +55,8 @@ Description: A collection of clean R Markdown HTML document
 License: MIT + file LICENSE
 URL: https://github.com/gadenbuie/cleanrmd
 BugReports: https://github.com/gadenbuie/cleanrmd/issues
+Depends:
+    R (>= 2.10)
 Imports: 
     htmltools,
     jsonlite,
