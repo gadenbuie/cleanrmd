@@ -38,6 +38,16 @@
   src: https://unpkg.com/sakura.css/css/sakura-vader.css
   file: sakura-vader.css
 
+- name: style-sans
+  url: https://css-pkg.github.io/style.css/
+  src: https://unpkg.com/style.css
+  file: style-sans.css
+
+- name: style-serif
+  url: https://css-pkg.github.io/style.css/
+  src: https://css-pkg.github.io/style.css/serif.css
+  file: style-serif.css
+
 - name: stylize
   url: https://gadenbuie.github.io/stylize.css/
   src: https://gadenbuie.github.io/stylize.css/stylize.min.css
