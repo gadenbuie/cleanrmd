@@ -18,7 +18,8 @@ html_document_clean(
   keep_md = FALSE,
   dev = "png",
   pandoc_args = NULL,
-  extra_dependencies = NULL
+  extra_dependencies = NULL,
+  self_contained = !is.null(theme)
 )
 }
 \arguments{
@@ -60,6 +61,12 @@ outputting HTML directly into the markdown document).}
 
 \item{extra_dependencies}{Additional function arguments to pass to the
 base R Markdown HTML output formatter \code{\link[rmarkdown]{html_document_base}}}
+
+\item{self_contained}{Produce a standalone HTML file with no external
+dependencies, using data: URIs to incorporate the contents of linked
+scripts, stylesheets, images, and videos. Note that even for self contained
+documents MathJax is still loaded externally (this is necessary because of
+its size).}
 }
 \description{
 Clean HTML documents with R Markdown.

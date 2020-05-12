@@ -26,12 +26,23 @@ html_document_clean <- function(
   keep_md = FALSE,
   dev = "png",
   pandoc_args = NULL,
-  extra_dependencies = NULL
+  extra_dependencies = NULL,
+  self_contained = !is.null(theme)
 ) {
   deps <- c(
-    if (!is.null(theme)) list(cleanrmd_theme_dep(theme)),
+    list(cleanrmd_theme_dep(theme)),
     extra_dependencies
   )
+
+  if (is.null(theme)) {
+    themes_json <- paste0(
+      '<script id="theme-picker-themes" type="application/json">',
+      cleanrmd_theme_json(),
+      "</script>"
+    )
+    tmp_json <- tempfile(fileext = ".html")
+    writeLines(themes_json, tmp_json)
+  }
 
   # disable fontawesome if !use_fontawesome
   # add to pandoc_args rmarkdown::pandoc_toc_args(toc, toc_depth)
@@ -39,13 +50,7 @@ html_document_clean <- function(
     pandoc_args,
     if (!use_fontawesome) c("--variable", "disable-fontawesome"),
     if (is.null(theme)) {
-      c(
-        "--variable",
-        paste0(
-          "theme-picker=",
-          jsonlite::toJSON(cleanrmd_theme_list[, c("name", "src")])
-        )
-      )
+      c("--include-before-body", tmp_json)
     },
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
@@ -97,12 +102,13 @@ html_document_clean <- function(
         cleanrmd_file("template", "cleanrmd.html")
       ),
     ),
-    clean_supporting = FALSE,
+    clean_supporting = self_contained,
     base_format = rmarkdown::html_document_base(
       template = NULL,
       theme = NULL,
       mathjax = mathjax,
       extra_dependencies = deps,
+      self_contained = self_contained,
       ...
     )
   )

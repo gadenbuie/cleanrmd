@@ -26,10 +26,6 @@ $highlighting-css$
   </style>
 $endif$
 
-$if(theme-picker)$
-<link id="theme-picker-style" rel="stylesheet" />
-$endif$
-
 $for(css)$
   <link rel="stylesheet" href="$css$" />
 $endfor$
@@ -43,10 +39,9 @@ $endfor$
 </head>
 <body>
 
-$if(theme-picker)$
-<div id="theme-picker"></div>
-$endif$
-
+$for(include-before)$
+$include-before$
+$endfor$
 
 <main>
 $if(title)$
@@ -94,58 +89,5 @@ img {
   max-width: 100%;
 }
 </style>
-
-$if(theme-picker)$
-<!--
-  Enable theme picker
-
-  The theme-picker pandoc var expects JSON array with name, src of themes
--->
-<script>
-  const picker = document.getElementById('theme-picker')
-  const themes = $theme-picker$
-  const tps = document.createElement('select')
-
-  const setCSS = (href) => {
-    document.getElementById('theme-picker-style').setAttribute('href', href)
-  }
-
-  const optBlank = document.createElement('option')
-  optBlank.setAttribute('value', '')
-  optBlank.textContent = '-- Bare HTML --'
-  tps.appendChild(optBlank)
-
-  for (let theme of themes) {
-    let opt = document.createElement('option')
-    opt.setAttribute('value', theme.src)
-    opt.textContent = theme.name
-    if (theme.name === 'tacit') {
-      opt.selected = true
-      setCSS(theme.src)
-    }
-    tps.appendChild(opt)
-  }
-
-  picker.appendChild(tps)
-
-  picker.addEventListener('change', () => {
-    let themeHref = document.querySelector('#theme-picker select').value
-    setCSS(themeHref)
-  })
-</script>
-
-<style>
-#theme-picker {
-  display: block;
-  position: fixed;
-  top: 0%;
-  right: 0%;
-  padding: 10px;
-  background: inherit;
-  z-index: 100;
-}
-#theme-picker select { margin: 0; }
-</style>
-$endif$
 </body>
 </html>
