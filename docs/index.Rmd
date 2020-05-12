@@ -2,7 +2,7 @@
 title: "cleanrmd"
 subtitle: "Clean HTML R Markdown Documents"
 author: "Garrick Aden-Buie"
-date: '`r strftime(Sys.time(), "%B %d, %Y")`'
+date: 'Updated: `r strftime(Sys.time(), "%B %d, %Y")`<br>Version: `r packageVersion("cleanrmd")`'
 output: 
   cleanrmd::html_document_clean:
     theme: NULL
