@@ -4,14 +4,26 @@
 \alias{html_document_clean}
 \title{Clean Rmarkdown HTML Document}
 \usage{
-html_document_clean(..., theme = "no-class", css = NULL, toc = FALSE,
-  toc_depth = 3, mathjax = NULL, use_fontawesome = FALSE,
-  fig_width = 10, fig_height = 7, fig_retina = 2, keep_md = FALSE,
-  dev = "png", pandoc_args = NULL, extra_dependencies = NULL)
+html_document_clean(
+  ...,
+  theme = "no-class",
+  css = NULL,
+  toc = FALSE,
+  toc_depth = 3,
+  mathjax = NULL,
+  use_fontawesome = FALSE,
+  fig_width = 10,
+  fig_height = 7,
+  fig_retina = 2,
+  keep_md = FALSE,
+  dev = "png",
+  pandoc_args = NULL,
+  extra_dependencies = NULL
+)
 }
 \arguments{
 \item{...}{Additional function arguments to pass to the
-base R Markdown HTML output formatter \code{\link{html_document_base}}}
+base R Markdown HTML output formatter \code{\link[rmarkdown]{html_document_base}}}
 
 \item{theme}{The class-less CSS theme to use, one of \code{\link[=cleanrmd_themes]{cleanrmd_themes()}}.}
 
@@ -27,7 +39,7 @@ copied into the output directory). You can pass an alternate URL or pass
 \code{NULL} to exclude MathJax entirely.}
 
 \item{use_fontawesome}{Should links to FontAwesome be included in the HTML
-document's \code{<head>}? Only enable if you are including FontAwesome icons in
+document's \verb{<head>}? Only enable if you are including FontAwesome icons in
 your HTML document.}
 
 \item{fig_width}{Default width (in inches) for figures}
@@ -47,7 +59,7 @@ outputting HTML directly into the markdown document).}
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
 \item{extra_dependencies}{Additional function arguments to pass to the
-base R Markdown HTML output formatter \code{\link{html_document_base}}}
+base R Markdown HTML output formatter \code{\link[rmarkdown]{html_document_base}}}
 }
 \description{
 Clean HTML documents with R Markdown.

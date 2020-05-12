@@ -1,13 +1,13 @@
 /* $color-text: #dedce5; */
-/* Sakura.css v1.0.0
+/* Sakura.css v1.2.0
  * ================
  * Minimal css theme.
- * Project: https://github.com/oxalorg/sakura
+ * Project: https://github.com/oxalorg/sakura/
  */
 /* Body */
 html {
   font-size: 62.5%;
-  font-family: serif; }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
 
 body {
   font-size: 1.8rem;
@@ -21,12 +21,14 @@ body {
 @media (max-width: 684px) {
   body {
     font-size: 1.53rem; } }
+
 @media (max-width: 382px) {
   body {
     font-size: 1.35rem; } }
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   font-weight: 700;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -41,7 +43,7 @@ h1 {
   font-size: 2.35em; }
 
 h2 {
-  font-size: 2em; }
+  font-size: 2.00em; }
 
 h3 {
   font-size: 1.75em; }
@@ -81,6 +83,7 @@ blockquote {
   border-left: 3px solid #eb99a1; }
 
 img {
+  height: auto;
   max-width: 100%; }
 
 /* Pre and Code */
@@ -154,6 +157,9 @@ textarea, select, input[type] {
   textarea:focus, select:focus, input[type]:focus {
     border: 1px solid #eb99a1;
     outline: 0; }
+
+input[type="checkbox"]:focus {
+  outline: 1px dotted #eb99a1; }
 
 label, legend, fieldset {
   display: block;
