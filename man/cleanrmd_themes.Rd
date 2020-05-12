@@ -25,7 +25,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
 \item \href{https://oxal.org/projects/sakura/}{sakura}
 \item \href{https://oxal.org/projects/sakura/}{sakura-vader}
-\item \href{https://gadenbuie.github.io/stylize.css/}{stylize} (forked from \href{https://github.com/vasanthv/stylize.css}{vasanthv/stylize.css}
+\item \href{https://gadenbuie.github.io/stylize.css/}{stylize}
 \item \href{https://yegor256.github.io/tacit/}{tacit}
 \item \href{https://vanillacss.com/}{vanilla}
 \item \href{https://kognise.github.io/water.css/}{water}
