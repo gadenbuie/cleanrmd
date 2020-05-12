@@ -27,7 +27,7 @@ cleanrmd_themes <- function() {
   cleanrmd_theme_list$name
 }
 
-cleanrmd_theme_dep <- function(name) {
+cleanrmd_theme_dep <- function(name, all_files = FALSE) {
   name <- match.arg(name, cleanrmd_themes())
 
   css_file <- cleanrmd_theme_list$file[which(name == cleanrmd_theme_list$name)]
@@ -37,7 +37,8 @@ cleanrmd_theme_dep <- function(name) {
     package = "cleanrmd",
     version = utils::packageVersion("cleanrmd"),
     src = "resources",
-    stylesheet = css_file
+    stylesheet = css_file,
+    all_files = all_files
   )
 }
 
@@ -47,11 +48,11 @@ cleanrmd_theme_file <- function(file) {
 
 cleanrmd_theme_list_roxygen <- function() {
   cat(
-    paste0(
+  paste0(
       "#' - [",
-      cleanrmd_theme_list$name,
-      "](",
-      cleanrmd_theme_list$url,
+    cleanrmd_theme_list$name,
+    "](",
+    cleanrmd_theme_list$url,
       ")"
     ),
     sep = "\n"
