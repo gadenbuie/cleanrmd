@@ -20,6 +20,10 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://igoradamenko.github.io/awsm.css/}{awsm.css}
 \item \href{https://kimeiga.github.io/bahunya/}{bahunya}
 \item \href{https://kimeiga.github.io/kacit/}{kacit}
+\item \href{http://markdowncss.github.io/splendor/}{markdown-splendor}
+\item \href{http://markdowncss.github.io/retro/}{markdown-retro}
+\item \href{http://markdowncss.github.io/air/}{markdown-air}
+\item \href{http://markdowncss.github.io/modest/}{markdown-modest}
 \item \href{https://mblode.github.io/marx/}{marx}
 \item \href{https://minicss.org/}{minicss}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}

@@ -13,6 +13,26 @@
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
   file: kacit.css
 
+- name: markdown-splendor
+  url: http://markdowncss.github.io/splendor/
+  src: http://markdowncss.github.io/splendor/css/splendor.css
+  file: markdown-splendor.css
+
+- name: markdown-retro
+  url: http://markdowncss.github.io/retro/
+  src: http://markdowncss.github.io/retro/css/retro.css
+  file: markdown-retro.css
+
+- name: markdown-air
+  url: http://markdowncss.github.io/air/
+  src: http://markdowncss.github.io/air/css/air.css
+  file: markdown-air.css
+
+- name: markdown-modest
+  url: http://markdowncss.github.io/modest/
+  src: http://markdowncss.github.io/modest/css/modest.css
+  file: markdown-modest.css
+
 - name: marx
   url: https://mblode.github.io/marx/
   src: https://unpkg.com/marx-css/css/marx.min.css

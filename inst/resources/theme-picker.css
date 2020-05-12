@@ -6,5 +6,6 @@
   padding: 10px;
   background: inherit;
   z-index: 100;
+  width: unset;
 }
 #theme-picker select { margin: 0; }
