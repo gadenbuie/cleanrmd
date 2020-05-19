@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const opt = document.createElement('option')
     opt.setAttribute('value', theme.src)
     opt.textContent = theme.name
-    if (theme.name === 'tacit') {
+    if (theme.name === 'new.css') {
       opt.selected = true
       setCSS(theme.src)
     }

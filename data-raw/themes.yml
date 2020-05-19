@@ -43,6 +43,16 @@
   src: https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@v3.0.1/dist/mini-default.min.css
   file: minicss.css
 
+- name: new.css
+  url: https://newcss.net/
+  src: https://github.com/xz/new.css/raw/master/new.min.css
+  file: new.css
+
+- name: new.css lite
+  url: https://newcss.net/
+  src: https://github.com/xz/new.css/raw/master/lite.css
+  file: new-lite.css
+
 - name: 'no-class'
   url: https://davidpaulsson.github.io/no-class/
   src: https://davidpaulsson.github.io/no-class/css/no-class.min.css

@@ -1,6 +1,6 @@
 Package: cleanrmd
 Title: Clean Class-Less R Markdown HTML Documents
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     c(person(given = "Garrick",
              family = "Aden-Buie",
@@ -31,6 +31,9 @@ Authors@R:
              family = "Chalaris",
              role = c("ctb", "cph"),
              comment = "Author of mini.css"),
+      person(given = "Example",
+             role = c("ctb", "cph"),
+             comment = "Author of new.css"),
       person(given = "David",
              family = "Paulsson",
              role = c("ctb", "cph"),

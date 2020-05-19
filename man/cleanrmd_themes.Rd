@@ -26,6 +26,8 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{http://markdowncss.github.io/modest/}{markdown-modest}
 \item \href{https://mblode.github.io/marx/}{marx}
 \item \href{https://minicss.org/}{minicss}
+\item \href{https://newcss.net/}{new.css}
+\item \href{https://newcss.net/}{new.css lite}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
 \item \href{https://oxal.org/projects/sakura/}{sakura}
 \item \href{https://oxal.org/projects/sakura/}{sakura-vader}
