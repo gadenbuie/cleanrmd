@@ -8,6 +8,7 @@ output:
     theme: NULL
     self_contained: false
     dev: svg
+    title_in_header: true
 ---
 
 ```{r setup, include=FALSE}

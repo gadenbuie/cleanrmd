@@ -10,6 +10,7 @@ html_document_clean(
   css = NULL,
   toc = FALSE,
   toc_depth = 3,
+  title_in_header = TRUE,
   mathjax = NULL,
   use_fontawesome = FALSE,
   fig_width = 10,
@@ -33,6 +34,10 @@ base R Markdown HTML output formatter \code{\link[rmarkdown]{html_document_base}
 \item{toc}{\code{TRUE} to include a table of contents in the output}
 
 \item{toc_depth}{Depth of headers to include in table of contents}
+
+\item{title_in_header}{If \code{TRUE} (default), the title, subtitle, author, and
+date are placed in a \verb{<header>} tag. This is semantically correct HTML but
+some CSS frameworks work better with this structure than others.}
 
 \item{mathjax}{Include mathjax. The "default" option uses an https URL from a
 MathJax CDN. The "local" option uses a local version of MathJax (which is

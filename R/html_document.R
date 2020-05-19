@@ -10,6 +10,9 @@
 #' @param use_fontawesome Should links to FontAwesome be included in the HTML
 #'   document's `<head>`? Only enable if you are including FontAwesome icons in
 #'   your HTML document.
+#' @param title_in_header If `TRUE` (default), the title, subtitle, author, and
+#'   date are placed in a `<header>` tag. This is semantically correct HTML but
+#'   some CSS frameworks work better with this structure than others.
 #' @inheritParams rmarkdown::html_document
 #' @export
 html_document_clean <- function(
@@ -18,6 +21,7 @@ html_document_clean <- function(
   css = NULL,
   toc = FALSE,
   toc_depth = 3,
+  title_in_header = TRUE,
   mathjax = NULL,
   use_fontawesome = FALSE,
   fig_width = 10,
@@ -48,7 +52,8 @@ html_document_clean <- function(
   # add to pandoc_args rmarkdown::pandoc_toc_args(toc, toc_depth)
   pandoc_args <- c(
     pandoc_args,
-    if (!use_fontawesome) c("--variable", "disable-fontawesome"),
+    if (!isTRUE(use_fontawesome)) c("--variable", "disable-fontawesome"),
+    if (isTRUE(title_in_header)) c("--variable", "title-in-header"),
     if (is.null(theme)) {
       c("--include-before-body", tmp_json)
     },
@@ -109,6 +114,7 @@ html_document_clean <- function(
       mathjax = mathjax,
       extra_dependencies = deps,
       self_contained = self_contained,
+      bootstrap_compatible = FALSE,
       ...
     )
   )
