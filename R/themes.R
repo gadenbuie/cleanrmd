@@ -17,19 +17,26 @@ cleanrmd_themes <- function() {
 cleanrmd_theme_dep <- function(name = NULL) {
   css_file <- if (!is.null(name)) {
     name <- match.arg(name, cleanrmd_themes())
-    cleanrmd_theme_list$file[which(name == cleanrmd_theme_list$name)]
+    if (name == "latex.css") {
+      "latex.css"
+    } else {
+      cleanrmd_theme_list$file[which(name == cleanrmd_theme_list$name)]
+    }
   } else {
     "theme-picker.css"
   }
+
+  src <- if (is.null(name) || name != "latex.css") "resources" else "resources/latex"
+  all_files <- is.null(name) || name == "latex.css"
 
   htmltools::htmlDependency(
     name = "cleanrmd",
     package = "cleanrmd",
     version = utils::packageVersion("cleanrmd"),
-    src = "resources",
+    src = src,
     script = if (is.null(name)) "theme-picker.js",
     stylesheet = css_file,
-    all_files = is.null(name)
+    all_files = all_files
   )
 }
 

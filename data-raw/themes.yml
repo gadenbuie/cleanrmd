@@ -13,6 +13,36 @@
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
   file: kacit.css
 
+- name: latex.css
+  url: https://github.com/vincentdoerig/latex-css
+  src: https://raw.githubusercontent.com/vincentdoerig/latex-css/master/style.css
+  file: latex/latex.css
+  extra:
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.ttf
+      dest: latex/fonts/LM-bold-italic.ttf
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.woff
+      dest: latex/fonts/LM-bold-italic.woff
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.woff2
+      dest: latex/fonts/LM-bold-italic.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.ttf
+      dest: latex/fonts/LM-bold.ttf
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.woff
+      dest: latex/fonts/LM-bold.woff
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.woff2
+      dest: latex/fonts/LM-bold.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.ttf
+      dest: latex/fonts/LM-italic.ttf
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.woff
+      dest: latex/fonts/LM-italic.woff
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.woff2
+      dest: latex/fonts/LM-italic.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.ttf
+      dest: latex/fonts/LM-regular.ttf
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.woff
+      dest: latex/fonts/LM-regular.woff
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.woff2
+      dest: latex/fonts/LM-regular.woff2
+
 - name: markdown-splendor
   url: http://markdowncss.github.io/splendor/
   src: http://markdowncss.github.io/splendor/css/splendor.css
@@ -45,13 +75,8 @@
 
 - name: new.css
   url: https://newcss.net/
-  src: https://github.com/xz/new.css/raw/master/new.min.css
+  src: https://github.com/xz/new.css/raw/master/new.css
   file: new.css
-
-- name: new.css lite
-  url: https://newcss.net/
-  src: https://github.com/xz/new.css/raw/master/lite.css
-  file: new-lite.css
 
 - name: 'no-class'
   url: https://davidpaulsson.github.io/no-class/
