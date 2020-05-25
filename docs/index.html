@@ -13,18 +13,19 @@
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -44,7 +45,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -77,19 +78,18 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
 
-  <script src="index_files/header-attrs/header-attrs.js"></script>
   <link href="index_files/cleanrmd/theme-picker.css" rel="stylesheet" />
   <script src="index_files/cleanrmd/theme-picker.js"></script>
 </head>
 <body>
 
-<script id="theme-picker-themes" type="application/json">[{"name":"awsm.css","src":"awsm.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"kacit","src":"kacit.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"new.css lite","src":"new-lite.css"},{"name":"no-class","src":"no-class.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
+<script id="theme-picker-themes" type="application/json">[{"name":"awsm.css","src":"awsm.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
 
 <main>
 <header>
 <h1 id="title" class="toc-ignore">cleanrmd</h1>
 <h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown Documents</h2>
-<p id="date">Updated: May 18, 2020<br>Version: 0.0.3</p>
+<p id="date">Updated: May 25, 2020<br>Version: 0.0.4</p>
 <p id="author">Garrick Aden-Buie</p>
 
 </header>

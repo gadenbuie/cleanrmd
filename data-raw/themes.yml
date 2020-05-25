@@ -8,6 +8,11 @@
   src: https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css
   file: bahunya.css
 
+- name: holiday
+  url: https://evgenyorekhov.github.io/holiday.css/
+  src: https://github.com/EvgenyOrekhov/holiday.css/raw/master/dist/holiday.css
+  file: holiday.css
+
 - name: kacit
   url: https://kimeiga.github.io/kacit/
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
