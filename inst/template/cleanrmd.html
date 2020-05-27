@@ -84,7 +84,12 @@ $endif$
 main {
   max-width: 48em;
   margin: auto;
-  padding: 0 2em;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    max-width: 100%;
+  }
 }
 
 img {
