@@ -31,11 +31,13 @@ html_document_clean <- function(
   dev = "png",
   pandoc_args = NULL,
   extra_dependencies = NULL,
+  md_extensions = NULL,
   self_contained = !is.null(theme)
 ) {
   deps <- c(
     list(cleanrmd_theme_dep(theme)),
-    extra_dependencies
+    extra_dependencies,
+    list(extra_css_dependencies(css))
   )
 
   if (is.null(theme)) {
@@ -99,9 +101,8 @@ html_document_clean <- function(
     ),
     pandoc = rmarkdown::pandoc_options(
       to = "html5",
-      from = "markdown+ascii_identifiers+tex_math_single_backslash",
+      from = rmarkdown::rmarkdown_format(md_extensions),
       args = c(
-        if (!is.null(css)) paste("--css", css),
         pandoc_args,
         "--template",
         cleanrmd_file("template", "cleanrmd.html")
@@ -122,4 +123,26 @@ html_document_clean <- function(
 
 cleanrmd_file <- function(...) {
   system.file(..., package = "cleanrmd", mustWork = TRUE)
+}
+
+extra_css_dependencies <- function(css = NULL) {
+  # because I load the cleanrmd css as an htmlDependency()
+  # and as a result that css will always be last in the <head>
+  # so to add additional css files that we (hopefully) want
+  # to be loaded last, I have to insert them as htmldep too
+  if (is.null(css)) return(NULL)
+  htmltools::htmlDependency(
+    name = "cleanrmd-extra-css",
+    version = "9.9.9",
+    package = "cleanrmd",
+    src = "",
+    head = format(
+      htmltools::tagList(
+        lapply(css, function(x) {
+          htmltools::tags$link(rel = "stylesheet", href = x)
+        })
+      )
+    ),
+    all_files = FALSE
+  )
 }

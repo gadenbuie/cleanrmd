@@ -20,6 +20,7 @@ html_document_clean(
   dev = "png",
   pandoc_args = NULL,
   extra_dependencies = NULL,
+  md_extensions = NULL,
   self_contained = !is.null(theme)
 )
 }
@@ -66,6 +67,10 @@ outputting HTML directly into the markdown document).}
 
 \item{extra_dependencies}{Additional function arguments to pass to the
 base R Markdown HTML output formatter \code{\link[rmarkdown]{html_document_base}}}
+
+\item{md_extensions}{Markdown extensions to be added or removed from the
+default definition or R Markdown. See the \code{\link[rmarkdown]{rmarkdown_format}} for
+additional details.}
 
 \item{self_contained}{Produce a standalone HTML file with no external
 dependencies, using data: URIs to incorporate the contents of linked

@@ -19,7 +19,9 @@ Lists the available themes in \pkg{cleanrmd}
 \itemize{
 \item \href{https://igoradamenko.github.io/awsm.css/}{awsm.css}
 \item \href{https://kimeiga.github.io/bahunya/}{bahunya}
+\item \href{https://evgenyorekhov.github.io/holiday.css/}{holiday}
 \item \href{https://kimeiga.github.io/kacit/}{kacit}
+\item \href{https://github.com/vincentdoerig/latex-css}{latex.css}
 \item \href{http://markdowncss.github.io/splendor/}{markdown-splendor}
 \item \href{http://markdowncss.github.io/retro/}{markdown-retro}
 \item \href{http://markdowncss.github.io/air/}{markdown-air}
@@ -27,7 +29,6 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://mblode.github.io/marx/}{marx}
 \item \href{https://minicss.org/}{minicss}
 \item \href{https://newcss.net/}{new.css}
-\item \href{https://newcss.net/}{new.css lite}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
 \item \href{https://oxal.org/projects/sakura/}{sakura}
 \item \href{https://oxal.org/projects/sakura/}{sakura-vader}
