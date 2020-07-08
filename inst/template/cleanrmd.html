@@ -38,6 +38,22 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
+<style type="text/css" charset="utf-8">
+main {
+  max-width: 48em;
+  margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    max-width: 100%;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+</style>
 
 $for(include-before)$
 $include-before$
@@ -80,21 +96,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
 </script>
 $endif$
 
-<style type="text/css" charset="utf-8">
-main {
-  max-width: 48em;
-  margin: auto;
-}
-
-@media only screen and (max-width: 768px) {
-  main {
-    max-width: 100%;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-</style>
 </body>
 </html>
