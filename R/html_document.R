@@ -97,6 +97,8 @@ html_document_clean <- function(
       "--variable",
       paste0("mathjax-url:", mathjax_url)
     )
+
+    mathjax <- NULL
   }
 
   rmarkdown::output_format(
