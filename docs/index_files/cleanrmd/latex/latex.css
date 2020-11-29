@@ -87,6 +87,7 @@ body {
 
   counter-reset: theorem;
   counter-reset: definition;
+  counter-reset: sidenote-counter;
 
   color: hsl(0, 5%, 10%);
   background-color: hsl(210, 20%, 98%);
@@ -114,9 +115,15 @@ a:visited {
   color: #a00;
 }
 
+a:focus {
+  outline-offset: 2px;
+  outline: 2px solid hsl(220, 90%, 52%);
+}
+
 /* Make images easier to work with */
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -165,26 +172,66 @@ kbd {
   font-size: 75%;
 }
 
-/* Make table 100% width, add borders between rows */
+/* Better tables */
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: auto;
   max-width: 100%;
+  border-top: 2.27px solid black;
+  border-bottom: 2.27px solid black;
+  /* display: block; */
+  overflow-x: auto; /* does not work because element is not block */
+  /* white-space: nowrap; */
+  counter-increment: caption;
 }
+/* add bottom border on column table headings  */
+table tr > th[scope='col'] {
+  border-bottom: 1.36px solid black;
+}
+/* add right border on row table headings  */
+table tr > th[scope='row'] {
+  border-right: 1.36px solid black;
+}
+table > tbody > tr:first-child > td,
+table > tbody > tr:first-child > th {
+  border-top: 1.36px solid black;
+}
+table > tbody > tr:last-child > td,
+table > tbody > tr:last-child > th {
+  border-bottom: 1.36px solid black;
+}
+
 th,
 td {
   text-align: left;
   padding: 0.5rem;
+  line-height: 1.1;
 }
-td {
-  border-bottom: 1px solid hsl(0, 0%, 85%);
+/* Table caption */
+caption {
+  text-align: left;
+  font-size: 0.923em;
+  /* border-bottom: 2pt solid #000; */
+  padding: 0 0.25em 0.25em;
+  width: 100%;
+  margin-left: 0;
 }
-thead th {
-  border-bottom: 2px solid hsl(0, 0%, 70%);
+
+caption::before {
+  content: 'Table ' counter(caption) '. ';
+  font-weight: bold;
 }
-tfoot th {
-  border-top: 2px solid hsl(0, 0%, 70%);
+
+/* allow scroll on the x-axis */
+.scroll-wrapper {
+  overflow-x: auto;
+}
+
+/* if a table is wrapped in a scroll wrapper,
+  the table cells shouldn't wrap */
+.scroll-wrapper > table td {
+  white-space: nowrap;
 }
 
 /* Center align the title */
@@ -275,6 +322,98 @@ dl dd {
   text-align: center;
 }
 
+/* Sidenotes */
+
+.sidenote {
+  font-size: 0.8rem;
+  float: right;
+  clear: right;
+  width: 18vw;
+  margin-right: -20vw;
+  margin-bottom: 1em;
+}
+
+.sidenote.left {
+  float: left;
+  margin-left: -20vw;
+  margin-bottom: 1em;
+}
+
+/* (WIP) add border when a sidenote is clicked on */
+.sidenote:target {
+  border: hsl(55, 55%, 70%) 1.5px solid;
+  padding: 0 .5rem;
+  scroll-margin-block-start: 10rem;
+}
+
+/* sidenote counter */
+.sidenote-number {
+  counter-increment: sidenote-counter;
+}
+
+.sidenote-number::after,
+.sidenote::before {
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* add number in main content */
+.sidenote-number::after {
+  content: counter(sidenote-counter);
+  font-size: 0.7rem;
+  top: -0.5rem;
+  left: 0.1rem;
+}
+
+/* add number in front of the sidenote */
+.sidenote-number ~ .sidenote::before {
+  content: counter(sidenote-counter) ' ';
+  font-size: 0.7rem;
+  top: -0.5rem;
+}
+
+label.sidenote-toggle:not(.sidenote-number) {
+  display: none;
+}
+
+/* sidenotes inside blockquotes are indented more */
+blockquote .sidenote {
+  margin-right: -24vw;
+  width: 18vw;
+}
+
+
+label.sidenote-toggle {
+  display: inline;
+  cursor: pointer;
+}
+
+input.sidenote-toggle {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  label.sidenote-toggle:not(.sidenote-number) {
+    display: inline;
+  }
+  .sidenote {
+    display: none;
+  }
+  .sidenote-toggle:checked + .sidenote {
+    display: block;
+    margin: 0.5rem 1.25rem 1rem 0.5rem;
+    float: left;
+    left: 1rem;
+    clear: both;
+    width: 95%;
+  }
+  /* tweak indentation of sidenote inside a blockquote */
+  blockquote .sidenote {
+    margin-right: -25vw;
+    width: 16vw;
+  }
+}
+
 /* Make footnote text smaller and left align it (looks bad with long URLs) */
 .footnotes p {
   text-align: left;
@@ -290,9 +429,14 @@ dl dd {
 .abstract,
 .abstract p {
   text-align: center;
+  margin-top: 0;
 }
 .abstract {
   margin: 2.25rem 0;
+}
+.abstract > h2 {
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
 }
 
 /* Format the LaTeX symbol correctly (a higher up, e lower) */

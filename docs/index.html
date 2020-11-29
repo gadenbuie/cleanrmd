@@ -82,14 +82,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <script src="index_files/cleanrmd/theme-picker.js"></script>
 </head>
 <body>
+<style type="text/css" charset="utf-8">
+main {
+  max-width: 48em;
+  margin: auto;
+}
 
-<script id="theme-picker-themes" type="application/json">[{"name":"awsm.css","src":"awsm.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
+@media only screen and (max-width: 768px) {
+  main {
+    max-width: 100%;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+</style>
+
+<script id="theme-picker-themes" type="application/json">[{"name":"awsm.css","src":"awsm.css"},{"name":"axist","src":"axist.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"semantic","src":"semantic.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
 
 <main>
 <header>
 <h1 id="title" class="toc-ignore">cleanrmd</h1>
 <h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown Documents</h2>
-<p id="date">Updated: May 27, 2020<br>Version: 0.0.4</p>
+<p id="date">Updated: November 29, 2020<br>Version: 0.0.6</p>
 <p id="author">Garrick Aden-Buie</p>
 
 </header>
@@ -107,8 +123,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is an R Markdown document. (View <a href="https://github.com/gadenbuie/cleanrmd/blob/master/docs/index.Rmd">the source for this file</a>.) Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
 <h2 id="r-code">R Code</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>mtcars &lt;-<span class="st"> </span>mtcars[, <span class="kw">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;qsec&quot;</span>)]</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">summary</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;qsec&quot;</span>)]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span></code></pre></div>
 <pre><code>##       mpg             cyl              wt             qsec      
 ##  Min.   :10.40   Min.   :4.000   Min.   :1.513   Min.   :14.50  
 ##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:2.581   1st Qu.:16.89  
@@ -118,15 +134,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  Max.   :33.90   Max.   :8.000   Max.   :5.424   Max.   :22.90</code></pre>
 <h2 id="plots">Plots</h2>
 <p>You can also embed plots, for example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">plot</span>(mtcars<span class="op">$</span>wt, mtcars<span class="op">$</span>mpg, <span class="dt">col =</span> mtcars<span class="op">$</span>cyl, <span class="dt">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>wt, mtcars<span class="sc">$</span>mpg, <span class="at">col =</span> mtcars<span class="sc">$</span>cyl, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html5/plots-1.svg" width="960" /></p>
 <h2 id="tables">Tables</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(mtcars[<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>, ], <span class="dt">caption =</span> <span class="st">&quot;A subset of mtcars&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ], <span class="at">caption =</span> <span class="st">&quot;A subset of mtcars&quot;</span>)</span></code></pre></div>
 <table>
 <caption>A subset of mtcars</caption>
 <thead>
 <tr class="header">
-<th></th>
+<th style="text-align: left;"></th>
 <th style="text-align: right;">mpg</th>
 <th style="text-align: right;">cyl</th>
 <th style="text-align: right;">wt</th>
@@ -135,42 +151,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>Mazda RX4</td>
+<td style="text-align: left;">Mazda RX4</td>
 <td style="text-align: right;">21.0</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">2.620</td>
 <td style="text-align: right;">16.46</td>
 </tr>
 <tr class="even">
-<td>Mazda RX4 Wag</td>
+<td style="text-align: left;">Mazda RX4 Wag</td>
 <td style="text-align: right;">21.0</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">2.875</td>
 <td style="text-align: right;">17.02</td>
 </tr>
 <tr class="odd">
-<td>Datsun 710</td>
+<td style="text-align: left;">Datsun 710</td>
 <td style="text-align: right;">22.8</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">2.320</td>
 <td style="text-align: right;">18.61</td>
 </tr>
 <tr class="even">
-<td>Hornet 4 Drive</td>
+<td style="text-align: left;">Hornet 4 Drive</td>
 <td style="text-align: right;">21.4</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">3.215</td>
 <td style="text-align: right;">19.44</td>
 </tr>
 <tr class="odd">
-<td>Hornet Sportabout</td>
+<td style="text-align: left;">Hornet Sportabout</td>
 <td style="text-align: right;">18.7</td>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">3.440</td>
 <td style="text-align: right;">17.02</td>
 </tr>
 <tr class="even">
-<td>Valiant</td>
+<td style="text-align: left;">Valiant</td>
 <td style="text-align: right;">18.1</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">3.460</td>
@@ -196,7 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <h2 id="images">Images</h2>
 <figure>
-<img src="mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg" alt="" /><figcaption>Is it safe to come out yet? Photo by <a href="https://unsplash.com/@miklevasilyev">Mikhail Vasilyev</a> on Unsplash.</figcaption>
+<img src="mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg" alt="Is it safe to come out yet? Photo by Mikhail Vasilyev on Unsplash." /><figcaption aria-hidden="true">Is it safe to come out yet? Photo by <a href="https://unsplash.com/@miklevasilyev">Mikhail Vasilyev</a> on Unsplash.</figcaption>
 </figure>
 <h2 id="lists">Lists</h2>
 <p>Lorem ipsum dolor sit amet consectetur adipiscing elit torquent posuere penatibus ullamcorper, primis feugiat gravida risus phasellus placerat duis blandit elementum cubilia, mus porta ante fringilla etiam condimentum consequat imperdiet quisque netus.</p>
@@ -217,21 +233,5 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </main>
 
 
-<style type="text/css" charset="utf-8">
-main {
-  max-width: 48em;
-  margin: auto;
-}
-
-@media only screen and (max-width: 768px) {
-  main {
-    max-width: 100%;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-</style>
 </body>
 </html>
