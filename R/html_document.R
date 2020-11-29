@@ -29,6 +29,7 @@ html_document_clean <- function(
   fig_retina = 2,
   keep_md = FALSE,
   dev = "png",
+  highlight = "default",
   pandoc_args = NULL,
   extra_dependencies = NULL,
   md_extensions = NULL,
@@ -59,6 +60,7 @@ html_document_clean <- function(
     if (is.null(theme)) {
       c("--include-before-body", tmp_json)
     },
+    pandoc_html_highlight_args(highlight),
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
 
