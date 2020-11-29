@@ -42,6 +42,12 @@ html_document_clean <- function(
   )
 
   if (is.null(theme)) {
+    if (isTRUE(self_contained)) {
+      stop(
+        "html_document_clean() requires a `theme` when `self_contained = TRUE`.",
+        call. = TRUE
+      )
+    }
     themes_json <- paste0(
       '<script id="theme-picker-themes" type="application/json">',
       cleanrmd_theme_json(),
