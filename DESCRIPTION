@@ -69,10 +69,14 @@ Authors@R:
              family = "McEnroe",
              role = c("ctb", "cph"),
              comment = "Author of writ"),
-      person(given = "Dimitri", 
+      person(given = "Dimitri",
              family = "Nicolas",
              role = c("ctb", "cph"),
-             comment = "Author of semantic.css"))
+             comment = "Author of semantic.css"),
+      person(given = "Ruan",
+             family = "Martinelli",
+             role = c("ctb", "cph"),
+             comment = "Author of axist.css"))
 Description: A collection of clean R Markdown HTML document
     templates using classy-looking classless CSS styles.
 License: MIT + file LICENSE

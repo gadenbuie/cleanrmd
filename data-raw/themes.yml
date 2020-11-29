@@ -3,6 +3,11 @@
   src: https://unpkg.com/awsm.css/dist/awsm.min.css
   file: awsm.css
 
+- name: axist
+  url: https://ruanmartinelli.github.io/axist/
+  src: https://github.com/ruanmartinelli/axist/raw/master/src/index.css
+  file: axist.css
+
 - name: bahunya
   url: https://kimeiga.github.io/bahunya/
   src: https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css

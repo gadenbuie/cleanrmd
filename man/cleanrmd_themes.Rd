@@ -18,6 +18,7 @@ Lists the available themes in \pkg{cleanrmd}
 \pkg{cleanrmd} includes the following no-class CSS themes:
 \itemize{
 \item \href{https://igoradamenko.github.io/awsm.css/}{awsm.css}
+\item \href{https://ruanmartinelli.github.io/axist/}{axist}
 \item \href{https://kimeiga.github.io/bahunya/}{bahunya}
 \item \href{https://evgenyorekhov.github.io/holiday.css/}{holiday}
 \item \href{https://kimeiga.github.io/kacit/}{kacit}
@@ -32,6 +33,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
 \item \href{https://oxal.org/projects/sakura/}{sakura}
 \item \href{https://oxal.org/projects/sakura/}{sakura-vader}
+\item \href{https://dimitrinicolas.github.io/semantic.css/}{semantic}
 \item \href{https://css-pkg.github.io/style.css/}{style-sans}
 \item \href{https://css-pkg.github.io/style.css/}{style-serif}
 \item \href{https://gadenbuie.github.io/stylize.css/}{stylize}
