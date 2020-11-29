@@ -1,6 +1,6 @@
 Package: cleanrmd
 Title: Clean Class-Less R Markdown HTML Documents
-Version: 0.0.6
+Version: 0.0.7
 Authors@R: 
     c(person(given = "Garrick",
              family = "Aden-Buie",
