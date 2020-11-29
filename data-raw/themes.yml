@@ -98,6 +98,11 @@
   src: https://unpkg.com/sakura.css/css/sakura-vader.css
   file: sakura-vader.css
 
+- name: semantic
+  url: https://dimitrinicolas.github.io/semantic.css/
+  src: https://github.com/dimitrinicolas/semantic.css/raw/master/dist/semantic.css
+  file: semantic.css
+
 - name: style-sans
   url: https://css-pkg.github.io/style.css/
   src: https://unpkg.com/style.css
