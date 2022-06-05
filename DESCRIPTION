@@ -8,6 +8,8 @@ Authors@R: c(
            comment = "Author of awsm.css"),
     person("Alvaro", "Montoro", role = c("ctb", "cph"),
            comment = "Author of almond.css"),
+    person("Ruan", "Martinelli", role = c("ctb", "cph"),
+           comment = "Author of axist.css"),
     person("Hakan", "Alpay", role = c("ctb", "cph"),
            comment = "Author of bahunya"),
     person("Tran Ngoc", "Tuan Anh", role = c("ctb", "cph"),
@@ -33,6 +35,8 @@ Authors@R: c(
     person(, "Authors of Pico.css", role = c("ctb", "cph")),
     person("Mitesh", "Shah", role = c("ctb", "cph"),
            comment = "Author of sakura"),
+    person("Dimitri", "Nicolas", role = c("ctb", "cph"),
+           comment = "Author of semantic.css"),
     person("Kev", "Quirk", role = c("ctb", "cph"),
            comment = "Author of simple.css"),
     person("Nate", "Goldman", role = c("ctb", "cph"),
@@ -46,15 +50,7 @@ Authors@R: c(
     person(, "Kognise", role = c("ctb", "cph"),
            comment = "Author of water.css"),
     person("Curtis", "McEnroe", role = c("ctb", "cph"),
-           comment = "Author of writ"),
-    person(given = "Dimitri",
-             family = "Nicolas",
-             role = c("ctb", "cph"),
-             comment = "Author of semantic.css"),
-      person(given = "Ruan",
-             family = "Martinelli",
-             role = c("ctb", "cph"),
-             comment = "Author of axist.css")
+           comment = "Author of writ")
   )
 Description: A collection of clean R Markdown HTML document templates
     using classy-looking classless CSS styles.
