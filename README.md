@@ -1,6 +1,8 @@
 # Clean R Markdown HTML Documents
 
 <!-- badges: start -->
+[![cleanrmd status badge](https://gadenbuie.r-universe.dev/badges/cleanrmd)](https://gadenbuie.r-universe.dev)
+[![CRAN status](https://www.r-pkg.org/badges/version/cleanrmd)](https://CRAN.R-project.org/package=cleanrmd)
 <!-- badges: end -->
 
 **cleanrmd** is a no-frills, lightweight HTML format for R Markdown, using class-less CSS. 
