@@ -16,6 +16,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -99,29 +100,47 @@ img {
 }
 </style>
 
-<script id="theme-picker-themes" type="application/json">[{"name":"awsm.css","src":"awsm.css"},{"name":"axist","src":"axist.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"semantic","src":"semantic.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
+<script id="theme-picker-themes" type="application/json">[{"name":"almond","src":"almond.css"},{"name":"awsm.css","src":"awsm.css"},{"name":"axist","src":"axist.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"bamboo","src":"bamboo.css"},{"name":"bullframe","src":"bullframe.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"picocss","src":"pico.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"semantic","src":"semantic.css"},{"name":"simplecss","src":"simple.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"superstylin","src":"superstylin.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
 
 <main>
 <header>
 <h1 id="title" class="toc-ignore">cleanrmd</h1>
-<h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown Documents</h2>
-<p id="date">Updated: November 29, 2020<br>Version: 0.0.6</p>
+<h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown
+Documents</h2>
+<p id="date">Updated: June 05, 2022<br>Version: 0.0.8</p>
 <p id="author">Garrick Aden-Buie</p>
 
 </header>
 
 
-<p><a href="https://github.com/gadenbuie/cleanrmd" class="uri">https://github.com/gadenbuie/cleanrmd</a></p>
+<p><a href="https://github.com/gadenbuie/cleanrmd"
+class="uri">https://github.com/gadenbuie/cleanrmd</a></p>
 <p><strong>cleanrmd is…</strong></p>
 <blockquote>
-<p>A collection of clean R Markdown HTML document templates using classy-looking classless CSS styles.</p>
+<p>A collection of clean R Markdown HTML document templates using
+classy-looking classless CSS styles.</p>
 </blockquote>
-<p>Sometimes you want to create a simple HTML file from your R Markdown source. You want something small to share with collaborators. You want a simple, readable document that you can email or just push to the web.</p>
-<p><code>cleanrmd</code> gives you a small, responsive HTML file that works great with R Markdown and pandoc and doesn’t rely on classes for styling so that it works in practically any browser.</p>
-<p>Just because <code>cleanrmd</code> doesn’t use classes doesn’t mean you don’t have to! Feel free to use these themes as a starting point to add your own style and customization.</p>
+<p>Sometimes you want to create a simple HTML file from your R Markdown
+source. You want something small to share with collaborators. You want a
+simple, readable document that you can email or just push to the
+web.</p>
+<p><code>cleanrmd</code> gives you a small, responsive HTML file that
+works great with R Markdown and pandoc and doesn’t rely on classes for
+styling so that it works in practically any browser.</p>
+<p>Just because <code>cleanrmd</code> doesn’t use classes doesn’t mean
+you don’t have to! Feel free to use these themes as a starting point to
+add your own style and customization.</p>
 <h2 id="its-still-r-markdown">It’s still R Markdown</h2>
-<p>This is an R Markdown document. (View <a href="https://github.com/gadenbuie/cleanrmd/blob/master/docs/index.Rmd">the source for this file</a>.) Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<p>This is an R Markdown document. (View <a
+href="https://github.com/gadenbuie/cleanrmd/blob/master/docs/index.Rmd">the
+source for this file</a>.) Markdown is a simple formatting syntax for
+authoring HTML, PDF, and MS Word documents. For more details on using R
+Markdown see <a href="http://rmarkdown.rstudio.com"
+class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be
+generated that includes both content as well as the output of any
+embedded R code chunks within the document. You can embed an R code
+chunk like this:</p>
 <h2 id="r-code">R Code</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;qsec&quot;</span>)]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span></code></pre></div>
@@ -201,33 +220,55 @@ img {
 <h4 id="header-5">Header 5</h4>
 <h5 id="header-6">Header 6</h5>
 <h2 id="block-quotes">Block Quotes</h2>
-<p>We know from the Markdown syntax that paragraphs that start with <code>&gt;</code> are converted to block quotes.</p>
+<p>We know from the Markdown syntax that paragraphs that start with
+<code>&gt;</code> are converted to block quotes.</p>
 <blockquote>
-<p>“If it weren’t for my lawyer, I’d still be in prison. It went a lot faster with two people digging.”</p>
+<p>“If it weren’t for my lawyer, I’d still be in prison. It went a lot
+faster with two people digging.”</p>
 <p>— Joe Martin</p>
 </blockquote>
 <blockquote>
-<p>“Great people talk about ideas, average people talk about things, and small people talk about wine.”</p>
+<p>“Great people talk about ideas, average people talk about things, and
+small people talk about wine.”</p>
 <p>— Fran Lebowitz</p>
 </blockquote>
 <h2 id="images">Images</h2>
 <figure>
-<img src="mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg" alt="Is it safe to come out yet? Photo by Mikhail Vasilyev on Unsplash." /><figcaption aria-hidden="true">Is it safe to come out yet? Photo by <a href="https://unsplash.com/@miklevasilyev">Mikhail Vasilyev</a> on Unsplash.</figcaption>
+<img src="mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg"
+alt="Is it safe to come out yet? Photo by Mikhail Vasilyev on Unsplash." />
+<figcaption aria-hidden="true">Is it safe to come out yet? Photo by <a
+href="https://unsplash.com/@miklevasilyev">Mikhail Vasilyev</a> on
+Unsplash.</figcaption>
 </figure>
 <h2 id="lists">Lists</h2>
-<p>Lorem ipsum dolor sit amet consectetur adipiscing elit torquent posuere penatibus ullamcorper, primis feugiat gravida risus phasellus placerat duis blandit elementum cubilia, mus porta ante fringilla etiam condimentum consequat imperdiet quisque netus.</p>
+<p>Lorem ipsum dolor sit amet consectetur adipiscing elit torquent
+posuere penatibus ullamcorper, primis feugiat gravida risus phasellus
+placerat duis blandit elementum cubilia, mus porta ante fringilla etiam
+condimentum consequat imperdiet quisque netus.</p>
 <ul>
-<li>Lorem ipsum dolor sit amet consectetur, adipiscing elit turpis sollicitudin.</li>
-<li>Pellentesque neque habitant hendrerit metus mattis, risus volutpat nam ac.</li>
-<li>Dictum turpis vitae curae parturient pretium, massa per pulvinar.</li>
-<li>Vestibulum id fringilla fermentum volutpat tempus, malesuada interdum velit maecenas.</li>
+<li>Lorem ipsum dolor sit amet consectetur, adipiscing elit turpis
+sollicitudin.</li>
+<li>Pellentesque neque habitant hendrerit metus mattis, risus volutpat
+nam ac.</li>
+<li>Dictum turpis vitae curae parturient pretium, massa per
+pulvinar.</li>
+<li>Vestibulum id fringilla fermentum volutpat tempus, malesuada
+interdum velit maecenas.</li>
 </ul>
-<p>Mattis varius conubia ornare turpis interdum laoreet, duis iaculis torquent purus ut id, parturient aptent luctus curae vel. Odio blandit dis proin quis ullamcorper sapien imperdiet lacus, neque per eros a posuere donec mauris purus, cursus potenti et auctor himenaeos aliquet diam.</p>
+<p>Mattis varius conubia ornare turpis interdum laoreet, duis iaculis
+torquent purus ut id, parturient aptent luctus curae vel. Odio blandit
+dis proin quis ullamcorper sapien imperdiet lacus, neque per eros a
+posuere donec mauris purus, cursus potenti et auctor himenaeos aliquet
+diam.</p>
 <ol type="1">
-<li>Lorem ipsum dolor sit amet consectetur, adipiscing elit pretium.</li>
-<li>Habitant interdum egestas pellentesque pharetra rutrum, ornare nisi netus luctus.</li>
-<li>Euismod convallis rutrum fermentum sodales hac, magna tristique mollis lacinia.</li>
-<li>Habitant nisi orci ad imperdiet sollicitudin, eu egestas sociosqu.</li>
+<li>Lorem ipsum dolor sit amet consectetur, adipiscing elit
+pretium.</li>
+<li>Habitant interdum egestas pellentesque pharetra rutrum, ornare nisi
+netus luctus.</li>
+<li>Euismod convallis rutrum fermentum sodales hac, magna tristique
+mollis lacinia.</li>
+<li>Habitant nisi orci ad imperdiet sollicitudin, eu egestas
+sociosqu.</li>
 </ol>
 
 </main>
