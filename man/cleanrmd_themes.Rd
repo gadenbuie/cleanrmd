@@ -17,9 +17,12 @@ Lists the available themes in \pkg{cleanrmd}
 
 \pkg{cleanrmd} includes the following no-class CSS themes:
 \itemize{
+\item \href{https://github.com/alvaromontoro/almond.css}{almond}
 \item \href{https://igoradamenko.github.io/awsm.css/}{awsm.css}
 \item \href{https://ruanmartinelli.github.io/axist/}{axist}
 \item \href{https://kimeiga.github.io/bahunya/}{bahunya}
+\item \href{https://rilwis.github.io/bamboo/}{bamboo}
+\item \href{https://marcopontili.com/projects/bullframe-css}{bullframe}
 \item \href{https://evgenyorekhov.github.io/holiday.css/}{holiday}
 \item \href{https://kimeiga.github.io/kacit/}{kacit}
 \item \href{https://github.com/vincentdoerig/latex-css}{latex.css}
@@ -31,12 +34,15 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://minicss.org/}{minicss}
 \item \href{https://newcss.net/}{new.css}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
+\item \href{https://picocss.com/}{picocss}
 \item \href{https://oxal.org/projects/sakura/}{sakura}
 \item \href{https://oxal.org/projects/sakura/}{sakura-vader}
 \item \href{https://dimitrinicolas.github.io/semantic.css/}{semantic}
-\item \href{https://css-pkg.github.io/style.css/}{style-sans}
-\item \href{https://css-pkg.github.io/style.css/}{style-serif}
+\item \href{https://simplecss.org/}{simplecss}
+\item \href{https://ungoldman.com/style.css/}{style-sans}
+\item \href{https://ungoldman.com/style.css/}{style-serif}
 \item \href{https://gadenbuie.github.io/stylize.css/}{stylize}
+\item \href{https://caiogondim.github.io/superstylin/}{superstylin}
 \item \href{https://yegor256.github.io/tacit/}{tacit}
 \item \href{https://vanillacss.com/}{vanilla}
 \item \href{https://kognise.github.io/water.css/}{water}
