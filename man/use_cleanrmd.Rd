@@ -74,7 +74,7 @@ cleanrmd::use_cleanrmd("bamboo")
 \section{Shiny apps}{
 
 
-In Shiny apps, you'll need to use \code{\link[shiny:bootstrapPage]{shiny::basicPage()}} rather than
+In Shiny apps, you'll need to use \code{\link[shiny:basicPage]{shiny::basicPage()}} rather than
 \code{\link[shiny:fluidPage]{shiny::fluidPage()}}. Then call \code{use_cleanrmd()} in your app and you'll use
 a clean theme.
 
