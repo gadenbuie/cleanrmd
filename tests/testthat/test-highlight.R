@@ -1,6 +1,7 @@
 test_that("pandoc_html_highlight_args", {
   expect_equal(pandoc_html_highlight_args(NULL), "--no-highlight")
-  expect_equal(pandoc_html_highlight_args("default"), c("--highlight-style", "arrow"))
+  expect_equal(pandoc_html_highlight_args("default")[1], "--highlight-style")
+  expect_match(pandoc_html_highlight_args("default")[2], "arrow[.]theme")
   expect_equal(pandoc_html_highlight_args("pygments"), c("--highlight-style", "pygments"))
   expect_error(pandoc_html_highlight_args("spaceman"))
 })
