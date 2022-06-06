@@ -3,6 +3,7 @@
 <!-- badges: start -->
 [![cleanrmd status badge](https://gadenbuie.r-universe.dev/badges/cleanrmd)](https://gadenbuie.r-universe.dev)
 [![CRAN status](https://www.r-pkg.org/badges/version/cleanrmd)](https://CRAN.R-project.org/package=cleanrmd)
+[![R-CMD-check](https://github.com/gadenbuie/cleanrmd/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gadenbuie/cleanrmd/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 **cleanrmd** is a no-frills, lightweight HTML format for R Markdown, using class-less CSS. 

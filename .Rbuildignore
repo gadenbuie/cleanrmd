@@ -3,3 +3,4 @@
 ^LICENSE\.md$
 ^docs$
 ^data-raw$
+^\.github$
