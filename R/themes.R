@@ -1,20 +1,28 @@
-#' List cleanrmd themes
+#' Use a clean CSS theme from cleanrmd
 #'
-#' Lists the available themes in \pkg{cleanrmd}
+#' Provides a \pkg{cleanrmd} CSS theme using \pkg{htmltools}. You can use this
+#' CSS theme anywhere that HTML dependencies are handled via
+#' [htmltools::htmlDependency()], for example in R Markdown or Quarto documents
+#' or in Shiny apps.
 #'
-#' @section cleanrmd theme list:
+#' @param name The name of the theme, see [cleanrmd_themes()] for a list of
+#'   available themes. If `NULL`, all themes will be loaded with a simple
+#'   drop down theme picker.
 #'
-#' \pkg{cleanrmd} includes the following no-class CSS themes:
-#' `r cleanrmd_theme_list_roxygen()`
+#' @return `use_cleanrmd()` returns an [htmltools::tagList()] with an
+#'   [htmltools::htmlDependency()]. `cleanrmd_theme_dependency()` returns only
+#'   the [htmltools::htmlDependency()].
 #'
-#' @return A character string of available theme names.
-#'
+#' @describeIn use_cleanrmd Use a clean CSS theme in the current document or app
+#'   (general usage)
 #' @export
-cleanrmd_themes <- function() {
-  cleanrmd_theme_list$name
+use_cleanrmd <- function(name = NULL) {
+  htmltools::tagList(cleanrmd_theme_dependency(name))
 }
 
-cleanrmd_theme_dep <- function(name = NULL) {
+#' @describeIn use_cleanrmd Use a clean CSS theme dependency (advanced usage)
+#' @export
+cleanrmd_theme_dependency <- function(name = NULL) {
   css_file <- if (!is.null(name)) {
     name <- match.arg(name, cleanrmd_themes())
     if (name == "latex.css") {
@@ -38,6 +46,22 @@ cleanrmd_theme_dep <- function(name = NULL) {
     stylesheet = css_file,
     all_files = all_files
   )
+}
+
+#' List cleanrmd themes
+#'
+#' Lists the available themes in \pkg{cleanrmd}
+#'
+#' @section cleanrmd theme list:
+#'
+#' \pkg{cleanrmd} includes the following no-class CSS themes:
+#' `r cleanrmd_theme_list_roxygen()`
+#'
+#' @return A character string of available theme names.
+#'
+#' @export
+cleanrmd_themes <- function() {
+  cleanrmd_theme_list$name
 }
 
 cleanrmd_theme_file <- function(file) {

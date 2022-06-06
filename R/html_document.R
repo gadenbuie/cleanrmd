@@ -36,7 +36,7 @@ html_document_clean <- function(
   self_contained = !is.null(theme)
 ) {
   deps <- c(
-    list(cleanrmd_theme_dep(theme)),
+    list(cleanrmd_theme_dependency(theme)),
     extra_dependencies,
     list(extra_css_dependencies(css))
   )
