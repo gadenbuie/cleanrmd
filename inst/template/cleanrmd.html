@@ -14,46 +14,75 @@ $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-$if(highlighting-css)$
-  <style type="text/css">
-$highlighting-css$
-  </style>
-$endif$
 
-$for(css)$
-  <link rel="stylesheet" href="$css$" />
-$endfor$
-$if(disable-fontawesome)$
-$else$
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-$endif$
 $for(header-includes)$
   $header-includes$
 $endfor$
-</head>
-<body>
+
 <style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+     body doesn't go all the way up to the screen edge */
+  margin: 0.5em;
+  padding: 0.5em;
+}
 main {
   max-width: 48em;
   margin: auto;
 }
+img { max-width: 100%; }
 
 @media only screen and (max-width: 768px) {
-  main {
-    max-width: 100%;
-  }
-}
-
-img {
-  max-width: 100%;
+  main { max-width: 100%; }
 }
 </style>
+
+$if(highlighting-css)$
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+$highlighting-css$
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+$endif$
+
+$for(css)$
+<link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+$endfor$
+
+$if(disable-fontawesome)$
+$else$
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+$endif$
+</head>
+<body>
 
 $for(include-before)$
 $include-before$
