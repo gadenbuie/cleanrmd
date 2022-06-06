@@ -39,6 +39,8 @@ code, pre { overflow: auto; }
 }
 </style>
 
+$if(use-prism)$$use-prism$$endif$
+
 $if(highlighting-css)$
 <style type="text/css">
   code {
@@ -92,6 +94,17 @@ $for(include-after)$
 $include-after$
 $endfor$
 </main>
+
+$if(use-prism)$
+<script>
+document.querySelectorAll('pre').forEach(function(el) {
+  if (!el.className) return;
+  el.classList.add('lang-' + el.classList[0]);
+});
+</script>
+<script data-external="1" src="https://unpkg.com/prismjs@latest/components/prism-core.min.js"></script>
+<script data-external="1" src="https://unpkg.com/prismjs@latest/plugins/autoloader/prism-autoloader.min.js"></script>
+$endif$
 
 $if(mathjax-url)$
 <!-- dynamically load mathjax for compatibility with self-contained -->

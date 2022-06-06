@@ -64,23 +64,29 @@ outputting HTML directly into the markdown document).}
 
 \item{dev}{Graphics device to use for figure output (defaults to png)}
 
-\item{highlight}{Syntax highlight engine and style. See the
-\emph{Highlighting} section below for details.
+\item{highlight}{Syntax highlight engine and style, either a built-in Pandoc
+highlighting theme, a theme provided by \pkg{rmarkdown}, or a
+\href{https://prismjs.com/index.html}{prismjs} theme (see below). Pass
+\code{NULL} to prevent syntax highlighting.
 
-"default" (and "textmate") will use highlightjs as syntax highlighting
-engine instead of Pandoc.
-
-Any other value will be passed as Pandoc's highlighting style. Pandoc's
+\strong{Pandoc themes.} By default, uses Pandoc's highlighting style. Pandoc's
 built-in styles include "tango", "pygments", "kate", "monochrome",
 "espresso", "zenburn", "haddock" and "breezedark".
 
 Two custom styles are also included, "arrow", an accessible color scheme,
 and "rstudio", which mimics the default IDE theme. Alternatively, supply a
-path to a \samp{.theme} to use
-\href{https://pandoc.org/MANUAL.html#syntax-highlighting}{a custom Pandoc
-style}. Note that custom theme requires Pandoc 2.0+.
+path to a \code{.theme} to use
+\href{https://pandoc.org/MANUAL.html#syntax-highlighting}{a custom Pandoc style}.
+Note that custom themes require Pandoc 2.0+.
 
-Pass \code{NULL} to prevent syntax highlighting.}
+\strong{Prism themes.} To use the \href{https://prismjs.com/index.html}{prismjs}
+syntax highlighter, pass one of "prism", "prism-coy", "prism-dark",
+"prism-funky", "prism-okaidia", "prism-solarizedlight", "prism-tomorrow",
+or "prism-twilight". To use an alternate Prism theme file, pass the URL or
+path to the theme's CSS file prefixed with "prism:", e.g.
+\code{prism:my-theme.css}. Note that the Prism dependencies are not embedded
+into self-contained documents so they will require an active internet
+connection to work.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
 
