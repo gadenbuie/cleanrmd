@@ -32,7 +32,7 @@
 #'   title: "Untitled"
 #'   format:
 #'     html:
-#'     theme: none
+#'       theme: none
 #'   #server: shiny
 #'   ---
 #'
@@ -44,8 +44,8 @@
 #' @section Shiny apps:
 #'
 #'   In Shiny apps, you'll need to use [shiny::basicPage()] rather than
-#'   [shiny::fluidPage()]. Then call `use_cleanrmd()` in your app and you'll use
-#'   a clean theme.
+#'   [shiny::fluidPage()]. Then call `use_cleanrmd()` in your app to use a
+#'   cleanrmd theme.
 #'
 #'   ````r
 #'   library(shiny)
