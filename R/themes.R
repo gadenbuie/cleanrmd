@@ -135,6 +135,18 @@ cleanrmd_themes <- function() {
   cleanrmd_theme_list$name
 }
 
+cleanrmd_theme_json <- function(fields = c("name", src = "file")) {
+  if (is.null(names(fields))) {
+    names(fields) <- fields
+  } else {
+    names(fields)[names(fields) == ""] <- fields[names(fields) == ""]
+  }
+  out <- cleanrmd_theme_list[, unname(fields)]
+  names(out) <- names(fields)
+  jsonlite::toJSON(out)
+}
+
+# nocov start
 cleanrmd_theme_file <- function(file) {
   cleanrmd_file("resources", file)
 }
@@ -149,14 +161,4 @@ cleanrmd_theme_list_roxygen <- function() {
     collapse = "\n"
   )
 }
-
-cleanrmd_theme_json <- function(fields = c("name", src = "file")) {
-  if (is.null(names(fields))) {
-    names(fields) <- fields
-  } else {
-    names(fields)[names(fields) == ""] <- fields[names(fields) == ""]
-  }
-  out <- cleanrmd_theme_list[, unname(fields)]
-  names(out) <- names(fields)
-  jsonlite::toJSON(out)
-}
+# nocov end
