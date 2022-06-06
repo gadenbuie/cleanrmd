@@ -97,6 +97,10 @@ scripts, stylesheets, images, and videos. Note that even for self contained
 documents MathJax is still loaded externally (this is necessary because of
 its size).}
 }
+\value{
+An R Markdown output format that can be used with \verb{output:} in an
+\code{.Rmd} or for use with \code{\link[rmarkdown:render]{rmarkdown::render()}}.
+}
 \description{
 Clean HTML documents with R Markdown.
 }
@@ -106,3 +110,7 @@ overall size of the final document. You can enable MathJax by setting
 \code{mathjax = "default"}, see \code{\link[rmarkdown:html_document]{rmarkdown::html_document()}} for more options.
 }
 
+\seealso{
+\code{\link[=use_cleanrmd]{use_cleanrmd()}} for using cleanrmd themes in places other than in
+R Markdown documents
+}

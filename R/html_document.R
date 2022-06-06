@@ -14,6 +14,13 @@
 #'   date are placed in a `<header>` tag. This is semantically correct HTML but
 #'   some CSS frameworks work better with this structure than others.
 #' @inheritParams rmarkdown::html_document
+#'
+#' @return An R Markdown output format that can be used with `output:` in an
+#'   `.Rmd` or for use with [rmarkdown::render()].
+#'
+#' @seealso [use_cleanrmd()] for using cleanrmd themes in places other than in
+#'   R Markdown documents
+#'
 #' @export
 html_document_clean <- function(
   ...,
