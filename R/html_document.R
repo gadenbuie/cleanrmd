@@ -35,27 +35,18 @@ html_document_clean <- function(
   md_extensions = NULL,
   self_contained = !is.null(theme)
 ) {
+  if (is.null(theme) && isTRUE(self_contained)) {
+    stop(
+      "html_document_clean() requires a `theme` when `self_contained = TRUE`.",
+      call. = TRUE
+    )
+  }
+
   deps <- c(
     list(cleanrmd_theme_dependency(theme)),
     extra_dependencies,
     list(extra_css_dependencies(css))
   )
-
-  if (is.null(theme)) {
-    if (isTRUE(self_contained)) {
-      stop(
-        "html_document_clean() requires a `theme` when `self_contained = TRUE`.",
-        call. = TRUE
-      )
-    }
-    themes_json <- paste0(
-      '<script id="theme-picker-themes" type="application/json">',
-      cleanrmd_theme_json(),
-      "</script>"
-    )
-    tmp_json <- tempfile(fileext = ".html")
-    writeLines(themes_json, tmp_json)
-  }
 
   # disable fontawesome if !use_fontawesome
   # add to pandoc_args rmarkdown::pandoc_toc_args(toc, toc_depth)
@@ -63,9 +54,6 @@ html_document_clean <- function(
     pandoc_args,
     if (!isTRUE(use_fontawesome)) c("--variable", "disable-fontawesome"),
     if (isTRUE(title_in_header)) c("--variable", "title-in-header"),
-    if (is.null(theme)) {
-      c("--include-before-body", tmp_json)
-    },
     pandoc_html_highlight_args(highlight),
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
