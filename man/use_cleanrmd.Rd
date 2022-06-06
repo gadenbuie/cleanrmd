@@ -33,3 +33,94 @@ or in Shiny apps.
 \item \code{cleanrmd_theme_dependency}: Use a clean CSS theme dependency (advanced usage)
 }}
 
+\section{R Markdown documents}{
+
+
+In \href{https://rmarkdown.rstudio.com/}{R Markdown} (static or Shiny
+prerendered), you should use the \code{\link[=html_document_clean]{html_document_clean()}} output format to
+use a cleanrmd theme.
+
+\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{---
+output:
+  cleanrmd::html_document_clean:
+    theme: NULL # or pick a specific theme
+    self_contained: false
+---
+}\if{html}{\out{</div>}}
+}
+
+\section{Quarto documents}{
+
+
+You can also use \pkg{cleanrmd} in \href{https://quarto.org/}{Quarto} documents
+or apps (using \code{server: shiny}). You'll need to turn off the themes
+provided by Quarto with \code{theme: none} and then call
+\code{cleanrmd::use_cleanrmd()} in a code chunk in your document.
+
+\if{html}{\out{<div class="sourceCode markdown">}}\preformatted{---
+title: "Untitled"
+format:
+  html:
+  theme: none
+#server: shiny
+---
+
+```\{r cleanrmd, echo=FALSE\}
+cleanrmd::use_cleanrmd("bamboo")
+```
+}\if{html}{\out{</div>}}
+}
+
+\section{Shiny apps}{
+
+
+In Shiny apps, you'll need to use \code{\link[shiny:bootstrapPage]{shiny::basicPage()}} rather than
+\code{\link[shiny:fluidPage]{shiny::fluidPage()}}. Then call \code{use_cleanrmd()} in your app and you'll use
+a clean theme.
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(shiny)
+
+ui <- shiny::basicPage(
+  cleanrmd::use_cleanrmd(),
+
+  h2("Old Faithful Geyser Data"),
+
+  sliderInput(
+    "bins",
+    "Number of bins:",
+    min = 1,
+    max = 50,
+    value = 30
+  ),
+  plotOutput("distPlot")
+)
+}\if{html}{\out{</div>}}
+}
+
+\examples{
+page <- htmltools::withTags(
+  main(
+    h2("Small Demo"),
+    p("Clean, simple, classy but class-less:"),
+    ul(
+      li("Works almost anywhere"),
+      li("Small and simple"),
+      li("Easy to extend"),
+      li("Good enough but not perfect")
+    )
+  )
+)
+
+# no styles
+htmltools::browsable(page)
+
+# all clean styles
+page_clean <- htmltools::tagList(page, use_cleanrmd())
+htmltools::browsable(page_clean)
+
+# one clean style
+page_water <- htmltools::tagList(page, use_cleanrmd("water"))
+htmltools::browsable(page_water)
+
+cleanrmd_theme_dependency("bamboo")
+}

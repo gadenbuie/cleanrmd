@@ -5,6 +5,69 @@
 #' [htmltools::htmlDependency()], for example in R Markdown or Quarto documents
 #' or in Shiny apps.
 #'
+#' @section R Markdown documents:
+#'
+#'   In [R Markdown](https://rmarkdown.rstudio.com/) (static or Shiny
+#'   prerendered), you should use the [html_document_clean()] output format to
+#'   use a cleanrmd theme.
+#'
+#'   ````markdown
+#'   ---
+#'   output:
+#'     cleanrmd::html_document_clean:
+#'       theme: NULL # or pick a specific theme
+#'       self_contained: false
+#'   ---
+#'   ````
+#'
+#' @section Quarto documents:
+#'
+#'   You can also use \pkg{cleanrmd} in [Quarto](https://quarto.org/) documents
+#'   or apps (using `server: shiny`). You'll need to turn off the themes
+#'   provided by Quarto with `theme: none` and then call
+#'   `cleanrmd::use_cleanrmd()` in a code chunk in your document.
+#'
+#'   ````markdown
+#'   ---
+#'   title: "Untitled"
+#'   format:
+#'     html:
+#'     theme: none
+#'   #server: shiny
+#'   ---
+#'
+#'   ```{r cleanrmd, echo=FALSE}
+#'   cleanrmd::use_cleanrmd("bamboo")
+#'   ```
+#'   ````
+#'
+#' @section Shiny apps:
+#'
+#'   In Shiny apps, you'll need to use [shiny::basicPage()] rather than
+#'   [shiny::fluidPage()]. Then call `use_cleanrmd()` in your app and you'll use
+#'   a clean theme.
+#'
+#'   ````r
+#'   library(shiny)
+#'
+#'   ui <- shiny::basicPage(
+#'     cleanrmd::use_cleanrmd(),
+#'
+#'     h2("Old Faithful Geyser Data"),
+#'
+#'     sliderInput(
+#'       "bins",
+#'       "Number of bins:",
+#'       min = 1,
+#'       max = 50,
+#'       value = 30
+#'     ),
+#'     plotOutput("distPlot")
+#'   )
+#'   ````
+#'
+#' @example man/examples/use_cleanrmd.R
+#'
 #' @param name The name of the theme, see [cleanrmd_themes()] for a list of
 #'   available themes. If `NULL`, all themes will be loaded with a simple
 #'   drop down theme picker.
