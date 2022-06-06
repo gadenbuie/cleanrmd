@@ -6,13 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Garrick Aden-Buie" />
   <title>cleanrmd</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
+
+  <script src="index_files/header-attrs/header-attrs.js"></script>
+  <link href="index_files/cleanrmd/theme-picker.css" rel="stylesheet" />
+  <script src="index_files/cleanrmd/theme-picker.js"></script>
+  <script id="theme-picker-themes" type="application/json">[{"name":"almond","src":"almond.css"},{"name":"awsm.css","src":"awsm.css"},{"name":"axist","src":"axist.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"bamboo","src":"bamboo.css"},{"name":"bullframe","src":"bullframe.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"picocss","src":"pico.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"semantic","src":"semantic.css"},{"name":"simplecss","src":"simple.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"superstylin","src":"superstylin.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+     body doesn't go all the way up to the screen edge */
+  margin: 0.5em;
+  padding: 0.5em;
+}
+main {
+  max-width: 48em;
+  margin: auto;
+}
+img { max-width: 100%; }
+
+@media only screen and (max-width: 768px) {
+  main { max-width: 100%; }
+}
+</style>
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -76,30 +103,32 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
-  <script src="index_files/header-attrs/header-attrs.js"></script>
-  <link href="index_files/cleanrmd/theme-picker.css" rel="stylesheet" />
-  <script src="index_files/cleanrmd/theme-picker.js"></script>
-  <script id="theme-picker-themes" type="application/json">[{"name":"almond","src":"almond.css"},{"name":"awsm.css","src":"awsm.css"},{"name":"axist","src":"axist.css"},{"name":"bahunya","src":"bahunya.css"},{"name":"bamboo","src":"bamboo.css"},{"name":"bullframe","src":"bullframe.css"},{"name":"holiday","src":"holiday.css"},{"name":"kacit","src":"kacit.css"},{"name":"latex.css","src":"latex/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro.css"},{"name":"markdown-air","src":"markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest.css"},{"name":"marx","src":"marx.css"},{"name":"minicss","src":"minicss.css"},{"name":"new.css","src":"new.css"},{"name":"no-class","src":"no-class.css"},{"name":"picocss","src":"pico.css"},{"name":"sakura","src":"sakura.css"},{"name":"sakura-vader","src":"sakura-vader.css"},{"name":"semantic","src":"semantic.css"},{"name":"simplecss","src":"simple.css"},{"name":"style-sans","src":"style-sans.css"},{"name":"style-serif","src":"style-serif.css"},{"name":"stylize","src":"stylize.css"},{"name":"superstylin","src":"superstylin.css"},{"name":"tacit","src":"tacit.css"},{"name":"vanilla","src":"vanilla.css"},{"name":"water","src":"water.css"},{"name":"water-dark","src":"water-dark.css"},{"name":"writ","src":"writ.css"}]</script>
+
 </head>
 <body>
-<style type="text/css" charset="utf-8">
-main {
-  max-width: 48em;
-  margin: auto;
-}
-
-@media only screen and (max-width: 768px) {
-  main {
-    max-width: 100%;
-  }
-}
-
-img {
-  max-width: 100%;
-}
-</style>
 
 
 <main>
@@ -107,7 +136,7 @@ img {
 <h1 id="title" class="toc-ignore">cleanrmd</h1>
 <h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown
 Documents</h2>
-<p id="date">Updated: June 05, 2022<br>Version: 0.0.8</p>
+<p id="date">Updated: June 05, 2022<br>Version: 0.0.9</p>
 <p id="author">Garrick Aden-Buie</p>
 
 </header>
