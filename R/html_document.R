@@ -6,6 +6,13 @@
 #'   overall size of the final document. You can enable MathJax by setting
 #'   `mathjax = "default"`, see [rmarkdown::html_document()] for more options.
 #'
+#' @examples
+#' html_document_clean()
+#'
+#' \dontrun{
+#' rmarkdown::render("input.Rmd", html_document_clean())
+#' }
+#'
 #' @param theme The class-less CSS theme to use, one of [cleanrmd_themes()].
 #' @param use_fontawesome Should links to FontAwesome be included in the HTML
 #'   document's `<head>`? Only enable if you are including FontAwesome icons in

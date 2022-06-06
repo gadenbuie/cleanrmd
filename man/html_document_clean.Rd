@@ -110,6 +110,14 @@ overall size of the final document. You can enable MathJax by setting
 \code{mathjax = "default"}, see \code{\link[rmarkdown:html_document]{rmarkdown::html_document()}} for more options.
 }
 
+\examples{
+html_document_clean()
+
+\dontrun{
+rmarkdown::render("input.Rmd", html_document_clean())
+}
+
+}
 \seealso{
 \code{\link[=use_cleanrmd]{use_cleanrmd()}} for using cleanrmd themes in places other than in
 R Markdown documents

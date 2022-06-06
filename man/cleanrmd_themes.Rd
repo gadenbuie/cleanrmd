@@ -51,3 +51,7 @@ Lists the available themes in \pkg{cleanrmd}
 }
 }
 
+\examples{
+cleanrmd_themes()
+
+}

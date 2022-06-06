@@ -125,6 +125,9 @@ cleanrmd_theme_dependency <- function(name = NULL) {
 #' \pkg{cleanrmd} includes the following no-class CSS themes:
 #' `r cleanrmd_theme_list_roxygen()`
 #'
+#' @examples
+#' cleanrmd_themes()
+#'
 #' @return A character string of available theme names.
 #'
 #' @export
