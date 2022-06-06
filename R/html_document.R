@@ -44,8 +44,7 @@ html_document_clean <- function(
 
   deps <- c(
     list(cleanrmd_theme_dependency(theme)),
-    extra_dependencies,
-    list(extra_css_dependencies(css))
+    extra_dependencies
   )
 
   # disable fontawesome if !use_fontawesome
@@ -57,6 +56,10 @@ html_document_clean <- function(
     pandoc_html_highlight_args(highlight),
     rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
+
+  for (sheet in css) {
+    pandoc_args <- c(pandoc_args, "--css", sheet)
+  }
 
   mathjax_url <- if (!is.null(mathjax) && mathjax %in% c("default", "local")) {
     mathjax_local <- Sys.getenv("RMARKDOWN_MATHJAX_PATH", unset = NA)
@@ -121,26 +124,4 @@ html_document_clean <- function(
 
 cleanrmd_file <- function(...) {
   system.file(..., package = "cleanrmd", mustWork = TRUE)
-}
-
-extra_css_dependencies <- function(css = NULL) {
-  # because I load the cleanrmd css as an htmlDependency()
-  # and as a result that css will always be last in the <head>
-  # so to add additional css files that we (hopefully) want
-  # to be loaded last, I have to insert them as htmldep too
-  if (is.null(css)) return(NULL)
-  htmltools::htmlDependency(
-    name = "cleanrmd-extra-css",
-    version = "9.9.9",
-    package = "cleanrmd",
-    src = "",
-    head = format(
-      htmltools::tagList(
-        lapply(css, function(x) {
-          htmltools::tags$link(rel = "stylesheet", href = x)
-        })
-      )
-    ),
-    all_files = FALSE
-  )
 }
