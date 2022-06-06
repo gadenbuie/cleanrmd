@@ -58,7 +58,8 @@ html_document_clean <- function(
 
   deps <- c(
     list(cleanrmd_theme_dependency(theme)),
-    extra_dependencies
+    extra_dependencies,
+    suppress_header_attrs()
   )
 
   # disable fontawesome if !use_fontawesome
@@ -138,4 +139,8 @@ html_document_clean <- function(
 
 cleanrmd_file <- function(...) {
   system.file(..., package = "cleanrmd", mustWork = TRUE)
+}
+
+suppress_header_attrs <- function() {
+  attr(htmltools::suppressDependencies("header-attrs")[[1]], "html_dependencies")
 }
