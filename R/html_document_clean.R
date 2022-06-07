@@ -93,8 +93,7 @@ html_document_clean <- function(
     if (!isTRUE(use_fontawesome)) c("--variable", "disable-fontawesome"),
     if (isTRUE(title_in_header)) c("--variable", "title-in-header"),
     pandoc_html_highlight_args(highlight),
-    rmarkdown::pandoc_toc_args(toc, toc_depth),
-    "--section-divs"
+    rmarkdown::pandoc_toc_args(toc, toc_depth)
   )
 
   for (sheet in css) {
