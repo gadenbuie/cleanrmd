@@ -32,7 +32,7 @@ main {
   margin: auto;
 }
 img { max-width: 100%; }
-code, pre { overflow: auto; }
+code, code * { font-family: inherit; }
 
 @media only screen and (max-width: 768px) {
   main { max-width: 100%; }
@@ -47,7 +47,7 @@ $if(highlighting-css)$
     white-space: pre;
   }
   .sourceCode {
-    overflow: visible;
+    overflow: auto;
   }
 </style>
 <style type="text/css" data-origin="pandoc">
@@ -73,6 +73,11 @@ $highlighting-css$
 })();
 </script>
 $endif$
+
+<style>
+code, pre { overflow: auto; }
+pre code, pre code:not([class]) { white-space: unset; }
+</style>
 
 $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
