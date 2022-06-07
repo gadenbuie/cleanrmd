@@ -13,11 +13,6 @@
   src: https://github.com/ruanmartinelli/axist/raw/master/src/index.css
   file: axist.css
 
-- name: bahunya
-  url: https://kimeiga.github.io/bahunya/
-  src: https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css
-  file: bahunya.css
-
 - name: bamboo
   url: https://rilwis.github.io/bamboo/
   src: https://unpkg.com/bamboo.css@latest/dist/bamboo.min.css

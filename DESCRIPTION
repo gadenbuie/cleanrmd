@@ -10,8 +10,6 @@ Authors@R: c(
            comment = "Author of almond.css"),
     person("Ruan", "Martinelli", role = c("ctb", "cph"),
            comment = "Author of axist.css"),
-    person("Hakan", "Alpay", role = c("ctb", "cph"),
-           comment = "Author of bahunya"),
     person("Tran Ngoc", "Tuan Anh", role = c("ctb", "cph"),
            comment = "Author of bamboo.css"),
     person("Marco", "Pontili", role = c("ctb", "cph"),

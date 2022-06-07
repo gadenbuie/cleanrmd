@@ -52,7 +52,6 @@ The following CSS themes are included in this package and you can preview [all t
 - [almond](https://github.com/alvaromontoro/almond.css)
 - [awsm.css](https://igoradamenko.github.io/awsm.css/)
 - [axist](https://ruanmartinelli.github.io/axist/)
-- [bahunya](https://kimeiga.github.io/bahunya/)
 - [bamboo](https://rilwis.github.io/bamboo/)
 - [bullframe](https://marcopontili.com/projects/bullframe-css)
 - [holiday](https://evgenyorekhov.github.io/holiday.css/)
