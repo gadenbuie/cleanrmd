@@ -1,0 +1,23 @@
+You can install the released version of cleanrmd from CRAN:
+
+``` r
+install.packages("cleanrmd")
+```
+
+You can install the latest development version from [GitHub](https://github.com/gadenbuie/cleanrmd/):
+
+``` r
+# install.packages("remotes")
+remotes::install_github("gadenbuie/cleanrmd")
+```
+
+or from [gadenbuie.r-universe.dev](https://gadenbuie.r-universe.dev/):
+
+``` r
+options(repos = c(
+  gadenbuie = 'https://gadenbuie.r-universe.dev',
+  CRAN = 'https://cloud.r-project.org'
+))
+
+install.packages('cleanrmd')
+```

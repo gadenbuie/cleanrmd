@@ -173,13 +173,120 @@ source for this file</a>.) Markdown is a simple formatting syntax for
 authoring HTML, PDF, and MS Word documents. For more details on using R
 Markdown see <a href="http://rmarkdown.rstudio.com"
 class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install the released version of cleanrmd from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;cleanrmd&quot;</span>)</span></code></pre></div>
+<p>You can install the latest development version from <a
+href="https://github.com/gadenbuie/cleanrmd/">GitHub</a>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;gadenbuie/cleanrmd&quot;</span>)</span></code></pre></div>
+<p>or from <a
+href="https://gadenbuie.r-universe.dev/">gadenbuie.r-universe.dev</a>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">gadenbuie =</span> <span class="st">&#39;https://gadenbuie.r-universe.dev&#39;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&#39;https://cloud.r-project.org&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;cleanrmd&#39;</span>)</span></code></pre></div>
+<h2 id="usage">Usage</h2>
+<h3 id="cleanrmdhtml_document_clean">cleanrmd::html_document_clean</h3>
+<p>Create a new R Markdown document using the <em>Clean HTML R
+Markdown</em> template in RStudio, or add the following to your
+<code>.Rmd</code> YAML header.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  cleanrmd:</span><span class="fu">:html_document_clean</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> no-class</span></span></code></pre></div>
+<p>To explore the available themes, set <code>theme</code> to
+<code>NULL</code>.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  cleanrmd:</span><span class="fu">:html_document_clean</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span></code></pre></div>
+<p>MathJax and FontAwesome are available but disabled by default. To
+enable either feature, you can set <code>mathjax</code> to
+<code>local</code> or <code>default</code>, as in
+<code>rmarkdown::html_document()</code>. Set
+<code>use_fontawesome</code> to <code>TRUE</code> to enable Font Awesome
+icons.</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  cleanrmd:</span><span class="fu">:html_document_clean</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">mathjax</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">use_fontawesome</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<h3 id="just-the-theme">Just the theme</h3>
+<p>You can also load the CSS theme dependencies in other places where <a
+href="https://rstudio.github.io/htmltools/">htmltools</a> can be used to
+provide HTML dependencies, such as Shiny apps.</p>
+<p>To include a theme in your app or page, use</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cleanrmd<span class="sc">::</span><span class="fu">use_cleanrmd</span>(<span class="at">theme =</span> <span class="st">&quot;new.css&quot;</span>)</span></code></pre></div>
+<p>To view the list of theme options view the help pages of
+<code>?cleanrmd_themes()</code> or use its output:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cleanrmd<span class="sc">::</span><span class="fu">cleanrmd_themes</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;almond&quot;            &quot;awsm.css&quot;          &quot;axist&quot;            
+##  [4] &quot;bamboo&quot;            &quot;bullframe&quot;         &quot;holiday&quot;          
+##  [7] &quot;kacit&quot;             &quot;latex.css&quot;         &quot;markdown-splendor&quot;
+## [10] &quot;markdown-retro&quot;    &quot;markdown-air&quot;      &quot;markdown-modest&quot;  
+## [13] &quot;marx&quot;              &quot;minicss&quot;           &quot;new.css&quot;          
+## [16] &quot;no-class&quot;          &quot;picocss&quot;           &quot;sakura&quot;           
+## [19] &quot;sakura-vader&quot;      &quot;semantic&quot;          &quot;simplecss&quot;        
+## [22] &quot;style-sans&quot;        &quot;style-serif&quot;       &quot;stylize&quot;          
+## [25] &quot;superstylin&quot;       &quot;tacit&quot;             &quot;vanilla&quot;          
+## [28] &quot;water&quot;             &quot;water-dark&quot;        &quot;writ&quot;</code></pre>
+<h2 id="themes">Themes</h2>
+<p>The following CSS themes are included in this package and you can
+preview <a href="https://gadenbuie.github.io/cleanrmd/index.html">all 30
+themes in one place here</a>.</p>
+<ul>
+<li><a
+href="https://github.com/alvaromontoro/almond.css">almond</a></li>
+<li><a href="https://igoradamenko.github.io/awsm.css/">awsm.css</a></li>
+<li><a href="https://ruanmartinelli.github.io/axist/">axist</a></li>
+<li><a href="https://rilwis.github.io/bamboo/">bamboo</a></li>
+<li><a
+href="https://marcopontili.com/projects/bullframe-css">bullframe</a></li>
+<li><a
+href="https://evgenyorekhov.github.io/holiday.css/">holiday</a></li>
+<li><a href="https://kimeiga.github.io/kacit/">kacit</a></li>
+<li><a
+href="https://github.com/vincentdoerig/latex-css">latex.css</a></li>
+<li><a
+href="http://markdowncss.github.io/splendor/">markdown-splendor</a></li>
+<li><a
+href="http://markdowncss.github.io/retro/">markdown-retro</a></li>
+<li><a href="http://markdowncss.github.io/air/">markdown-air</a></li>
+<li><a
+href="http://markdowncss.github.io/modest/">markdown-modest</a></li>
+<li><a href="https://mblode.github.io/marx/">marx</a></li>
+<li><a href="https://minicss.org/">minicss</a></li>
+<li><a href="https://newcss.net/">new.css</a></li>
+<li><a
+href="https://davidpaulsson.github.io/no-class/">no-class</a></li>
+<li><a href="https://picocss.com/">picocss</a></li>
+<li><a href="https://oxal.org/projects/sakura/">sakura</a></li>
+<li><a href="https://oxal.org/projects/sakura/">sakura-vader</a></li>
+<li><a
+href="https://dimitrinicolas.github.io/semantic.css/">semantic</a></li>
+<li><a href="https://simplecss.org/">simplecss</a></li>
+<li><a href="https://ungoldman.com/style.css/">style-sans</a></li>
+<li><a href="https://ungoldman.com/style.css/">style-serif</a></li>
+<li><a href="https://gadenbuie.github.io/stylize.css/">stylize</a></li>
+<li><a
+href="https://caiogondim.github.io/superstylin/">superstylin</a></li>
+<li><a href="https://yegor256.github.io/tacit/">tacit</a></li>
+<li><a href="https://vanillacss.com/">vanilla</a></li>
+<li><a href="https://kognise.github.io/water.css/">water</a></li>
+<li><a href="https://kognise.github.io/water.css/">water-dark</a></li>
+<li><a href="https://writ.cmcenroe.me/">writ</a></li>
+</ul>
+<hr />
+<h2 id="r-code">R Code</h2>
 <p>When you click the <strong>Knit</strong> button a document will be
 generated that includes both content as well as the output of any
 embedded R code chunks within the document. You can embed an R code
 chunk like this:</p>
-<h2 id="r-code">R Code</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;qsec&quot;</span>)]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[, <span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;cyl&quot;</span>, <span class="st">&quot;wt&quot;</span>, <span class="st">&quot;qsec&quot;</span>)]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span></code></pre></div>
 <pre><code>##       mpg             cyl              wt             qsec      
 ##  Min.   :10.40   Min.   :4.000   Min.   :1.513   Min.   :14.50  
 ##  1st Qu.:15.43   1st Qu.:4.000   1st Qu.:2.581   1st Qu.:16.89  
@@ -189,10 +296,10 @@ chunk like this:</p>
 ##  Max.   :33.90   Max.   :8.000   Max.   :5.424   Max.   :22.90</code></pre>
 <h2 id="plots">Plots</h2>
 <p>You can also embed plots, for example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>wt, mtcars<span class="sc">$</span>mpg, <span class="at">col =</span> mtcars<span class="sc">$</span>cyl, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>wt, mtcars<span class="sc">$</span>mpg, <span class="at">col =</span> mtcars<span class="sc">$</span>cyl, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
 <p><img src="index_files/figure-html5/plots-1.svg" width="960" /></p>
 <h2 id="tables">Tables</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ], <span class="at">caption =</span> <span class="st">&quot;A subset of mtcars&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(mtcars[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, ], <span class="at">caption =</span> <span class="st">&quot;A subset of mtcars&quot;</span>)</span></code></pre></div>
 <table>
 <caption>A subset of mtcars</caption>
 <thead>

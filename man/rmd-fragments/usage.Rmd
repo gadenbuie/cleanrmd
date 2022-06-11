@@ -1,0 +1,42 @@
+### cleanrmd::html_document_clean
+
+Create a new R Markdown document using the *Clean HTML R Markdown* template in RStudio, or add the following to your `.Rmd` YAML header.
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    theme: no-class
+```
+
+To explore the available themes, set `theme` to `NULL`.
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    theme: NULL
+```
+
+MathJax and FontAwesome are available but disabled by default. To enable either feature, you can set `mathjax` to `local` or `default`, as in `rmarkdown::html_document()`. Set `use_fontawesome` to `TRUE` to enable Font Awesome icons.
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    mathjax: default
+    use_fontawesome: true
+```
+
+### Just the theme
+
+You can also load the CSS theme dependencies in other places where [htmltools](https://rstudio.github.io/htmltools/) can be used to provide HTML dependencies, such as Shiny apps.
+
+To include a theme in your app or page, use
+
+```{r eval=FALSE}
+cleanrmd::use_cleanrmd(theme = "new.css")
+```
+
+To view the list of theme options view the help pages of `?cleanrmd_themes()` or use its output:
+
+```{r}
+cleanrmd::cleanrmd_themes()
+```
