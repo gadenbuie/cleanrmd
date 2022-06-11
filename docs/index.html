@@ -203,10 +203,28 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="
 class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  cleanrmd:</span><span class="fu">:html_document_clean</span><span class="kw">:</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="ch">NULL</span></span></code></pre></div>
-<p>MathJax and FontAwesome are available but disabled by default. To
-enable either feature, you can set <code>mathjax</code> to
-<code>local</code> or <code>default</code>, as in
-<code>rmarkdown::html_document()</code>. Set
+<p><strong>Syntax highlighting</strong> is provided by default by
+pandoc, where syntax highlighting is performed during during the render,
+minimizing dependencies. pandoc’s highlighting themes include
+<code>pygments</code>, <code>tango</code>, <code>espresso</code>,
+<code>zenburn</code>, <code>kate</code>, <code>monochrome</code>,
+<code>breezedark</code>, and <code>haddock</code>. The
+<code>default</code> highlighting theme is <code>arrow</code>, provided
+by the <a href="https://rmarkdown.rstudio.com/docs/">rmarkdown</a>
+package in addition to the <code>rstudio</code> theme.</p>
+<p><code>html_document_clean()</code> can also use <a
+href="https://prismjs.com/">Prism</a> for highlighting. In this case,
+highlighting is performed in the browser and the dependencies are
+downloaded as needed. To use Prism, set <code>theme: prism</code> or use
+one of the following value to choose a specific Prism theme:
+<code>prism-coy</code>, <code>prism-dark</code>,
+<code>prism-funky</code>, <code>prism-okaidia</code>,
+<code>prism-solarizedlight</code>, <code>prism-tomorrow</code>, and
+<code>prism-twilight</code>.</p>
+<p><strong>MathJax and FontAwesome</strong> are also available but
+disabled by default. To enable either feature, you can set
+<code>mathjax</code> to <code>local</code> or <code>default</code>, as
+in <code>rmarkdown::html_document()</code>. Set
 <code>use_fontawesome</code> to <code>TRUE</code> to enable Font Awesome
 icons.</p>
 <div class="sourceCode" id="cb6"><pre

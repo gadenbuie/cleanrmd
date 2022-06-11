@@ -67,10 +67,25 @@ output:
     theme: NULL
 ```
 
-MathJax and FontAwesome are available but disabled by default. To enable
-either feature, you can set `mathjax` to `local` or `default`, as in
-`rmarkdown::html_document()`. Set `use_fontawesome` to `TRUE` to enable
-Font Awesome icons.
+**Syntax highlighting** is provided by default by pandoc, where syntax
+highlighting is performed during during the render, minimizing
+dependencies. pandoc’s highlighting themes include `pygments`, `tango`,
+`espresso`, `zenburn`, `kate`, `monochrome`, `breezedark`, and
+`haddock`. The `default` highlighting theme is `arrow`, provided by the
+[rmarkdown](https://rmarkdown.rstudio.com/docs/) package in addition to
+the `rstudio` theme.
+
+`html_document_clean()` can also use [Prism](https://prismjs.com/) for
+highlighting. In this case, highlighting is performed in the browser and
+the dependencies are downloaded as needed. To use Prism, set
+`theme: prism` or use one of the following value to choose a specific
+Prism theme: `prism-coy`, `prism-dark`, `prism-funky`, `prism-okaidia`,
+`prism-solarizedlight`, `prism-tomorrow`, and `prism-twilight`.
+
+**MathJax and FontAwesome** are also available but disabled by default.
+To enable either feature, you can set `mathjax` to `local` or `default`,
+as in `rmarkdown::html_document()`. Set `use_fontawesome` to `TRUE` to
+enable Font Awesome icons.
 
 ``` yaml
 output: 

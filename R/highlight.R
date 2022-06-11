@@ -1,6 +1,28 @@
 pandoc_html_highlight_args <- function(highlight) {
 
-  pandoc_highlight_styles <- c(
+  pandoc_styles <- pandoc_highlight_styles()
+
+  if (is.null(highlight)) {
+    "--no-highlight"
+  } else if (highlight %in% prism_themes() || grepl("^prism:", highlight)) {
+    c("--no-highlight", rmarkdown::pandoc_variable_arg("use-prism", prism_sheet(highlight)))
+  } else {
+    if (identical(highlight, "default")) {
+      highlight <- "arrow"
+    }
+    highlight <- match.arg(highlight, pandoc_styles)
+    if (highlight %in% c("arrow", "rstudio")) {
+      highlight <- system.file(
+        "rmarkdown", "highlight", paste0(highlight, ".theme"),
+        package = "rmarkdown"
+      )
+    }
+    c("--highlight-style", highlight)
+  }
+}
+
+pandoc_highlight_styles <- function() {
+  c(
     "default",
     "arrow",
     "rstudio",
@@ -14,24 +36,6 @@ pandoc_html_highlight_args <- function(highlight) {
     "breezedark",
     "haddock"
   )
-
-  if (is.null(highlight)) {
-    "--no-highlight"
-  } else if (highlight %in% prism_themes() || grepl("^prism:", highlight)) {
-    c("--no-highlight", rmarkdown::pandoc_variable_arg("use-prism", prism_sheet(highlight)))
-  } else {
-    if (identical(highlight, "default")) {
-      highlight <- "arrow"
-    }
-    highlight <- match.arg(highlight, pandoc_highlight_styles)
-    if (highlight %in% c("arrow", "rstudio")) {
-      highlight <- system.file(
-        "rmarkdown", "highlight", paste0(highlight, ".theme"),
-        package = "rmarkdown"
-      )
-    }
-    c("--highlight-style", highlight)
-  }
 }
 
 prism_themes <- function() {
