@@ -30,7 +30,7 @@ describe("use_cleanrmd()", {
     expect_null(x[[1]]$script)
     expect_equal(x[[1]]$stylesheet, "new.css")
     expect_null(x[[1]]$head)
-    expect_false(x[[1]]$all_files)
+    expect_true(x[[1]]$all_files)
   })
 
   it("errors with bad input", {

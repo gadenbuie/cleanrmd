@@ -97,8 +97,7 @@ cleanrmd_theme_dependency <- function(name = NULL) {
     "theme-picker.css"
   }
 
-  src <- if (is.null(name) || name != "latex.css") "resources" else "resources/latex"
-  all_files <- is.null(name) || name == "latex.css"
+  src <- Reduce(fs::path, c("resources", name))
 
   htmltools::htmlDependency(
     name = "cleanrmd",
@@ -112,7 +111,7 @@ cleanrmd_theme_dependency <- function(name = NULL) {
       "</script>"
     ),
     stylesheet = css_file,
-    all_files = all_files
+    all_files = TRUE
   )
 }
 
@@ -141,7 +140,9 @@ cleanrmd_theme_json <- function(fields = c("name", src = "file")) {
   } else {
     names(fields)[names(fields) == ""] <- fields[names(fields) == ""]
   }
-  out <- cleanrmd_theme_list[, unname(fields)]
+  out <- cleanrmd_theme_list
+  out$file <- fs::path(out$name, out$file)
+  out <- out[, unname(fields)]
   names(out) <- names(fields)
   jsonlite::toJSON(out)
 }

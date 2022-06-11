@@ -6,8 +6,8 @@ stopifnot("DESCRIPTION" %in% dir(getwd()))
 # Load css themes
 themes <- yaml::yaml.load_file("data-raw/themes.yml")
 
-download_file <- function(src, dest) {
-  dest <- fs::path("inst", "resources", dest)
+download_file <- function(src, name, dest) {
+  dest <- fs::path("inst", "resources", name, dest)
   if (fs::path_dir(dest) != "inst/resources") {
     fs::dir_create(fs::path_dir(dest))
   }
@@ -15,10 +15,10 @@ download_file <- function(src, dest) {
 }
 
 # Download css files
-purrr::walk(themes, ~ {
-  download_file(.x$src, .x$file)
-  if ("extra" %in% names(.x)) {
-    purrr::walk(.x$extra, ~ download_file(.$src, .$dest))
+purrr::walk(themes, function(theme) {
+  download_file(theme$src,theme$name, theme$file)
+  if ("extra" %in% names(theme)) {
+    purrr::walk(theme$extra, ~ download_file(.x$src, theme$name, .x$dest))
   }
 })
 
