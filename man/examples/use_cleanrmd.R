@@ -12,14 +12,20 @@ page <- htmltools::withTags(
 )
 
 # no styles
-htmltools::browsable(page)
+if (interactive()) {
+  htmltools::browsable(page)
+}
 
 # all clean styles
 page_clean <- htmltools::tagList(page, use_cleanrmd())
-htmltools::browsable(page_clean)
+if (interactive()) {
+  htmltools::browsable(page_clean)
+}
 
 # one clean style
 page_water <- htmltools::tagList(page, use_cleanrmd("water"))
-htmltools::browsable(page_water)
+if (interactive()) {
+  htmltools::browsable(page_water)
+}
 
 cleanrmd_theme_dependency("bamboo")
