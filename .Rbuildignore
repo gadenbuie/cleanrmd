@@ -6,3 +6,4 @@
 ^\.github$
 ^README\.Rmd$
 ^_dev$
+^cran-comments\.md$
