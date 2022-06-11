@@ -1,8 +1,8 @@
 Package: cleanrmd
-Title: Clean Class-Less R Markdown HTML Documents
+Title: Clean Class-Less 'R Markdown' HTML Documents
 Version: 0.0.9
 Authors@R: c(
-    person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre"),
+    person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-7111-0077")),
     person("Igor", "Adamenko", role = c("ctb", "cph"),
            comment = "Author of awsm.css"),
@@ -50,10 +50,13 @@ Authors@R: c(
     person("Curtis", "McEnroe", role = c("ctb", "cph"),
            comment = "Author of writ")
   )
-Description: A collection of clean R Markdown HTML document templates
-    using classy-looking classless CSS styles.
+Description: A collection of clean 'R Markdown' HTML document templates
+    using classy-looking classless CSS styles. These documents use a
+    minimal set of dependencies but still look great, making them suitable
+    for use a package vignettes or for sharing results via email.
 License: MIT + file LICENSE
-URL: https://github.com/gadenbuie/cleanrmd
+URL: https://pkg.garrickadenbuie.com/cleanrmd,
+    https://github.com/gadenbuie/cleanrmd
 BugReports: https://github.com/gadenbuie/cleanrmd/issues
 Depends:
     R (>= 2.10)
