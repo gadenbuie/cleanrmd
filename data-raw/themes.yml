@@ -19,7 +19,7 @@
   file: bamboo.css
 
 - name: bullframe
-  url: https://marcopontili.com/projects/bullframe-css
+  url: https://marcopontili.com/projects/bullframe-css/
   src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:
@@ -27,12 +27,12 @@
       dest: bullframe-classless.min.css.map
 
 - name: holiday
-  url: https://evgenyorekhov.github.io/holiday.css/
+  url: https://holidaycss.js.org/
   src: https://github.com/EvgenyOrekhov/holiday.css/raw/master/dist/holiday.css
   file: holiday.css
 
 - name: kacit
-  url: https://kimeiga.github.io/kacit/
+  url: https://hakanalpay.com/kacit/
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
   file: kacit.css
 
@@ -92,7 +92,7 @@
   file: marx.css
 
 - name: minicss
-  url: https://minicss.org/
+  url: https://minicss.us/
   src: https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@v3.0.1/dist/mini-default.min.css
   file: minicss.css
 
@@ -142,8 +142,8 @@
   file: style-serif.css
 
 - name: stylize
-  url: https://gadenbuie.github.io/stylize.css/
-  src: https://gadenbuie.github.io/stylize.css/stylize.min.css
+  url: https://pkg.garrickadenbuie.com/stylize.css/
+  src: https://pkg.garrickadenbuie.com/stylize.css/stylize.min.css
   file: stylize.css
 
 - name: superstylin

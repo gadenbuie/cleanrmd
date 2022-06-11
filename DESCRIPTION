@@ -55,7 +55,7 @@ Description: A collection of clean 'R Markdown' HTML document templates
     minimal set of dependencies but still look great, making them suitable
     for use a package vignettes or for sharing results via email.
 License: MIT + file LICENSE
-URL: https://pkg.garrickadenbuie.com/cleanrmd,
+URL: https://pkg.garrickadenbuie.com/cleanrmd/,
     https://github.com/gadenbuie/cleanrmd
 BugReports: https://github.com/gadenbuie/cleanrmd/issues
 Depends:

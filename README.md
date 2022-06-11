@@ -17,7 +17,7 @@ using class-less CSS.
 
 This package was greatly inspired by Yuval Greenfield’s blog post: [The
 Next CSS Frontier -
-Classless](https://blog.usejournal.com/the-next-css-frontier-classless-5e66f3f25fdd).
+Classless](https://ubershmekel.medium.com/the-next-css-frontier-classless-5e66f3f25fdd).
 
 ## Installation
 
@@ -127,22 +127,22 @@ cleanrmd::cleanrmd_themes()
 
 The following CSS themes are included in this package and you can
 preview [all 30 themes in one place
-here](https://gadenbuie.github.io/cleanrmd/index.html).
+here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 
 -   [almond](https://github.com/alvaromontoro/almond.css)
 -   [awsm.css](https://igoradamenko.github.io/awsm.css/)
 -   [axist](https://ruanmartinelli.github.io/axist/)
 -   [bamboo](https://rilwis.github.io/bamboo/)
--   [bullframe](https://marcopontili.com/projects/bullframe-css)
--   [holiday](https://evgenyorekhov.github.io/holiday.css/)
--   [kacit](https://kimeiga.github.io/kacit/)
+-   [bullframe](https://marcopontili.com/projects/bullframe-css/)
+-   [holiday](https://holidaycss.js.org/)
+-   [kacit](https://hakanalpay.com/kacit/)
 -   [latex.css](https://github.com/vincentdoerig/latex-css)
 -   [markdown-splendor](http://markdowncss.github.io/splendor/)
 -   [markdown-retro](http://markdowncss.github.io/retro/)
 -   [markdown-air](http://markdowncss.github.io/air/)
 -   [markdown-modest](http://markdowncss.github.io/modest/)
 -   [marx](https://mblode.github.io/marx/)
--   [minicss](https://minicss.org/)
+-   [minicss](https://minicss.us/)
 -   [new.css](https://newcss.net/)
 -   [no-class](https://davidpaulsson.github.io/no-class/)
 -   [picocss](https://picocss.com/)
@@ -152,7 +152,7 @@ here](https://gadenbuie.github.io/cleanrmd/index.html).
 -   [simplecss](https://simplecss.org/)
 -   [style-sans](https://ungoldman.com/style.css/)
 -   [style-serif](https://ungoldman.com/style.css/)
--   [stylize](https://gadenbuie.github.io/stylize.css/)
+-   [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
 -   [superstylin](https://caiogondim.github.io/superstylin/)
 -   [tacit](https://yegor256.github.io/tacit/)
 -   [vanilla](https://vanillacss.com/)
