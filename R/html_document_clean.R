@@ -6,6 +6,13 @@
 #'   overall size of the final document. You can enable MathJax by setting
 #'   `mathjax = "default"`, see [rmarkdown::html_document()] for more options.
 #'
+#' @examples
+#' html_document_clean()
+#'
+#' \dontrun{
+#' rmarkdown::render("input.Rmd", html_document_clean())
+#' }
+#'
 #' @param theme The class-less CSS theme to use, one of [cleanrmd_themes()].
 #' @param use_fontawesome Should links to FontAwesome be included in the HTML
 #'   document's `<head>`? Only enable if you are including FontAwesome icons in
@@ -13,7 +20,38 @@
 #' @param title_in_header If `TRUE` (default), the title, subtitle, author, and
 #'   date are placed in a `<header>` tag. This is semantically correct HTML but
 #'   some CSS frameworks work better with this structure than others.
+#' @param highlight Syntax highlight engine and style, either a built-in Pandoc
+#'   highlighting theme, a theme provided by \pkg{rmarkdown}, or a
+#'   [prismjs](https://prismjs.com/index.html) theme (see below). Pass
+#'   \code{NULL} to prevent syntax highlighting.
+#'
+#'   **Pandoc themes.** By default, uses Pandoc's highlighting style. Pandoc's
+#'   built-in styles include "tango", "pygments", "kate", "monochrome",
+#'   "espresso", "zenburn", "haddock" and "breezedark".
+#'
+#'   Two custom styles are also included, "arrow", an accessible color scheme,
+#'   and "rstudio", which mimics the default IDE theme. Alternatively, supply a
+#'   path to a `.theme` to use
+#'   [a custom Pandoc style](https://pandoc.org/MANUAL.html#syntax-highlighting).
+#'   Note that custom themes require Pandoc 2.0+.
+#'
+#'   **Prism themes.** To use the [prismjs](https://prismjs.com/index.html)
+#'   syntax highlighter, pass one of "prism", "prism-coy", "prism-dark",
+#'   "prism-funky", "prism-okaidia", "prism-solarizedlight", "prism-tomorrow",
+#'   or "prism-twilight". To use an alternate Prism theme file, pass the URL or
+#'   path to the theme's CSS file prefixed with "prism:", e.g.
+#'   `prism:my-theme.css`. Note that the Prism dependencies are not embedded
+#'   into self-contained documents so they will require an active internet
+#'   connection to work.
+#'
 #' @inheritParams rmarkdown::html_document
+#'
+#' @return An R Markdown output format that can be used with `output:` in an
+#'   `.Rmd` or for use with [rmarkdown::render()].
+#'
+#' @seealso [use_cleanrmd()] for using cleanrmd themes in places other than in
+#'   R Markdown documents
+#'
 #' @export
 html_document_clean <- function(
   ...,
@@ -44,7 +82,8 @@ html_document_clean <- function(
 
   deps <- c(
     list(cleanrmd_theme_dependency(theme)),
-    extra_dependencies
+    extra_dependencies,
+    suppress_header_attrs()
   )
 
   # disable fontawesome if !use_fontawesome
@@ -124,4 +163,8 @@ html_document_clean <- function(
 
 cleanrmd_file <- function(...) {
   system.file(..., package = "cleanrmd", mustWork = TRUE)
+}
+
+suppress_header_attrs <- function() {
+  attr(htmltools::suppressDependencies("header-attrs")[[1]], "html_dependencies")
 }

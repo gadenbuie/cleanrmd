@@ -4,3 +4,7 @@
 ^docs$
 ^data-raw$
 ^\.github$
+^README\.Rmd$
+^_dev$
+^cran-comments\.md$
+^CRAN-SUBMISSION$

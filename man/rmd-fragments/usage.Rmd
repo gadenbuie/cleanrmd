@@ -1,0 +1,64 @@
+### cleanrmd::html_document_clean
+
+Create a new R Markdown document using the *Clean HTML R Markdown* template in RStudio, 
+or add the following to your `.Rmd` YAML header to use
+[cleanrmd::html_document_clean](https://pkg.garrickadenbuie.com/cleanrmd/reference.html#html_document_clean).
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    theme: no-class
+```
+
+To explore the available themes, set `theme` to `NULL`.
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    theme: NULL
+```
+
+```{r include = FALSE}
+combine_code <- function(x) {
+  knitr::combine_words(x, before = "`")
+}
+```
+
+**Syntax highlighting** is provided by default by pandoc,
+where syntax highlighting is performed during during the render,
+minimizing dependencies.
+pandoc's highlighting themes include
+`r combine_code(cleanrmd:::pandoc_highlight_styles()[-1:-3])`.
+The `default` highlighting theme is `arrow`, provided by the [rmarkdown](https://rmarkdown.rstudio.com/docs/) package in addition to the `rstudio` theme.
+
+`html_document_clean()` can also use [Prism](https://prismjs.com/) for highlighting.
+In this case, highlighting is performed in the browser
+and the dependencies are downloaded as needed.
+To use Prism, set `theme: prism` 
+or use one of the following value to choose a specific Prism theme:
+`r combine_code(cleanrmd:::prism_themes()[-1])`.
+
+**MathJax and FontAwesome** are also available but disabled by default. To enable either feature, you can set `mathjax` to `local` or `default`, as in `rmarkdown::html_document()`. Set `use_fontawesome` to `TRUE` to enable Font Awesome icons.
+
+``` yaml
+output: 
+  cleanrmd::html_document_clean:
+    mathjax: default
+    use_fontawesome: true
+```
+
+### Just the theme
+
+You can also load the CSS theme dependencies in other places where [htmltools](https://rstudio.github.io/htmltools/) can be used to provide HTML dependencies, such as Shiny apps.
+
+To include a theme in your app or page, use
+
+```{r eval=FALSE}
+cleanrmd::use_cleanrmd(theme = "new.css")
+```
+
+To view the list of theme options view the help pages of [cleanrmd_themes()](https://pkg.garrickadenbuie.com/cleanrmd/reference.html#cleanrmd_themes) or use its output:
+
+```{r}
+cleanrmd::cleanrmd_themes()
+```

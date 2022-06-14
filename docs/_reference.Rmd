@@ -1,0 +1,49 @@
+---
+title: "cleanrmd Reference"
+subtitle: "Clean HTML R Markdown Documents"
+author: "Garrick Aden-Buie"
+date: 'Updated: `r strftime(Sys.time(), "%B %d, %Y")`<br>Version: `r packageVersion("cleanrmd")`'
+output: 
+  cleanrmd::html_document_clean:
+    theme: NULL
+    lib_dir: libs
+    self_contained: false
+    dev: svg
+    title_in_header: true
+    toc: true
+    toc_depth: 2
+    pandoc_args: ["--variable", "toc-title=On This Page"]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+set.seed(42)
+```
+
+```{r metathis, echo = FALSE}
+metathis::meta_social(
+  title = rmarkdown::metadata$title,
+  description = rmarkdown::metadata$subtitle,
+  url = "https://pkg.garricakdenbuie.com/cleanrmd/",
+  image = "https://pkg.garricakdenbuie.com/cleanrmd/cleanrmd-social.png",
+  image_alt = "cleanrmd: shows an array of screenshots of a simple R Markdown report in a variety of styles, fanned out like a hand of cards.",
+  twitter_card_type = "summary_large_image",
+  twitter_creator = "@grrrck"
+)
+```
+
+```{r include=FALSE}
+library(cleanrmd)
+```
+
+```{=html}
+<nav>
+  <h2>Package Links</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="https://github.com/gadenbuie/cleanrmd">GitHub</a></li>
+    <li><a href="https://cran.r-project.org/web/packages/cleanrmd/index.html">CRAN</a></li>
+  </ul>
+</nav>
+```

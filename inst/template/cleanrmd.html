@@ -32,11 +32,14 @@ main {
   margin: auto;
 }
 img { max-width: 100%; }
+code, code * { font-family: inherit; }
 
 @media only screen and (max-width: 768px) {
   main { max-width: 100%; }
 }
 </style>
+
+$if(use-prism)$$use-prism$$endif$
 
 $if(highlighting-css)$
 <style type="text/css">
@@ -44,34 +47,37 @@ $if(highlighting-css)$
     white-space: pre;
   }
   .sourceCode {
-    overflow: visible;
+    overflow: auto;
   }
 </style>
 <style type="text/css" data-origin="pandoc">
 $highlighting-css$
 </style>
 <script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
+// remove everything from pandoc code styles _except_ for 'code span' colors
 (function() {
   var sheets = document.styleSheets;
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
+      if (/^code span/.test(rule.selectorText)) {
+        j++;
+        continue;
+      }
       sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
     }
   }
 })();
 </script>
 $endif$
+
+<style>
+code, pre { overflow: auto; }
+pre code, pre code:not([class]) { white-space: unset; }
+</style>
 
 $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
@@ -112,6 +118,17 @@ $for(include-after)$
 $include-after$
 $endfor$
 </main>
+
+$if(use-prism)$
+<script>
+document.querySelectorAll('pre').forEach(function(el) {
+  if (!el.className) return;
+  el.classList.add('lang-' + el.classList[0]);
+});
+</script>
+<script data-external="1" src="https://unpkg.com/prismjs@latest/components/prism-core.min.js"></script>
+<script data-external="1" src="https://unpkg.com/prismjs@latest/plugins/autoloader/prism-autoloader.min.js"></script>
+$endif$
 
 $if(mathjax-url)$
 <!-- dynamically load mathjax for compatibility with self-contained -->

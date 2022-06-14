@@ -13,18 +13,13 @@
   src: https://github.com/ruanmartinelli/axist/raw/master/src/index.css
   file: axist.css
 
-- name: bahunya
-  url: https://kimeiga.github.io/bahunya/
-  src: https://cdn.jsdelivr.net/gh/kimeiga/bahunya@css/bahunya-0.1.3.css
-  file: bahunya.css
-
 - name: bamboo
   url: https://rilwis.github.io/bamboo/
   src: https://unpkg.com/bamboo.css@latest/dist/bamboo.min.css
   file: bamboo.css
 
 - name: bullframe
-  url: https://marcopontili.com/projects/bullframe-css
+  url: https://marcopontili.com/projects/bullframe-css/
   src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:
@@ -32,44 +27,44 @@
       dest: bullframe-classless.min.css.map
 
 - name: holiday
-  url: https://evgenyorekhov.github.io/holiday.css/
+  url: https://holidaycss.js.org/
   src: https://github.com/EvgenyOrekhov/holiday.css/raw/master/dist/holiday.css
   file: holiday.css
 
 - name: kacit
-  url: https://kimeiga.github.io/kacit/
+  url: https://hakanalpay.com/kacit/
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
   file: kacit.css
 
 - name: latex.css
   url: https://github.com/vincentdoerig/latex-css
   src: https://raw.githubusercontent.com/vincentdoerig/latex-css/master/style.css
-  file: latex/latex.css
+  file: latex.css
   extra:
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.ttf
-      dest: latex/fonts/LM-bold-italic.ttf
+      dest: fonts//LM-bold-italic.ttf
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.woff
-      dest: latex/fonts/LM-bold-italic.woff
+      dest: fonts//LM-bold-italic.woff
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold-italic.woff2
-      dest: latex/fonts/LM-bold-italic.woff2
+      dest: fonts//LM-bold-italic.woff2
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.ttf
-      dest: latex/fonts/LM-bold.ttf
+      dest: fonts//LM-bold.ttf
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.woff
-      dest: latex/fonts/LM-bold.woff
+      dest: fonts//LM-bold.woff
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-bold.woff2
-      dest: latex/fonts/LM-bold.woff2
+      dest: fonts//LM-bold.woff2
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.ttf
-      dest: latex/fonts/LM-italic.ttf
+      dest: fonts//LM-italic.ttf
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.woff
-      dest: latex/fonts/LM-italic.woff
+      dest: fonts//LM-italic.woff
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-italic.woff2
-      dest: latex/fonts/LM-italic.woff2
+      dest: fonts//LM-italic.woff2
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.ttf
-      dest: latex/fonts/LM-regular.ttf
+      dest: fonts//LM-regular.ttf
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.woff
-      dest: latex/fonts/LM-regular.woff
+      dest: fonts//LM-regular.woff
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.woff2
-      dest: latex/fonts/LM-regular.woff2
+      dest: fonts//LM-regular.woff2
 
 - name: markdown-splendor
   url: http://markdowncss.github.io/splendor/
@@ -97,7 +92,7 @@
   file: marx.css
 
 - name: minicss
-  url: https://minicss.org/
+  url: https://minicss.us/
   src: https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@v3.0.1/dist/mini-default.min.css
   file: minicss.css
 
@@ -147,8 +142,8 @@
   file: style-serif.css
 
 - name: stylize
-  url: https://gadenbuie.github.io/stylize.css/
-  src: https://gadenbuie.github.io/stylize.css/stylize.min.css
+  url: https://pkg.garrickadenbuie.com/stylize.css/
+  src: https://pkg.garrickadenbuie.com/stylize.css/stylize.min.css
   file: stylize.css
 
 - name: superstylin

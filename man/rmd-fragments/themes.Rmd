@@ -1,0 +1,6 @@
+The following CSS themes are included in this package and you can preview 
+[all `r length(cleanrmd::cleanrmd_themes())` themes in one place here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
+
+```{r echo = FALSE, results = "asis"}
+knitr::asis_output(cleanrmd:::cleanrmd_theme_list_roxygen())
+```
