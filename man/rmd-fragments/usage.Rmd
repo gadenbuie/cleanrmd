@@ -1,6 +1,8 @@
 ### cleanrmd::html_document_clean
 
-Create a new R Markdown document using the *Clean HTML R Markdown* template in RStudio, or add the following to your `.Rmd` YAML header.
+Create a new R Markdown document using the *Clean HTML R Markdown* template in RStudio, 
+or add the following to your `.Rmd` YAML header to use
+[cleanrmd::html_document_clean](https://pkg.garrickadenbuie.com/cleanrmd/reference.html#html_document_clean).
 
 ``` yaml
 output: 
@@ -55,7 +57,7 @@ To include a theme in your app or page, use
 cleanrmd::use_cleanrmd(theme = "new.css")
 ```
 
-To view the list of theme options view the help pages of `?cleanrmd_themes()` or use its output:
+To view the list of theme options view the help pages of [cleanrmd_themes()](https://pkg.garrickadenbuie.com/cleanrmd/reference.html#cleanrmd_themes) or use its output:
 
 ```{r}
 cleanrmd::cleanrmd_themes()

@@ -1,0 +1,458 @@
+---
+title: "cleanrmd Reference"
+subtitle: "Clean HTML R Markdown Documents"
+author: "Garrick Aden-Buie"
+date: 'Updated: `r strftime(Sys.time(), "%B %d, %Y")`<br>Version: `r packageVersion("cleanrmd")`'
+output: 
+  cleanrmd::html_document_clean:
+    theme: NULL
+    lib_dir: libs
+    self_contained: false
+    dev: svg
+    title_in_header: true
+    toc: true
+    toc_depth: 2
+    pandoc_args: ["--variable", "toc-title=On This Page"]
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+set.seed(42)
+```
+
+```{r metathis, echo = FALSE}
+metathis::meta_social(
+  title = rmarkdown::metadata$title,
+  description = rmarkdown::metadata$subtitle,
+  url = "https://pkg.garricakdenbuie.com/cleanrmd/",
+  image = "https://pkg.garricakdenbuie.com/cleanrmd/cleanrmd-social.png",
+  image_alt = "cleanrmd: shows an array of screenshots of a simple R Markdown report in a variety of styles, fanned out like a hand of cards.",
+  twitter_card_type = "summary_large_image",
+  twitter_creator = "@grrrck"
+)
+```
+
+```{r include=FALSE}
+library(cleanrmd)
+```
+
+```{=html}
+<nav>
+  <h2>Package Links</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="https://github.com/gadenbuie/cleanrmd">GitHub</a></li>
+    <li><a href="https://cran.r-project.org/web/packages/cleanrmd/index.html">CRAN</a></li>
+  </ul>
+</nav>
+```
+## `cleanrmd_themes()` - List cleanrmd themes {#cleanrmd_themes}
+
+### Description
+
+Lists the available themes in [cleanrmd]{.pkg}
+
+### Usage
+
+``` R
+cleanrmd_themes()
+```
+
+### Value
+
+A character string of available theme names.
+
+### cleanrmd theme list
+
+[cleanrmd]{.pkg} includes the following no-class CSS themes:
+
+-   [almond](https://github.com/alvaromontoro/almond.css)
+
+-   [awsm.css](https://igoradamenko.github.io/awsm.css/)
+
+-   [axist](https://ruanmartinelli.github.io/axist/)
+
+-   [bamboo](https://rilwis.github.io/bamboo/)
+
+-   [bullframe](https://marcopontili.com/projects/bullframe-css/)
+
+-   [holiday](https://holidaycss.js.org/)
+
+-   [kacit](https://hakanalpay.com/kacit/)
+
+-   [latex.css](https://github.com/vincentdoerig/latex-css)
+
+-   [markdown-splendor](http://markdowncss.github.io/splendor/)
+
+-   [markdown-retro](http://markdowncss.github.io/retro/)
+
+-   [markdown-air](http://markdowncss.github.io/air/)
+
+-   [markdown-modest](http://markdowncss.github.io/modest/)
+
+-   [marx](https://mblode.github.io/marx/)
+
+-   [minicss](https://minicss.us/)
+
+-   [new.css](https://newcss.net/)
+
+-   [no-class](https://davidpaulsson.github.io/no-class/)
+
+-   [picocss](https://picocss.com/)
+
+-   [sakura](https://oxal.org/projects/sakura/)
+
+-   [sakura-vader](https://oxal.org/projects/sakura/)
+
+-   [semantic](https://dimitrinicolas.github.io/semantic.css/)
+
+-   [simplecss](https://simplecss.org/)
+
+-   [style-sans](https://ungoldman.com/style.css/)
+
+-   [style-serif](https://ungoldman.com/style.css/)
+
+-   [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
+
+-   [superstylin](https://caiogondim.github.io/superstylin/)
+
+-   [tacit](https://yegor256.github.io/tacit/)
+
+-   [vanilla](https://vanillacss.com/)
+
+-   [water](https://kognise.github.io/water.css/)
+
+-   [water-dark](https://kognise.github.io/water.css/)
+
+-   [writ](https://writ.cmcenroe.me/)
+
+### Examples
+
+```{r}
+cleanrmd_themes()
+```
+
+## `html_document_clean()` - Clean Rmarkdown HTML Document {#html_document_clean}
+
+### Description
+
+Clean HTML documents with R Markdown.
+
+### Usage
+
+``` R
+html_document_clean(
+  ...,
+  theme = "no-class",
+  css = NULL,
+  toc = FALSE,
+  toc_depth = 3,
+  title_in_header = TRUE,
+  mathjax = NULL,
+  use_fontawesome = FALSE,
+  fig_width = 10,
+  fig_height = 7,
+  fig_retina = 2,
+  keep_md = FALSE,
+  dev = "png",
+  highlight = "default",
+  pandoc_args = NULL,
+  extra_dependencies = NULL,
+  md_extensions = NULL,
+  self_contained = !is.null(theme)
+)
+```
+
+### Arguments
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd" data-valign="top">
+<td><code>theme</code></td>
+<td><p>The class-less CSS theme to use, one of
+<code>cleanrmd_themes()</code>.</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>css</code></td>
+<td><p>CSS and/or Sass files to include. Files with an extension of
+.sass or .scss are compiled to CSS via <code>sass::sass()</code>. Also,
+if <code>theme</code> is a <code>bslib::bs_theme()</code> object, Sass
+code may reference the relevant Bootstrap Sass variables, functions,
+mixins, etc.</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>toc</code></td>
+<td><p><code>TRUE</code> to include a table of contents in the
+output</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>toc_depth</code></td>
+<td><p>Depth of headers to include in table of contents</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>title_in_header</code></td>
+<td><p>If <code>TRUE</code> (default), the title, subtitle, author, and
+date are placed in a <code
+style="white-space: pre;">⁠&lt;header&gt;⁠</code> tag. This is
+semantically correct HTML but some CSS frameworks work better with this
+structure than others.</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>mathjax</code></td>
+<td><p>Include mathjax. The "default" option uses an https URL from a
+MathJax CDN. The "local" option uses a local version of MathJax (which
+is copied into the output directory). You can pass an alternate URL or
+pass <code>NULL</code> to exclude MathJax entirely.</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>use_fontawesome</code></td>
+<td><p>Should links to FontAwesome be included in the HTML document's
+<code style="white-space: pre;">⁠&lt;head&gt;⁠</code>? Only enable if you
+are including FontAwesome icons in your HTML document.</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>fig_width</code></td>
+<td><p>Default width (in inches) for figures</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>fig_height</code></td>
+<td><p>Default height (in inches) for figures</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>fig_retina</code></td>
+<td><p>Scaling to perform for retina displays (defaults to 2, which
+currently works for all widely used retina displays). Set to
+<code>NULL</code> to prevent retina scaling. Note that this will always
+be <code>NULL</code> when <code>keep_md</code> is specified (this is
+because <code>fig_retina</code> relies on outputting HTML directly into
+the markdown document).</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>keep_md</code></td>
+<td><p>Keep the markdown file generated by knitting.</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>dev</code></td>
+<td><p>Graphics device to use for figure output (defaults to
+png)</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>highlight</code></td>
+<td><p>Syntax highlight engine and style, either a built-in Pandoc
+highlighting theme, a theme provided by <span
+class="pkg">rmarkdown</span>, or a <a
+href="https://prismjs.com/index.html">prismjs</a> theme (see below).
+Pass <code>NULL</code> to prevent syntax highlighting.</p>
+<p><strong>Pandoc themes.</strong> By default, uses Pandoc's
+highlighting style. Pandoc's built-in styles include "tango",
+"pygments", "kate", "monochrome", "espresso", "zenburn", "haddock" and
+"breezedark".</p>
+<p>Two custom styles are also included, "arrow", an accessible color
+scheme, and "rstudio", which mimics the default IDE theme.
+Alternatively, supply a path to a <code>.theme</code> to use <a
+href="https://pandoc.org/MANUAL.html#syntax-highlighting">a custom
+Pandoc style</a>. Note that custom themes require Pandoc 2.0+.</p>
+<p><strong>Prism themes.</strong> To use the <a
+href="https://prismjs.com/index.html">prismjs</a> syntax highlighter,
+pass one of "prism", "prism-coy", "prism-dark", "prism-funky",
+"prism-okaidia", "prism-solarizedlight", "prism-tomorrow", or
+"prism-twilight". To use an alternate Prism theme file, pass the URL or
+path to the theme's CSS file prefixed with "prism:", e.g.
+<code>prism:my-theme.css</code>. Note that the Prism dependencies are
+not embedded into self-contained documents so they will require an
+active internet connection to work.</p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>pandoc_args</code></td>
+<td><p>Additional command line options to pass to pandoc</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>extra_dependencies, ...</code></td>
+<td><p>Additional function arguments to pass to the base R Markdown HTML
+output formatter <code>html_document_base</code></p></td>
+</tr>
+<tr class="even" data-valign="top">
+<td><code>md_extensions</code></td>
+<td><p>Markdown extensions to be added or removed from the default
+definition of R Markdown. See the <code>rmarkdown_format</code> for
+additional details.</p></td>
+</tr>
+<tr class="odd" data-valign="top">
+<td><code>self_contained</code></td>
+<td><p>Produce a standalone HTML file with no external dependencies,
+using data: URIs to incorporate the contents of linked scripts,
+stylesheets, images, and videos. Note that even for self contained
+documents MathJax is still loaded externally (this is necessary because
+of its size).</p></td>
+</tr>
+</tbody>
+</table>
+
+### Value
+
+An R Markdown output format that can be used with
+`⁠output:⁠`{style="white-space: pre;"} in an `.Rmd` or for use with
+`rmarkdown::render()`.
+
+### MathJax
+
+Note that MathJax is disabled by default to reduce the overall size of
+the final document. You can enable MathJax by setting
+`mathjax = "default"`, see `rmarkdown::html_document()` for more
+options.
+
+### See Also
+
+`use_cleanrmd()` for using cleanrmd themes in places other than in R
+Markdown documents
+
+### Examples
+
+```{r}
+html_document_clean()
+
+if (interactive()) {
+rmarkdown::render("input.Rmd", html_document_clean())
+
+}
+```
+
+## `use_cleanrmd()` - Use a clean CSS theme from cleanrmd {#use_cleanrmd}
+
+### Description
+
+Provides a [cleanrmd]{.pkg} CSS theme using [htmltools]{.pkg}. You can
+use this CSS theme anywhere that HTML dependencies are handled via
+`htmltools::htmlDependency()`, for example in R Markdown or Quarto
+documents or in Shiny apps.
+
+### Usage
+
+``` R
+use_cleanrmd(name = NULL)
+
+cleanrmd_theme_dependency(name = NULL)
+```
+
+### Arguments
+
+|        |                                                                                                                                                           |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `name` | The name of the theme, see `cleanrmd_themes()` for a list of available themes. If `NULL`, all themes will be loaded with a simple drop down theme picker. |
+
+### Value
+
+`use_cleanrmd()` returns an `htmltools::tagList()` with an
+`htmltools::htmlDependency()`. `cleanrmd_theme_dependency()` returns
+only the `htmltools::htmlDependency()`.
+
+### Functions
+
+-   `use_cleanrmd`: Use a clean CSS theme in the current document or app
+    (general usage)
+
+-   `cleanrmd_theme_dependency`: Use a clean CSS theme dependency
+    (advanced usage)
+
+### R Markdown documents
+
+In [R Markdown](https://rmarkdown.rstudio.com/) (static or Shiny
+prerendered), you should use the `html_document_clean()` output format
+to use a cleanrmd theme.
+
+::: {.sourceCode .markdown}
+    ---
+    output:
+      cleanrmd::html_document_clean:
+        theme: NULL # or pick a specific theme
+        self_contained: false
+    ---
+:::
+
+### Quarto documents
+
+You can also use [cleanrmd]{.pkg} in [Quarto](https://quarto.org/)
+documents or apps (using `server: shiny`). You\'ll need to turn off the
+themes provided by Quarto with `theme: none` and then call
+`cleanrmd::use_cleanrmd()` in a code chunk in your document.
+
+::: {.sourceCode .markdown}
+    ---
+    title: "Untitled"
+    format:
+      html:
+        theme: none
+    #server: shiny
+    ---
+
+    ```{r cleanrmd, echo=FALSE}
+    cleanrmd::use_cleanrmd("bamboo")
+    ```
+:::
+
+### Shiny apps
+
+In Shiny apps, you\'ll need to use `shiny::basicPage()` rather than
+`shiny::fluidPage()`. Then call `use_cleanrmd()` in your app to use a
+cleanrmd theme.
+
+::: {.sourceCode .r}
+    library(shiny)
+
+    ui <- shiny::basicPage(
+      cleanrmd::use_cleanrmd(),
+
+      h2("Old Faithful Geyser Data"),
+
+      sliderInput(
+        "bins",
+        "Number of bins:",
+        min = 1,
+        max = 50,
+        value = 30
+      ),
+      plotOutput("distPlot")
+    )
+:::
+
+### Examples
+
+```{r}
+page <- htmltools::withTags(
+  main(
+    h2("Small Demo"),
+    p("Clean, simple, classy but class-less:"),
+    ul(
+      li("Works almost anywhere"),
+      li("Small and simple"),
+      li("Easy to extend"),
+      li("Good enough but not perfect")
+    )
+  )
+)
+
+# no styles
+if (interactive()) {
+  htmltools::browsable(page)
+}
+
+# all clean styles
+page_clean <- htmltools::tagList(page, use_cleanrmd())
+if (interactive()) {
+  htmltools::browsable(page_clean)
+}
+
+# one clean style
+page_water <- htmltools::tagList(page, use_cleanrmd("water"))
+if (interactive()) {
+  htmltools::browsable(page_water)
+}
+
+cleanrmd_theme_dependency("bamboo")
+```
+

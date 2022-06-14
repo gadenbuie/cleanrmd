@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Garrick Aden-Buie" />
+  <title>cleanrmd Reference</title>
+
+  
+  <link href="libs/cleanrmd/theme-picker.css" rel="stylesheet" />
+  <script src="libs/cleanrmd/theme-picker.js"></script>
+  <script id="theme-picker-themes" type="application/json">[{"name":"almond","src":"almond/almond.css"},{"name":"awsm.css","src":"awsm.css/awsm.css"},{"name":"axist","src":"axist/axist.css"},{"name":"bamboo","src":"bamboo/bamboo.css"},{"name":"bullframe","src":"bullframe/bullframe.css"},{"name":"holiday","src":"holiday/holiday.css"},{"name":"kacit","src":"kacit/kacit.css"},{"name":"latex.css","src":"latex.css/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor/markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro/markdown-retro.css"},{"name":"markdown-air","src":"markdown-air/markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest/markdown-modest.css"},{"name":"marx","src":"marx/marx.css"},{"name":"minicss","src":"minicss/minicss.css"},{"name":"new.css","src":"new.css/new.css"},{"name":"no-class","src":"no-class/no-class.css"},{"name":"picocss","src":"picocss/pico.css"},{"name":"sakura","src":"sakura/sakura.css"},{"name":"sakura-vader","src":"sakura-vader/sakura-vader.css"},{"name":"semantic","src":"semantic/semantic.css"},{"name":"simplecss","src":"simplecss/simple.css"},{"name":"style-sans","src":"style-sans/style-sans.css"},{"name":"style-serif","src":"style-serif/style-serif.css"},{"name":"stylize","src":"stylize/stylize.css"},{"name":"superstylin","src":"superstylin/superstylin.css"},{"name":"tacit","src":"tacit/tacit.css"},{"name":"vanilla","src":"vanilla/vanilla.css"},{"name":"water","src":"water/water.css"},{"name":"water-dark","src":"water-dark/water-dark.css"},{"name":"writ","src":"writ/writ.css"}]</script>
+  <meta name="twitter:title" content="cleanrmd Reference"/>
+  <meta name="twitter:description" content="Clean HTML R Markdown Documents"/>
+  <meta name="twitter:url" content="https://pkg.garricakdenbuie.com/cleanrmd/"/>
+  <meta name="twitter:image" content="https://pkg.garricakdenbuie.com/cleanrmd/cleanrmd-social.png"/>
+  <meta name="twitter:image:alt" content="cleanrmd: shows an array of screenshots of a simple R Markdown report in a variety of styles, fanned out like a hand of cards."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:creator" content="@grrrck"/>
+  <meta name="twitter:site" content="@grrrck"/>
+  <meta property="og:title" content="cleanrmd Reference"/>
+  <meta property="og:description" content="Clean HTML R Markdown Documents"/>
+  <meta property="og:url" content="https://pkg.garricakdenbuie.com/cleanrmd/"/>
+  <meta property="og:image" content="https://pkg.garricakdenbuie.com/cleanrmd/cleanrmd-social.png"/>
+  <meta property="og:image:alt" content="cleanrmd: shows an array of screenshots of a simple R Markdown report in a variety of styles, fanned out like a hand of cards."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="en_US"/>
+
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+     body doesn't go all the way up to the screen edge */
+  margin: 0.5em;
+  padding: 0.5em;
+}
+main {
+  max-width: 48em;
+  margin: auto;
+}
+img { max-width: 100%; }
+code, code * { font-family: inherit; }
+
+@media only screen and (max-width: 768px) {
+  main { max-width: 100%; }
+}
+</style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: auto;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+<script>
+// remove everything from pandoc code styles _except_ for 'code span' colors
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      if (/^code span/.test(rule.selectorText)) {
+        j++;
+        continue;
+      }
+      sheets[i].deleteRule(j);
+    }
+  }
+})();
+</script>
+
+<style>
+code, pre { overflow: auto; }
+pre code, pre code:not([class]) { white-space: unset; }
+</style>
+
+
+</head>
+<body>
+
+
+<main>
+<header>
+<h1 id="title" class="toc-ignore">cleanrmd Reference</h1>
+<h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown
+Documents</h2>
+<p id="date">Updated: June 14, 2022<br>Version: 0.1.0</p>
+<p id="author">Garrick Aden-Buie</p>
+
+</header>
+<ul>
+<li><a href="#cleanrmd_themes"
+id="toc-cleanrmd_themes"><code>cleanrmd_themes()</code> - List cleanrmd
+themes</a></li>
+<li><a href="#html_document_clean"
+id="toc-html_document_clean"><code>html_document_clean()</code> - Clean
+Rmarkdown HTML Document</a></li>
+<li><a href="#use_cleanrmd"
+id="toc-use_cleanrmd"><code>use_cleanrmd()</code> - Use a clean CSS
+theme from cleanrmd</a></li>
+</ul>
+
+<nav>
+  <h2>Package Links</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="https://github.com/gadenbuie/cleanrmd">GitHub</a></li>
+    <li><a href="https://cran.r-project.org/web/packages/cleanrmd/index.html">CRAN</a></li>
+  </ul>
+</nav>
+<h2 id="cleanrmd_themes"><code>cleanrmd_themes()</code> - List cleanrmd
+themes</h2>
+<h3 id="description">Description</h3>
+<p>Lists the available themes in <span class="pkg">cleanrmd</span></p>
+<h3 id="usage">Usage</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_themes</span>()</span></code></pre></div>
+<h3 id="value">Value</h3>
+<p>A character string of available theme names.</p>
+<h3 id="cleanrmd-theme-list">cleanrmd theme list</h3>
+<p><span class="pkg">cleanrmd</span> includes the following no-class CSS
+themes:</p>
+<ul>
+<li><p><a
+href="https://github.com/alvaromontoro/almond.css">almond</a></p></li>
+<li><p><a
+href="https://igoradamenko.github.io/awsm.css/">awsm.css</a></p></li>
+<li><p><a
+href="https://ruanmartinelli.github.io/axist/">axist</a></p></li>
+<li><p><a href="https://rilwis.github.io/bamboo/">bamboo</a></p></li>
+<li><p><a
+href="https://marcopontili.com/projects/bullframe-css/">bullframe</a></p></li>
+<li><p><a href="https://holidaycss.js.org/">holiday</a></p></li>
+<li><p><a href="https://hakanalpay.com/kacit/">kacit</a></p></li>
+<li><p><a
+href="https://github.com/vincentdoerig/latex-css">latex.css</a></p></li>
+<li><p><a
+href="http://markdowncss.github.io/splendor/">markdown-splendor</a></p></li>
+<li><p><a
+href="http://markdowncss.github.io/retro/">markdown-retro</a></p></li>
+<li><p><a
+href="http://markdowncss.github.io/air/">markdown-air</a></p></li>
+<li><p><a
+href="http://markdowncss.github.io/modest/">markdown-modest</a></p></li>
+<li><p><a href="https://mblode.github.io/marx/">marx</a></p></li>
+<li><p><a href="https://minicss.us/">minicss</a></p></li>
+<li><p><a href="https://newcss.net/">new.css</a></p></li>
+<li><p><a
+href="https://davidpaulsson.github.io/no-class/">no-class</a></p></li>
+<li><p><a href="https://picocss.com/">picocss</a></p></li>
+<li><p><a href="https://oxal.org/projects/sakura/">sakura</a></p></li>
+<li><p><a
+href="https://oxal.org/projects/sakura/">sakura-vader</a></p></li>
+<li><p><a
+href="https://dimitrinicolas.github.io/semantic.css/">semantic</a></p></li>
+<li><p><a href="https://simplecss.org/">simplecss</a></p></li>
+<li><p><a
+href="https://ungoldman.com/style.css/">style-sans</a></p></li>
+<li><p><a
+href="https://ungoldman.com/style.css/">style-serif</a></p></li>
+<li><p><a
+href="https://pkg.garrickadenbuie.com/stylize.css/">stylize</a></p></li>
+<li><p><a
+href="https://caiogondim.github.io/superstylin/">superstylin</a></p></li>
+<li><p><a href="https://yegor256.github.io/tacit/">tacit</a></p></li>
+<li><p><a href="https://vanillacss.com/">vanilla</a></p></li>
+<li><p><a href="https://kognise.github.io/water.css/">water</a></p></li>
+<li><p><a
+href="https://kognise.github.io/water.css/">water-dark</a></p></li>
+<li><p><a href="https://writ.cmcenroe.me/">writ</a></p></li>
+</ul>
+<h3 id="examples">Examples</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_themes</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;almond&quot;            &quot;awsm.css&quot;          &quot;axist&quot;            
+##  [4] &quot;bamboo&quot;            &quot;bullframe&quot;         &quot;holiday&quot;          
+##  [7] &quot;kacit&quot;             &quot;latex.css&quot;         &quot;markdown-splendor&quot;
+## [10] &quot;markdown-retro&quot;    &quot;markdown-air&quot;      &quot;markdown-modest&quot;  
+## [13] &quot;marx&quot;              &quot;minicss&quot;           &quot;new.css&quot;          
+## [16] &quot;no-class&quot;          &quot;picocss&quot;           &quot;sakura&quot;           
+## [19] &quot;sakura-vader&quot;      &quot;semantic&quot;          &quot;simplecss&quot;        
+## [22] &quot;style-sans&quot;        &quot;style-serif&quot;       &quot;stylize&quot;          
+## [25] &quot;superstylin&quot;       &quot;tacit&quot;             &quot;vanilla&quot;          
+## [28] &quot;water&quot;             &quot;water-dark&quot;        &quot;writ&quot;</code></pre>
+<h2 id="html_document_clean"><code>html_document_clean()</code> - Clean
+Rmarkdown HTML Document</h2>
+<h3 id="description-1">Description</h3>
+<p>Clean HTML documents with R Markdown.</p>
+<h3 id="usage-1">Usage</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_document_clean</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  ...,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">theme =</span> <span class="st">&quot;no-class&quot;</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">css =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">toc =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">toc_depth =</span> <span class="dv">3</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">title_in_header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mathjax =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">use_fontawesome =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">10</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">7</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig_retina =</span> <span class="dv">2</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">dev =</span> <span class="st">&quot;png&quot;</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">highlight =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">extra_dependencies =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">self_contained =</span> <span class="sc">!</span><span class="fu">is.null</span>(theme)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<h3 id="arguments">Arguments</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd" data-valign="top">
+<td>
+<code>theme</code>
+</td>
+<td>
+<p>
+The class-less CSS theme to use, one of <code>cleanrmd_themes()</code>.
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>css</code>
+</td>
+<td>
+<p>
+CSS and/or Sass files to include. Files with an extension of .sass or
+.scss are compiled to CSS via <code>sass::sass()</code>. Also, if
+<code>theme</code> is a <code>bslib::bs_theme()</code> object, Sass code
+may reference the relevant Bootstrap Sass variables, functions, mixins,
+etc.
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>toc</code>
+</td>
+<td>
+<p>
+<code>TRUE</code> to include a table of contents in the output
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>toc_depth</code>
+</td>
+<td>
+<p>
+Depth of headers to include in table of contents
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>title_in_header</code>
+</td>
+<td>
+<p>
+If <code>TRUE</code> (default), the title, subtitle, author, and date
+are placed in a <code
+style="white-space: pre;">⁠&lt;header&gt;⁠</code> tag. This is
+semantically correct HTML but some CSS frameworks work better with this
+structure than others.
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>mathjax</code>
+</td>
+<td>
+<p>
+Include mathjax. The “default” option uses an https URL from a MathJax
+CDN. The “local” option uses a local version of MathJax (which is copied
+into the output directory). You can pass an alternate URL or pass
+<code>NULL</code> to exclude MathJax entirely.
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>use_fontawesome</code>
+</td>
+<td>
+<p>
+Should links to FontAwesome be included in the HTML document’s
+<code style="white-space: pre;">⁠&lt;head&gt;⁠</code>? Only enable if you
+are including FontAwesome icons in your HTML document.
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>fig_width</code>
+</td>
+<td>
+<p>
+Default width (in inches) for figures
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>fig_height</code>
+</td>
+<td>
+<p>
+Default height (in inches) for figures
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>fig_retina</code>
+</td>
+<td>
+<p>
+Scaling to perform for retina displays (defaults to 2, which currently
+works for all widely used retina displays). Set to <code>NULL</code> to
+prevent retina scaling. Note that this will always be <code>NULL</code>
+when <code>keep_md</code> is specified (this is because
+<code>fig_retina</code> relies on outputting HTML directly into the
+markdown document).
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>keep_md</code>
+</td>
+<td>
+<p>
+Keep the markdown file generated by knitting.
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>dev</code>
+</td>
+<td>
+<p>
+Graphics device to use for figure output (defaults to png)
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>highlight</code>
+</td>
+<td>
+<p>
+Syntax highlight engine and style, either a built-in Pandoc highlighting
+theme, a theme provided by <span class="pkg">rmarkdown</span>, or a <a
+href="https://prismjs.com/index.html">prismjs</a> theme (see below).
+Pass <code>NULL</code> to prevent syntax highlighting.
+</p>
+<p>
+<strong>Pandoc themes.</strong> By default, uses Pandoc’s highlighting
+style. Pandoc’s built-in styles include “tango”, “pygments”, “kate”,
+“monochrome”, “espresso”, “zenburn”, “haddock” and “breezedark”.
+</p>
+<p>
+Two custom styles are also included, “arrow”, an accessible color
+scheme, and “rstudio”, which mimics the default IDE theme.
+Alternatively, supply a path to a <code>.theme</code> to use <a
+href="https://pandoc.org/MANUAL.html#syntax-highlighting">a custom
+Pandoc style</a>. Note that custom themes require Pandoc 2.0+.
+</p>
+<p>
+<strong>Prism themes.</strong> To use the <a
+href="https://prismjs.com/index.html">prismjs</a> syntax highlighter,
+pass one of “prism”, “prism-coy”, “prism-dark”, “prism-funky”,
+“prism-okaidia”, “prism-solarizedlight”, “prism-tomorrow”, or
+“prism-twilight”. To use an alternate Prism theme file, pass the URL or
+path to the theme’s CSS file prefixed with “prism:”, e.g.
+<code>prism:my-theme.css</code>. Note that the Prism dependencies are
+not embedded into self-contained documents so they will require an
+active internet connection to work.
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>pandoc_args</code>
+</td>
+<td>
+<p>
+Additional command line options to pass to pandoc
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>extra_dependencies, …</code>
+</td>
+<td>
+<p>
+Additional function arguments to pass to the base R Markdown HTML output
+formatter <code>html_document_base</code>
+</p>
+</td>
+</tr>
+<tr class="even" data-valign="top">
+<td>
+<code>md_extensions</code>
+</td>
+<td>
+<p>
+Markdown extensions to be added or removed from the default definition
+of R Markdown. See the <code>rmarkdown_format</code> for additional
+details.
+</p>
+</td>
+</tr>
+<tr class="odd" data-valign="top">
+<td>
+<code>self_contained</code>
+</td>
+<td>
+<p>
+Produce a standalone HTML file with no external dependencies, using
+data: URIs to incorporate the contents of linked scripts, stylesheets,
+images, and videos. Note that even for self contained documents MathJax
+is still loaded externally (this is necessary because of its size).
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="value-1">Value</h3>
+<p>An R Markdown output format that can be used with <code
+style="white-space: pre;">⁠output:⁠</code> in an <code>.Rmd</code> or for
+use with <code>rmarkdown::render()</code>.</p>
+<h3 id="mathjax">MathJax</h3>
+<p>Note that MathJax is disabled by default to reduce the overall size
+of the final document. You can enable MathJax by setting
+<code>mathjax = "default"</code>, see
+<code>rmarkdown::html_document()</code> for more options.</p>
+<h3 id="see-also">See Also</h3>
+<p><code>use_cleanrmd()</code> for using cleanrmd themes in places other
+than in R Markdown documents</p>
+<h3 id="examples-1">Examples</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_document_clean</span>()</span></code></pre></div>
+<pre><code>## $knitr
+## $knitr$opts_knit
+## NULL
+## 
+## $knitr$opts_chunk
+## $knitr$opts_chunk$dev
+## [1] &quot;png&quot;
+## 
+## $knitr$opts_chunk$dpi
+## [1] 96
+## 
+## $knitr$opts_chunk$fig.width
+## [1] 10
+## 
+## $knitr$opts_chunk$fig.height
+## [1] 7
+## 
+## $knitr$opts_chunk$fig.retina
+## [1] 2
+## 
+## 
+## $knitr$knit_hooks
+## NULL
+## 
+## $knitr$opts_hooks
+## NULL
+## 
+## $knitr$opts_template
+## NULL
+## 
+## 
+## $pandoc
+## $pandoc$to
+## [1] &quot;html5&quot;
+## 
+## $pandoc$from
+## [1] &quot;markdown+autolink_bare_uris+tex_math_single_backslash&quot;
+## 
+## $pandoc$args
+## [1] &quot;--self-contained&quot;                                                                                                             
+## [2] &quot;--variable&quot;                                                                                                                   
+## [3] &quot;disable-fontawesome&quot;                                                                                                          
+## [4] &quot;--variable&quot;                                                                                                                   
+## [5] &quot;title-in-header&quot;                                                                                                              
+## [6] &quot;--highlight-style&quot;                                                                                                            
+## [7] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/highlight/arrow.theme&quot;                                        
+## [8] &quot;--template&quot;                                                                                                                   
+## [9] &quot;/private/var/folders/zw/8z2vpz1s0cl3gwpyh5p72mwh0000gn/T/RtmprVHgQT/temp_libpath17e4f393c89fe/cleanrmd/template/cleanrmd.html&quot;
+## 
+## $pandoc$keep_tex
+## [1] FALSE
+## 
+## $pandoc$latex_engine
+## [1] &quot;pdflatex&quot;
+## 
+## $pandoc$ext
+## NULL
+## 
+## $pandoc$lua_filters
+## [1] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/lua/pagebreak.lua&quot;
+## [2] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/lua/latex-div.lua&quot;
+## 
+## 
+## $keep_md
+## [1] FALSE
+## 
+## $clean_supporting
+## [1] TRUE
+## 
+## $df_print
+## NULL
+## 
+## $pre_knit
+## function (input, ...) 
+## {
+##     if (is_bs_theme(theme)) {
+##         for (f in css) theme &lt;&lt;- bslib::bs_add_rules(theme, xfun::read_utf8(f))
+##         css &lt;&lt;- NULL
+##         old_theme &lt;&lt;- bslib::bs_global_set(theme)
+##     }
+## }
+## &lt;bytecode: 0x7fe01aa29098&gt;
+## &lt;environment: 0x7fe01d5128a8&gt;
+## 
+## $post_knit
+## function (metadata, input_file, runtime, ...) 
+## {
+## }
+## &lt;bytecode: 0x7fe01aa2c368&gt;
+## &lt;environment: 0x7fe01d5128a8&gt;
+## 
+## $pre_processor
+## function (metadata, input_file, runtime, knit_meta, files_dir, 
+##     output_dir) 
+## {
+##     args &lt;- c()
+##     if (is.null(lib_dir)) 
+##         lib_dir &lt;&lt;- files_dir
+##     output_dir &lt;&lt;- output_dir
+##     if (!is.null(theme)) {
+##         theme_arg &lt;- if (is.list(theme)) 
+##             &quot;bootstrap&quot;
+##         else theme
+##         args &lt;- c(args, pandoc_variable_arg(&quot;theme&quot;, theme_arg))
+##     }
+##     for (f in css) {
+##         if (grepl(&quot;\\.s[ac]ss$&quot;, f)) {
+##             if (!xfun::loadable(&quot;sass&quot;)) {
+##                 stop2(&quot;Using `.sass` or `.scss` file in `css` argument requires the sass package.&quot;)
+##             }
+##             f &lt;- sass::sass(sass::sass_file(f), output = sass::output_template(basename = xfun::sans_ext(basename(f)), 
+##                 dirname = &quot;sass&quot;, path = lib_dir), options = sass::sass_options(output_style = &quot;compressed&quot;))
+##             f &lt;- normalized_relative_to(output_dir, f)
+##         }
+##         args &lt;- c(args, &quot;--css&quot;, pandoc_path_arg(f, backslash = FALSE))
+##     }
+##     math_support &lt;- add_math_support(math, template, lib_dir, 
+##         output_dir)
+##     args &lt;- c(args, math_support$args)
+##     extra_dependencies &lt;- c(extra_dependencies, math_support$extra_dependencies)
+##     format_deps &lt;- list()
+##     format_deps &lt;- append(format_deps, html_dependency_header_attrs())
+##     if (!is.null(theme)) {
+##         format_deps &lt;- append(format_deps, list(html_dependency_jquery()))
+##         if (is_bs_theme(theme)) {
+##             theme &lt;- bslib::bs_global_get()
+##         }
+##         bootstrap_deps &lt;- if (is_bs_theme(theme) &amp;&amp; is_shiny(runtime, 
+##             metadata[[&quot;server&quot;]])) {
+##             list(shiny_bootstrap_lib(theme))
+##         }
+##         else {
+##             bootstrap_dependencies(theme)
+##         }
+##         format_deps &lt;- append(format_deps, htmltools::resolveDependencies(bootstrap_deps))
+##     }
+##     else if (isTRUE(bootstrap_compatible) &amp;&amp; is_shiny(runtime, 
+##         metadata[[&quot;server&quot;]])) {
+##         format_deps &lt;- append(format_deps, bootstrap_dependencies(&quot;bootstrap&quot;))
+##     }
+##     format_deps &lt;- append(format_deps, extra_dependencies)
+##     extras &lt;- html_extras_for_document(knit_meta, runtime, dependency_resolver, 
+##         format_deps)
+##     args &lt;- c(args, pandoc_html_extras_args(extras, self_contained, 
+##         lib_dir, output_dir))
+##     preserved_chunks &lt;&lt;- extract_preserve_chunks(input_file)
+##     args
+## }
+## &lt;bytecode: 0x7fe01aa2bd80&gt;
+## &lt;environment: 0x7fe01d5128a8&gt;
+## 
+## $intermediates_generator
+## function (original_input, intermediates_dir) 
+## {
+##     copy_render_intermediates(original_input, intermediates_dir, 
+##         !self_contained)
+## }
+## &lt;bytecode: 0x7fe01aa31b88&gt;
+## &lt;environment: 0x7fe01d5128a8&gt;
+## 
+## $post_processor
+## function (metadata, input_file, output_file, clean, verbose) 
+## {
+##     if (identical(math_method, &quot;r-katex&quot;) &amp;&amp; xfun::pkg_available(&quot;katex&quot;, 
+##         &quot;1.4.0&quot;)) {
+##         katex::render_math_in_html(output_file, output = output_file)
+##     }
+##     output_str &lt;- read_utf8(output_file)
+##     s1 &lt;- &quot;&lt;span class=\&quot;sc\&quot;&gt;|&lt;/span&gt;&lt;span class=\&quot;er\&quot;&gt;&amp;gt;&lt;/span&gt;&quot;
+##     s2 &lt;- &quot;&lt;span class=\&quot;ot\&quot;&gt;=&lt;/span&gt;&lt;span class=\&quot;er\&quot;&gt;&amp;gt;&lt;/span&gt;&quot;
+##     if ((length(preserved_chunks) == 0 &amp;&amp; !isTRUE(copy_resources) &amp;&amp; 
+##         self_contained) &amp;&amp; !length(c(grep(s1, output_str, fixed = TRUE), 
+##         grep(s2, output_str, fixed = TRUE)))) 
+##         return(output_file)
+##     if (length(preserved_chunks) &gt; 0) {
+##         for (i in names(preserved_chunks)) {
+##             output_str &lt;- gsub(paste0(&quot;&lt;p&gt;&quot;, i, &quot;&lt;/p&gt;&quot;), i, output_str, 
+##                 fixed = TRUE, useBytes = TRUE)
+##             output_str &lt;- gsub(paste0(&quot; id=\&quot;[^\&quot;]*?&quot;, i, &quot;[^\&quot;]*?\&quot; &quot;), 
+##                 &quot; &quot;, output_str, useBytes = TRUE)
+##         }
+##         output_str &lt;- restorePreserveChunks(output_str, preserved_chunks)
+##     }
+##     if (copy_resources) {
+##         output_str &lt;- copy_html_resources(one_string(output_str), 
+##             lib_dir, output_dir)
+##     }
+##     else if (!self_contained) {
+##         image_relative &lt;- function(img_src, src) {
+##             in_file &lt;- utils::URLdecode(src)
+##             if (grepl(&quot;^[.][.]&quot;, in_file)) 
+##                 return(img_src)
+##             if (length(in_file) &amp;&amp; file.exists(in_file)) {
+##                 img_src &lt;- sub(src, utils::URLencode(normalized_relative_to(output_dir, 
+##                   in_file)), img_src, fixed = TRUE)
+##             }
+##             img_src
+##         }
+##         output_str &lt;- process_images(output_str, image_relative)
+##     }
+##     output_str &lt;- gsub(s1, &quot;&lt;span class=\&quot;sc\&quot;&gt;|&amp;gt;&lt;/span&gt;&quot;, 
+##         output_str, fixed = TRUE)
+##     output_str &lt;- gsub(s2, &quot;&lt;span class=\&quot;ot\&quot;&gt;=&amp;gt;&lt;/span&gt;&quot;, 
+##         output_str, fixed = TRUE)
+##     write_utf8(output_str, output_file)
+##     output_file
+## }
+## &lt;bytecode: 0x7fe01aa30ff0&gt;
+## &lt;environment: 0x7fe01d5128a8&gt;
+## 
+## $on_exit
+## function () 
+## {
+##     if (is.function(base)) 
+##         base()
+##     if (is.function(overlay)) 
+##         overlay()
+## }
+## &lt;bytecode: 0x7fe01aaf2750&gt;
+## &lt;environment: 0x7fe01d55f2a0&gt;
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;rmarkdown_output_format&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;input.Rmd&quot;</span>, <span class="fu">html_document_clean</span>())</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="use_cleanrmd"><code>use_cleanrmd()</code> - Use a clean CSS
+theme from cleanrmd</h2>
+<h3 id="description-2">Description</h3>
+<p>Provides a <span class="pkg">cleanrmd</span> CSS theme using <span
+class="pkg">htmltools</span>. You can use this CSS theme anywhere that
+HTML dependencies are handled via
+<code>htmltools::htmlDependency()</code>, for example in R Markdown or
+Quarto documents or in Shiny apps.</p>
+<h3 id="usage-2">Usage</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_cleanrmd</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<h3 id="arguments-1">Arguments</h3>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 95%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>name</code></td>
+<td>The name of the theme, see <code>cleanrmd_themes()</code> for a list
+of available themes. If <code>NULL</code>, all themes will be loaded
+with a simple drop down theme picker.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="value-2">Value</h3>
+<p><code>use_cleanrmd()</code> returns an
+<code>htmltools::tagList()</code> with an
+<code>htmltools::htmlDependency()</code>.
+<code>cleanrmd_theme_dependency()</code> returns only the
+<code>htmltools::htmlDependency()</code>.</p>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><p><code>use_cleanrmd</code>: Use a clean CSS theme in the current
+document or app (general usage)</p></li>
+<li><p><code>cleanrmd_theme_dependency</code>: Use a clean CSS theme
+dependency (advanced usage)</p></li>
+</ul>
+<h3 id="r-markdown-documents">R Markdown documents</h3>
+<p>In <a href="https://rmarkdown.rstudio.com/">R Markdown</a> (static or
+Shiny prerendered), you should use the
+<code>html_document_clean()</code> output format to use a cleanrmd
+theme.</p>
+<div class="sourceCode markdown">
+<pre><code>---
+output:
+  cleanrmd::html_document_clean:
+    theme: NULL # or pick a specific theme
+    self_contained: false
+---</code></pre>
+</div>
+<h3 id="quarto-documents">Quarto documents</h3>
+<p>You can also use <span class="pkg">cleanrmd</span> in <a
+href="https://quarto.org/">Quarto</a> documents or apps (using
+<code>server: shiny</code>). You'll need to turn off the themes provided
+by Quarto with <code>theme: none</code> and then call
+<code>cleanrmd::use_cleanrmd()</code> in a code chunk in your
+document.</p>
+<div class="sourceCode markdown">
+<pre><code>---
+title: &quot;Untitled&quot;
+format:
+  html:
+    theme: none
+#server: shiny
+---</code></pre>
+</div>
+<h3 id="shiny-apps">Shiny apps</h3>
+<p>In Shiny apps, you'll need to use <code>shiny::basicPage()</code>
+rather than <code>shiny::fluidPage()</code>. Then call
+<code>use_cleanrmd()</code> in your app to use a cleanrmd theme.</p>
+<div class="sourceCode r">
+<pre><code>library(shiny)
+
+ui &lt;- shiny::basicPage(
+  cleanrmd::use_cleanrmd(),
+
+  h2(&quot;Old Faithful Geyser Data&quot;),
+
+  sliderInput(
+    &quot;bins&quot;,
+    &quot;Number of bins:&quot;,
+    min = 1,
+    max = 50,
+    value = 30
+  ),
+  plotOutput(&quot;distPlot&quot;)
+)</code></pre>
+</div>
+<h3 id="examples-2">Examples</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">withTags</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">main</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h2</span>(<span class="st">&quot;Small Demo&quot;</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="st">&quot;Clean, simple, classy but class-less:&quot;</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ul</span>(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Works almost anywhere&quot;</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Small and simple&quot;</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Easy to extend&quot;</span>),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Good enough but not perfect&quot;</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># no styles</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># all clean styles</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>page_clean <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>())</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_clean)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># one clean style</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>page_water <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>(<span class="st">&quot;water&quot;</span>))</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_water)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="st">&quot;bamboo&quot;</span>)</span></code></pre></div>
+<pre><code>## List of 10
+##  $ name      : chr &quot;cleanrmd&quot;
+##  $ version   : chr &quot;0.1.0&quot;
+##  $ src       :List of 1
+##   ..$ file: chr &quot;resources/bamboo&quot;
+##  $ meta      : NULL
+##  $ script    : NULL
+##  $ stylesheet: chr &quot;bamboo.css&quot;
+##  $ head      : NULL
+##  $ attachment: NULL
+##  $ package   : chr &quot;cleanrmd&quot;
+##  $ all_files : logi TRUE
+##  - attr(*, &quot;class&quot;)= chr &quot;html_dependency&quot;</code></pre>
+
+</main>
+
+
+
+</body>
+</html>
