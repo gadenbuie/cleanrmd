@@ -25,8 +25,8 @@ set.seed(42)
 metathis::meta_social(
   title = rmarkdown::metadata$title,
   description = rmarkdown::metadata$subtitle,
-  url = "https://pkg.garricakdenbuie.com/cleanrmd/",
-  image = "https://pkg.garricakdenbuie.com/cleanrmd/cleanrmd-social.png",
+  url = "https://pkg.garrickadenbuie.com/cleanrmd/",
+  image = "https://pkg.garrickadenbuie.com/cleanrmd/cleanrmd-social.png",
   image_alt = "cleanrmd: shows an array of screenshots of a simple R Markdown report in a variety of styles, fanned out like a hand of cards.",
   twitter_card_type = "summary_large_image",
   twitter_creator = "@grrrck"
