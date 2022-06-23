@@ -95,21 +95,25 @@ $include-before$
 $endfor$
 
 <main>
-$if(title-in-header)$<header>$else$$endif$
-$if(title)$
-<h1 id="title" class="toc-ignore">$title$</h1>
-$endif$
-$if(subtitle)$
-<h2 id="subtitle" class="toc-ignore">$subtitle$</h2>
-$endif$
-$if(date)$
-<p id="date">$date$</p>
-$endif$
-$if(author)$
-<p id="author">$for(author)$$author$$sep$, $endfor$</p>
+ 
+$if(title-in-header)$
+<header>
+  $if(title)$
+  <h1 id="title" class="toc-ignore">$title$</h1>
+  $endif$
+  $if(subtitle)$
+  <h2 id="subtitle" class="toc-ignore">$subtitle$</h2>
+  $endif$
+  $if(date)$
+  <p id="date">$date$</p>
+  $endif$
+  $if(author)$
+  <p id="author">$for(author)$$author$$sep$, $endfor$</p>
+  $endif$
+</header>
+$else$
 $endif$
 
-$if(title-in-header)$</header>$else$$endif$
 $if(toc)$$toc$$endif$
 
 $body$
