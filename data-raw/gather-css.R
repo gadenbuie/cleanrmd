@@ -1,4 +1,3 @@
-
 # Run with wd == "cleanrmd"
 
 stopifnot("DESCRIPTION" %in% dir(getwd()))
