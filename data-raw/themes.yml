@@ -65,6 +65,18 @@
       dest: fonts//LM-regular.woff
     - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/LM-regular.woff2
       dest: fonts//LM-regular.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-bold-italic.woff2
+      dest: fonts//Libertinus-bold-italic.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-bold.woff2
+      dest: fonts//Libertinus-bold.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-italic.woff2
+      dest: fonts//Libertinus-italic.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-regular.woff2
+      dest: fonts//Libertinus-regular.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-semibold-italic.woff2
+      dest: fonts//Libertinus-semibold-italic.woff2
+    - src: https://github.com/vincentdoerig/latex-css/raw/master/fonts/Libertinus-semibold.woff2
+      dest: fonts//Libertinus-semibold.woff2
 
 - name: markdown-splendor
   url: http://markdowncss.github.io/splendor/
