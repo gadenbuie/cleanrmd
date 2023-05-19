@@ -1,4 +1,4 @@
-# cleanrmd (development version)
+# cleanrmd 0.1.1
 
 * The `html_document_clean()` template now sets a few fallback CSS rules
   _before_ loading the framework's CSS bundle. This should make the CSS
