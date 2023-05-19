@@ -133,7 +133,7 @@ preview [all 30 themes in one place
 here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 
 - [almond](https://github.com/alvaromontoro/almond.css)
-- [awsm.css](https://igoradamenko.github.io/awsm.css/)
+- [awsm.css](https://github.com/schollz/awsm.css)
 - [axist](https://ruanmartinelli.github.io/axist/)
 - [bamboo](https://rilwis.github.io/bamboo/)
 - [bullframe](https://marcopontili.com/projects/bullframe-css/)

@@ -69,7 +69,7 @@ A character string of available theme names.
 
 - [almond](https://github.com/alvaromontoro/almond.css)
 
-- [awsm.css](https://igoradamenko.github.io/awsm.css/)
+- [awsm.css](https://github.com/schollz/awsm.css)
 
 - [axist](https://ruanmartinelli.github.io/axist/)
 

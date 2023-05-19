@@ -4,7 +4,7 @@
   file: almond.css
 
 - name: awsm.css
-  url: https://igoradamenko.github.io/awsm.css/
+  url: https://github.com/schollz/awsm.css
   src: https://unpkg.com/awsm.css/dist/awsm.min.css
   file: awsm.css
 
