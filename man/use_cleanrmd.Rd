@@ -27,12 +27,12 @@ or in Shiny apps.
 }
 \section{Functions}{
 \itemize{
-\item \code{use_cleanrmd}: Use a clean CSS theme in the current document or app
+\item \code{use_cleanrmd()}: Use a clean CSS theme in the current document or app
 (general usage)
 
-\item \code{cleanrmd_theme_dependency}: Use a clean CSS theme dependency (advanced usage)
-}}
+\item \code{cleanrmd_theme_dependency()}: Use a clean CSS theme dependency (advanced usage)
 
+}}
 \section{R Markdown documents}{
 
 
@@ -74,7 +74,7 @@ cleanrmd::use_cleanrmd("bamboo")
 \section{Shiny apps}{
 
 
-In Shiny apps, you'll need to use \code{\link[shiny:basicPage]{shiny::basicPage()}} rather than
+In Shiny apps, you'll need to use \code{\link[shiny:bootstrapPage]{shiny::basicPage()}} rather than
 \code{\link[shiny:fluidPage]{shiny::fluidPage()}}. Then call \code{use_cleanrmd()} in your app to use a
 cleanrmd theme.
 
