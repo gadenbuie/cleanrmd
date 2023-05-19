@@ -67,65 +67,65 @@ A character string of available theme names.
 
 [cleanrmd]{.pkg} includes the following no-class CSS themes:
 
--   [almond](https://github.com/alvaromontoro/almond.css)
+- [almond](https://github.com/alvaromontoro/almond.css)
 
--   [awsm.css](https://igoradamenko.github.io/awsm.css/)
+- [awsm.css](https://igoradamenko.github.io/awsm.css/)
 
--   [axist](https://ruanmartinelli.github.io/axist/)
+- [axist](https://ruanmartinelli.github.io/axist/)
 
--   [bamboo](https://rilwis.github.io/bamboo/)
+- [bamboo](https://rilwis.github.io/bamboo/)
 
--   [bullframe](https://marcopontili.com/projects/bullframe-css/)
+- [bullframe](https://marcopontili.com/projects/bullframe-css/)
 
--   [holiday](https://holidaycss.js.org/)
+- [holiday](https://holidaycss.js.org/)
 
--   [kacit](https://hakanalpay.com/kacit/)
+- [kacit](https://hakanalpay.com/kacit/)
 
--   [latex.css](https://github.com/vincentdoerig/latex-css)
+- [latex.css](https://github.com/vincentdoerig/latex-css)
 
--   [markdown-splendor](http://markdowncss.github.io/splendor/)
+- [markdown-splendor](http://markdowncss.github.io/splendor/)
 
--   [markdown-retro](http://markdowncss.github.io/retro/)
+- [markdown-retro](http://markdowncss.github.io/retro/)
 
--   [markdown-air](http://markdowncss.github.io/air/)
+- [markdown-air](http://markdowncss.github.io/air/)
 
--   [markdown-modest](http://markdowncss.github.io/modest/)
+- [markdown-modest](http://markdowncss.github.io/modest/)
 
--   [marx](https://mblode.github.io/marx/)
+- [marx](https://mblode.github.io/marx/)
 
--   [minicss](https://minicss.us/)
+- [minicss](https://minicss.us/)
 
--   [new.css](https://newcss.net/)
+- [new.css](https://newcss.net/)
 
--   [no-class](https://davidpaulsson.github.io/no-class/)
+- [no-class](https://davidpaulsson.github.io/no-class/)
 
--   [picocss](https://picocss.com/)
+- [picocss](https://picocss.com/)
 
--   [sakura](https://oxal.org/projects/sakura/)
+- [sakura](https://oxal.org/projects/sakura/)
 
--   [sakura-vader](https://oxal.org/projects/sakura/)
+- [sakura-vader](https://oxal.org/projects/sakura/)
 
--   [semantic](https://dimitrinicolas.github.io/semantic.css/)
+- [semantic](https://dimitrinicolas.github.io/semantic.css/)
 
--   [simplecss](https://simplecss.org/)
+- [simplecss](https://simplecss.org/)
 
--   [style-sans](https://ungoldman.com/style.css/)
+- [style-sans](https://ungoldman.com/style.css/)
 
--   [style-serif](https://ungoldman.com/style.css/)
+- [style-serif](https://ungoldman.com/style.css/)
 
--   [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
+- [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
 
--   [superstylin](https://caiogondim.github.io/superstylin/)
+- [superstylin](https://caiogondim.github.io/superstylin/)
 
--   [tacit](https://yegor256.github.io/tacit/)
+- [tacit](https://yegor256.github.io/tacit/)
 
--   [vanilla](https://vanillacss.com/)
+- [vanilla](https://vanillacss.com/)
 
--   [water](https://kognise.github.io/water.css/)
+- [water](https://kognise.github.io/water.css/)
 
--   [water-dark](https://kognise.github.io/water.css/)
+- [water-dark](https://kognise.github.io/water.css/)
 
--   [writ](https://writ.cmcenroe.me/)
+- [writ](https://writ.cmcenroe.me/)
 
 ### Examples
 
@@ -361,11 +361,11 @@ only the `htmltools::htmlDependency()`.
 
 ### Functions
 
--   `use_cleanrmd()`: Use a clean CSS theme in the current document or
-    app (general usage)
+- `use_cleanrmd()`: Use a clean CSS theme in the current document or app
+  (general usage)
 
--   `cleanrmd_theme_dependency()`: Use a clean CSS theme dependency
-    (advanced usage)
+- `cleanrmd_theme_dependency()`: Use a clean CSS theme dependency
+  (advanced usage)
 
 ### R Markdown documents
 
