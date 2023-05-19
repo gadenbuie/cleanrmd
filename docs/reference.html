@@ -533,237 +533,14 @@ of the final document. You can enable MathJax by setting
 <p><code>use_cleanrmd()</code> for using cleanrmd themes in places other
 than in R Markdown documents</p>
 <h3 id="examples-1">Examples</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">html_document_clean</span>()</span></code></pre></div>
-<pre><code>## $knitr
-## $knitr$opts_knit
-## NULL
-## 
-## $knitr$opts_chunk
-## $knitr$opts_chunk$dev
-## [1] &quot;png&quot;
-## 
-## $knitr$opts_chunk$dpi
-## [1] 96
-## 
-## $knitr$opts_chunk$fig.width
-## [1] 10
-## 
-## $knitr$opts_chunk$fig.height
-## [1] 7
-## 
-## $knitr$opts_chunk$fig.retina
-## [1] 2
-## 
-## 
-## $knitr$knit_hooks
-## NULL
-## 
-## $knitr$opts_hooks
-## NULL
-## 
-## $knitr$opts_template
-## NULL
-## 
-## 
-## $pandoc
-## $pandoc$to
-## [1] &quot;html5&quot;
-## 
-## $pandoc$from
-## [1] &quot;markdown+autolink_bare_uris+tex_math_single_backslash&quot;
-## 
-## $pandoc$args
-## [1] &quot;--self-contained&quot;                                                                                                            
-## [2] &quot;--variable&quot;                                                                                                                  
-## [3] &quot;disable-fontawesome&quot;                                                                                                         
-## [4] &quot;--variable&quot;                                                                                                                  
-## [5] &quot;title-in-header&quot;                                                                                                             
-## [6] &quot;--highlight-style&quot;                                                                                                           
-## [7] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/highlight/arrow.theme&quot;                                       
-## [8] &quot;--template&quot;                                                                                                                  
-## [9] &quot;/private/var/folders/zw/8z2vpz1s0cl3gwpyh5p72mwh0000gn/T/Rtmpov7NKE/temp_libpath71d235b7717a/cleanrmd/template/cleanrmd.html&quot;
-## 
-## $pandoc$keep_tex
-## [1] FALSE
-## 
-## $pandoc$latex_engine
-## [1] &quot;pdflatex&quot;
-## 
-## $pandoc$ext
-## NULL
-## 
-## $pandoc$convert_fun
-## NULL
-## 
-## $pandoc$lua_filters
-## [1] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/lua/pagebreak.lua&quot;
-## [2] &quot;/Users/garrick/Library/R/x86_64/4.2/library/rmarkdown/rmarkdown/lua/latex-div.lua&quot;
-## 
-## 
-## $keep_md
-## [1] FALSE
-## 
-## $clean_supporting
-## [1] TRUE
-## 
-## $df_print
-## NULL
-## 
-## $pre_knit
-## function (input, ...) 
-## {
-##     if (is_bs_theme(theme)) {
-##         for (f in css) theme &lt;&lt;- bslib::bs_add_rules(theme, xfun::read_utf8(f))
-##         css &lt;&lt;- NULL
-##         old_theme &lt;&lt;- bslib::bs_global_set(theme)
-##     }
-## }
-## &lt;bytecode: 0x7f889ace8b90&gt;
-## &lt;environment: 0x7f8899affb48&gt;
-## 
-## $post_knit
-## function (metadata, input_file, runtime, ...) 
-## {
-## }
-## &lt;bytecode: 0x7f889ace7f50&gt;
-## &lt;environment: 0x7f8899affb48&gt;
-## 
-## $pre_processor
-## function (metadata, input_file, runtime, knit_meta, files_dir, 
-##     output_dir) 
-## {
-##     args &lt;- c()
-##     if (is.null(lib_dir)) 
-##         lib_dir &lt;&lt;- files_dir
-##     output_dir &lt;&lt;- output_dir
-##     if (!is.null(theme)) {
-##         theme_arg &lt;- if (is.list(theme)) 
-##             &quot;bootstrap&quot;
-##         else theme
-##         args &lt;- c(args, pandoc_variable_arg(&quot;theme&quot;, theme_arg))
-##     }
-##     for (f in css) {
-##         if (grepl(&quot;\\.s[ac]ss$&quot;, f)) {
-##             if (!xfun::loadable(&quot;sass&quot;)) {
-##                 stop2(&quot;Using `.sass` or `.scss` file in `css` argument requires the sass package.&quot;)
-##             }
-##             f &lt;- sass::sass(sass::sass_file(f), output = sass::output_template(basename = xfun::sans_ext(basename(f)), 
-##                 dirname = &quot;sass&quot;, path = lib_dir), options = sass::sass_options(output_style = &quot;compressed&quot;))
-##             f &lt;- normalized_relative_to(output_dir, f)
-##         }
-##         args &lt;- c(args, &quot;--css&quot;, pandoc_path_arg(f, backslash = FALSE))
-##     }
-##     math_support &lt;- add_math_support(math, template, lib_dir, 
-##         output_dir)
-##     args &lt;- c(args, math_support$args)
-##     extra_dependencies &lt;- c(extra_dependencies, math_support$extra_dependencies)
-##     format_deps &lt;- list()
-##     format_deps &lt;- append(format_deps, html_dependency_header_attrs())
-##     if (!is.null(theme)) {
-##         format_deps &lt;- append(format_deps, list(html_dependency_jquery()))
-##         if (is_bs_theme(theme)) {
-##             theme &lt;- bslib::bs_global_get()
-##         }
-##         bootstrap_deps &lt;- if (is_bs_theme(theme) &amp;&amp; is_shiny(runtime, 
-##             metadata[[&quot;server&quot;]])) {
-##             list(shiny_bootstrap_lib(theme))
-##         }
-##         else {
-##             bootstrap_dependencies(theme)
-##         }
-##         format_deps &lt;- append(format_deps, htmltools::resolveDependencies(bootstrap_deps))
-##     }
-##     else if (isTRUE(bootstrap_compatible) &amp;&amp; is_shiny(runtime, 
-##         metadata[[&quot;server&quot;]])) {
-##         format_deps &lt;- append(format_deps, bootstrap_dependencies(&quot;bootstrap&quot;))
-##     }
-##     format_deps &lt;- append(format_deps, extra_dependencies)
-##     extras &lt;- html_extras_for_document(knit_meta, runtime, dependency_resolver, 
-##         format_deps)
-##     args &lt;- c(args, pandoc_html_extras_args(extras, self_contained, 
-##         lib_dir, output_dir))
-##     preserved_chunks &lt;&lt;- extract_preserve_chunks(input_file)
-##     args
-## }
-## &lt;bytecode: 0x7f889aceb7d0&gt;
-## &lt;environment: 0x7f8899affb48&gt;
-## 
-## $intermediates_generator
-## function (original_input, intermediates_dir) 
-## {
-##     copy_render_intermediates(original_input, intermediates_dir, 
-##         !self_contained)
-## }
-## &lt;bytecode: 0x7f889acedc78&gt;
-## &lt;environment: 0x7f8899affb48&gt;
-## 
-## $post_processor
-## function (metadata, input_file, output_file, clean, verbose) 
-## {
-##     if (identical(math_method, &quot;r-katex&quot;) &amp;&amp; xfun::pkg_available(&quot;katex&quot;, 
-##         &quot;1.4.0&quot;)) {
-##         katex::render_math_in_html(output_file, output = output_file)
-##     }
-##     output_str &lt;- read_utf8(output_file)
-##     s1 &lt;- &quot;&lt;span class=\&quot;sc\&quot;&gt;|&lt;/span&gt;&lt;span class=\&quot;er\&quot;&gt;&amp;gt;&lt;/span&gt;&quot;
-##     s2 &lt;- &quot;&lt;span class=\&quot;ot\&quot;&gt;=&lt;/span&gt;&lt;span class=\&quot;er\&quot;&gt;&amp;gt;&lt;/span&gt;&quot;
-##     if ((length(preserved_chunks) == 0 &amp;&amp; !isTRUE(copy_resources) &amp;&amp; 
-##         self_contained) &amp;&amp; !length(c(grep(s1, output_str, fixed = TRUE), 
-##         grep(s2, output_str, fixed = TRUE)))) 
-##         return(output_file)
-##     if (length(preserved_chunks) &gt; 0) {
-##         for (i in names(preserved_chunks)) {
-##             output_str &lt;- gsub(paste0(&quot;&lt;p&gt;&quot;, i, &quot;&lt;/p&gt;&quot;), i, output_str, 
-##                 fixed = TRUE, useBytes = TRUE)
-##             output_str &lt;- gsub(paste0(&quot; id=\&quot;[^\&quot;]*?&quot;, i, &quot;[^\&quot;]*?\&quot; &quot;), 
-##                 &quot; &quot;, output_str, useBytes = TRUE)
-##         }
-##         output_str &lt;- restorePreserveChunks(output_str, preserved_chunks)
-##     }
-##     if (copy_resources) {
-##         output_str &lt;- copy_html_resources(one_string(output_str), 
-##             lib_dir, output_dir)
-##     }
-##     else if (!self_contained) {
-##         image_relative &lt;- function(img_src, src) {
-##             in_file &lt;- utils::URLdecode(src)
-##             if (grepl(&quot;^[.][.]&quot;, in_file)) 
-##                 return(img_src)
-##             if (length(in_file) &amp;&amp; file.exists(in_file)) {
-##                 img_src &lt;- sub(src, utils::URLencode(normalized_relative_to(output_dir, 
-##                   in_file)), img_src, fixed = TRUE)
-##             }
-##             img_src
-##         }
-##         output_str &lt;- process_images(output_str, image_relative)
-##     }
-##     output_str &lt;- gsub(s1, &quot;&lt;span class=\&quot;sc\&quot;&gt;|&amp;gt;&lt;/span&gt;&quot;, 
-##         output_str, fixed = TRUE)
-##     output_str &lt;- gsub(s2, &quot;&lt;span class=\&quot;ot\&quot;&gt;=&amp;gt;&lt;/span&gt;&quot;, 
-##         output_str, fixed = TRUE)
-##     write_utf8(output_str, output_file)
-##     output_file
-## }
-## &lt;bytecode: 0x7f889acf1680&gt;
-## &lt;environment: 0x7f8899affb48&gt;
-## 
-## $on_exit
-## function () 
-## {
-##     if (is.function(base)) 
-##         base()
-##     if (is.function(overlay)) 
-##         overlay()
-## }
-## &lt;bytecode: 0x7f889a951430&gt;
-## &lt;environment: 0x7f8899ef5498&gt;
-## 
-## attr(,&quot;class&quot;)
-## [1] &quot;rmarkdown_output_format&quot;</code></pre>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;input.Rmd&quot;</span>, <span class="fu">html_document_clean</span>())</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_document_clean</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;input.Rmd&quot;</span>, <span class="fu">html_document_clean</span>())</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h2 id="use_cleanrmd"><code>use_cleanrmd()</code> - Use a clean CSS
 theme from cleanrmd</h2>
 <h3 id="description-2">Description</h3>
@@ -773,9 +550,9 @@ HTML dependencies are handled via
 <code>htmltools::htmlDependency()</code>, for example in R Markdown or
 Quarto documents or in Shiny apps.</p>
 <h3 id="usage-2">Usage</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_cleanrmd</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">use_cleanrmd</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="at">name =</span> <span class="cn">NULL</span>)</span></code></pre></div>
 <h3 id="arguments-1">Arguments</h3>
 <table>
 <colgroup>
@@ -856,37 +633,37 @@ ui &lt;- shiny::basicPage(
 )</code></pre>
 </div>
 <h3 id="examples-2">Examples</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">withTags</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">main</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h2</span>(<span class="st">&quot;Small Demo&quot;</span>),</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="st">&quot;Clean, simple, classy but class-less:&quot;</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ul</span>(</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Works almost anywhere&quot;</span>),</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Small and simple&quot;</span>),</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Easy to extend&quot;</span>),</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Good enough but not perfect&quot;</span>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># no styles</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># all clean styles</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>page_clean <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>())</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_clean)</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># one clean style</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>page_water <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>(<span class="st">&quot;water&quot;</span>))</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_water)</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="st">&quot;bamboo&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>page <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">withTags</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">main</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h2</span>(<span class="st">&quot;Small Demo&quot;</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="st">&quot;Clean, simple, classy but class-less:&quot;</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ul</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Works almost anywhere&quot;</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Small and simple&quot;</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Easy to extend&quot;</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">li</span>(<span class="st">&quot;Good enough but not perfect&quot;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># no styles</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># all clean styles</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>page_clean <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>())</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_clean)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="co"># one clean style</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>page_water <span class="ot">&lt;-</span> htmltools<span class="sc">::</span><span class="fu">tagList</span>(page, <span class="fu">use_cleanrmd</span>(<span class="st">&quot;water&quot;</span>))</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">interactive</span>()) {</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  htmltools<span class="sc">::</span><span class="fu">browsable</span>(page_water)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cleanrmd_theme_dependency</span>(<span class="st">&quot;bamboo&quot;</span>)</span></code></pre></div>
 <pre><code>## List of 10
 ##  $ name      : chr &quot;cleanrmd&quot;
 ##  $ version   : chr &quot;0.1.0&quot;

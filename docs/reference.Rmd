@@ -320,7 +320,9 @@ Markdown documents
 ### Examples
 
 ```{r}
-html_document_clean()
+if (interactive()) {
+  html_document_clean()
+}
 
 if (interactive()) {
 rmarkdown::render("input.Rmd", html_document_clean())

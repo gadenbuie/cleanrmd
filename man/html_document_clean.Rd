@@ -121,7 +121,9 @@ overall size of the final document. You can enable MathJax by setting
 }
 
 \examples{
-html_document_clean()
+if (interactive()) {
+  html_document_clean()
+}
 
 \dontrun{
 rmarkdown::render("input.Rmd", html_document_clean())

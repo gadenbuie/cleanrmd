@@ -7,7 +7,9 @@
 #'   `mathjax = "default"`, see [rmarkdown::html_document()] for more options.
 #'
 #' @examples
-#' html_document_clean()
+#' if (interactive()) {
+#'   html_document_clean()
+#' }
 #'
 #' \dontrun{
 #' rmarkdown::render("input.Rmd", html_document_clean())
