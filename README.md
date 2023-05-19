@@ -136,7 +136,7 @@ here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 - [awsm.css](https://github.com/schollz/awsm.css)
 - [axist](https://ruanmartinelli.github.io/axist/)
 - [bamboo](https://rilwis.github.io/bamboo/)
-- [bullframe](https://marcopontili.com/projects/bullframe-css/)
+- [bullframe](https://github.com/marcop135/bullframe.css)
 - [holiday](https://holidaycss.js.org/)
 - [kacit](https://hakanalpay.com/kacit/)
 - [latex.css](https://github.com/vincentdoerig/latex-css)

@@ -75,7 +75,7 @@ A character string of available theme names.
 
 - [bamboo](https://rilwis.github.io/bamboo/)
 
-- [bullframe](https://marcopontili.com/projects/bullframe-css/)
+- [bullframe](https://github.com/marcop135/bullframe.css)
 
 - [holiday](https://holidaycss.js.org/)
 
