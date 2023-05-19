@@ -67,65 +67,65 @@ A character string of available theme names.
 
 [cleanrmd]{.pkg} includes the following no-class CSS themes:
 
--   [almond](https://github.com/alvaromontoro/almond.css)
+- [almond](https://github.com/alvaromontoro/almond.css)
 
--   [awsm.css](https://igoradamenko.github.io/awsm.css/)
+- [awsm.css](https://igoradamenko.github.io/awsm.css/)
 
--   [axist](https://ruanmartinelli.github.io/axist/)
+- [axist](https://ruanmartinelli.github.io/axist/)
 
--   [bamboo](https://rilwis.github.io/bamboo/)
+- [bamboo](https://rilwis.github.io/bamboo/)
 
--   [bullframe](https://marcopontili.com/projects/bullframe-css/)
+- [bullframe](https://marcopontili.com/projects/bullframe-css/)
 
--   [holiday](https://holidaycss.js.org/)
+- [holiday](https://holidaycss.js.org/)
 
--   [kacit](https://hakanalpay.com/kacit/)
+- [kacit](https://hakanalpay.com/kacit/)
 
--   [latex.css](https://github.com/vincentdoerig/latex-css)
+- [latex.css](https://github.com/vincentdoerig/latex-css)
 
--   [markdown-splendor](http://markdowncss.github.io/splendor/)
+- [markdown-splendor](http://markdowncss.github.io/splendor/)
 
--   [markdown-retro](http://markdowncss.github.io/retro/)
+- [markdown-retro](http://markdowncss.github.io/retro/)
 
--   [markdown-air](http://markdowncss.github.io/air/)
+- [markdown-air](http://markdowncss.github.io/air/)
 
--   [markdown-modest](http://markdowncss.github.io/modest/)
+- [markdown-modest](http://markdowncss.github.io/modest/)
 
--   [marx](https://mblode.github.io/marx/)
+- [marx](https://mblode.github.io/marx/)
 
--   [minicss](https://minicss.us/)
+- [minicss](https://minicss.us/)
 
--   [new.css](https://newcss.net/)
+- [new.css](https://newcss.net/)
 
--   [no-class](https://davidpaulsson.github.io/no-class/)
+- [no-class](https://davidpaulsson.github.io/no-class/)
 
--   [picocss](https://picocss.com/)
+- [picocss](https://picocss.com/)
 
--   [sakura](https://oxal.org/projects/sakura/)
+- [sakura](https://oxal.org/projects/sakura/)
 
--   [sakura-vader](https://oxal.org/projects/sakura/)
+- [sakura-vader](https://oxal.org/projects/sakura/)
 
--   [semantic](https://dimitrinicolas.github.io/semantic.css/)
+- [semantic](https://dimitrinicolas.github.io/semantic.css/)
 
--   [simplecss](https://simplecss.org/)
+- [simplecss](https://simplecss.org/)
 
--   [style-sans](https://ungoldman.com/style.css/)
+- [style-sans](https://ungoldman.com/style.css/)
 
--   [style-serif](https://ungoldman.com/style.css/)
+- [style-serif](https://ungoldman.com/style.css/)
 
--   [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
+- [stylize](https://pkg.garrickadenbuie.com/stylize.css/)
 
--   [superstylin](https://caiogondim.github.io/superstylin/)
+- [superstylin](https://caiogondim.github.io/superstylin/)
 
--   [tacit](https://yegor256.github.io/tacit/)
+- [tacit](https://yegor256.github.io/tacit/)
 
--   [vanilla](https://vanillacss.com/)
+- [vanilla](https://vanillacss.com/)
 
--   [water](https://kognise.github.io/water.css/)
+- [water](https://kognise.github.io/water.css/)
 
--   [water-dark](https://kognise.github.io/water.css/)
+- [water-dark](https://kognise.github.io/water.css/)
 
--   [writ](https://writ.cmcenroe.me/)
+- [writ](https://writ.cmcenroe.me/)
 
 ### Examples
 
@@ -172,12 +172,17 @@ html_document_clean(
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="odd" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
+<td><code>...</code></td>
+<td><p>Additional function arguments to pass to the base R Markdown HTML
+output formatter <code>html_document_base</code></p></td>
+</tr>
+<tr class="even" style="vertical-align: top;">
 <td><code>theme</code></td>
 <td><p>The class-less CSS theme to use, one of
 <code>cleanrmd_themes()</code>.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>css</code></td>
 <td><p>CSS and/or Sass files to include. Files with an extension of
 .sass or .scss are compiled to CSS via <code>sass::sass()</code>. Also,
@@ -185,16 +190,16 @@ if <code>theme</code> is a <code>bslib::bs_theme()</code> object, Sass
 code may reference the relevant Bootstrap Sass variables, functions,
 mixins, etc.</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>toc</code></td>
 <td><p><code>TRUE</code> to include a table of contents in the
 output</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>toc_depth</code></td>
 <td><p>Depth of headers to include in table of contents</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>title_in_header</code></td>
 <td><p>If <code>TRUE</code> (default), the title, subtitle, author, and
 date are placed in a <code
@@ -202,28 +207,28 @@ style="white-space: pre;">⁠&lt;header&gt;⁠</code> tag. This is
 semantically correct HTML but some CSS frameworks work better with this
 structure than others.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>mathjax</code></td>
 <td><p>Include mathjax. The "default" option uses an https URL from a
 MathJax CDN. The "local" option uses a local version of MathJax (which
 is copied into the output directory). You can pass an alternate URL or
 pass <code>NULL</code> to exclude MathJax entirely.</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>use_fontawesome</code></td>
 <td><p>Should links to FontAwesome be included in the HTML document's
 <code style="white-space: pre;">⁠&lt;head&gt;⁠</code>? Only enable if you
 are including FontAwesome icons in your HTML document.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>fig_width</code></td>
 <td><p>Default width (in inches) for figures</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>fig_height</code></td>
 <td><p>Default height (in inches) for figures</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>fig_retina</code></td>
 <td><p>Scaling to perform for retina displays (defaults to 2, which
 currently works for all widely used retina displays). Set to
@@ -232,16 +237,16 @@ be <code>NULL</code> when <code>keep_md</code> is specified (this is
 because <code>fig_retina</code> relies on outputting HTML directly into
 the markdown document).</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>keep_md</code></td>
 <td><p>Keep the markdown file generated by knitting.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>dev</code></td>
 <td><p>Graphics device to use for figure output (defaults to
 png)</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>highlight</code></td>
 <td><p>Syntax highlight engine and style, either a built-in Pandoc
 highlighting theme, a theme provided by <span
@@ -267,22 +272,23 @@ path to the theme's CSS file prefixed with "prism:", e.g.
 not embedded into self-contained documents so they will require an
 active internet connection to work.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>pandoc_args</code></td>
 <td><p>Additional command line options to pass to pandoc</p></td>
 </tr>
-<tr class="odd" data-valign="top">
-<td><code>extra_dependencies, ...</code></td>
-<td><p>Additional function arguments to pass to the base R Markdown HTML
-output formatter <code>html_document_base</code></p></td>
+<tr class="even" style="vertical-align: top;">
+<td><code>extra_dependencies</code></td>
+<td><p>Extra dependencies as a list of the <code>html_dependency</code>
+class objects typically generated by
+<code>htmltools:htmlDependency()</code>.</p></td>
 </tr>
-<tr class="even" data-valign="top">
+<tr class="odd" style="vertical-align: top;">
 <td><code>md_extensions</code></td>
 <td><p>Markdown extensions to be added or removed from the default
 definition of R Markdown. See the <code>rmarkdown_format</code> for
 additional details.</p></td>
 </tr>
-<tr class="odd" data-valign="top">
+<tr class="even" style="vertical-align: top;">
 <td><code>self_contained</code></td>
 <td><p>Produce a standalone HTML file with no external dependencies,
 using data: URIs to incorporate the contents of linked scripts,
@@ -314,7 +320,9 @@ Markdown documents
 ### Examples
 
 ```{r}
-html_document_clean()
+if (interactive()) {
+  html_document_clean()
+}
 
 if (interactive()) {
 rmarkdown::render("input.Rmd", html_document_clean())
@@ -353,11 +361,11 @@ only the `htmltools::htmlDependency()`.
 
 ### Functions
 
--   `use_cleanrmd`: Use a clean CSS theme in the current document or app
-    (general usage)
+- `use_cleanrmd()`: Use a clean CSS theme in the current document or app
+  (general usage)
 
--   `cleanrmd_theme_dependency`: Use a clean CSS theme dependency
-    (advanced usage)
+- `cleanrmd_theme_dependency()`: Use a clean CSS theme dependency
+  (advanced usage)
 
 ### R Markdown documents
 

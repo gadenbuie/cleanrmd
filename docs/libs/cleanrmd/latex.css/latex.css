@@ -100,6 +100,54 @@
   box-sizing: border-box;
 }
 
+:root {
+  --body-color: hsl(0, 5%, 10%);
+  --body-bg-color: hsl(210, 20%, 98%);
+  --link-visited: hsl(0, 100%, 33%);
+  --link-focus-outline: hsl(220, 90%, 52%);
+  --pre-bg-color: hsl(210, 28%, 93%);
+  --kbd-bg-color: hsl(210, 5%, 100%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: black;
+  --sidenote-target-border-color: hsl(55, 55%, 70%);
+  --footnotes-border-color: hsl(0, 0%, 39%);
+  --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
+  \parindent =~ 17.625pt; taking also into account the ratio
+  1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
+  size, the identation value in rem CSS units is: 
+  \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
+}
+
+.latex-dark {
+  --body-color: hsl(0, 0%, 86%);
+  --body-bg-color: hsl(0, 0%, 16%);
+  --link-visited: hsl(196 80% 77%);
+  --link-focus-outline: hsl(215, 63%, 73%);
+  --pre-bg-color: hsl(0, 1%, 25%);
+  --kbd-bg-color: hsl(0, 0%, 16%);
+  --kbd-border-color: hsl(210, 5%, 70%);
+  --table-border-color: white;
+  --sidenote-target-border-color: hsl(0, 0%, 59%);
+  --footnotes-border-color: hsl(0, 0%, 59%);
+  --proof-symbol-filter: invert(80%);
+}
+
+@media (prefers-color-scheme: dark) {
+   .latex-dark-auto {
+    --body-color: hsl(0, 0%, 86%);
+    --body-bg-color: hsl(0, 0%, 16%);
+    --link-visited: hsl(196 80% 77%);
+    --link-focus-outline: hsl(215, 63%, 73%);
+    --pre-bg-color: hsl(0, 1%, 25%);
+    --kbd-bg-color: hsl(0, 0%, 16%);
+    --kbd-border-color: hsl(210, 5%, 70%);
+    --table-border-color: white;
+    --sidenote-target-border-color: hsl(0, 0%, 59%);
+    --footnotes-border-color: hsl(0, 0%, 59%);
+    --proof-symbol-filter: invert(80%);
+  }
+}
+
 /* Remove default margin */
 body,
 h1,
@@ -141,12 +189,10 @@ body {
   margin: 0 auto;
   padding: 2rem 1.25rem;
 
-  counter-reset: theorem;
-  counter-reset: definition;
-  counter-reset: sidenote-counter;
+  counter-reset: theorem definition sidenote-counter;
 
-  color: hsl(0, 5%, 10%);
-  background-color: hsl(210, 20%, 98%);
+  color: var(--body-color);
+  background-color: var(--body-bg-color);
 
   text-rendering: optimizeLegibility;
 }
@@ -160,6 +206,27 @@ p {
   margin-top: 1rem;
 }
 
+/* Indents paragraphs like in LaTeX documents*/
+.indent-pars p {
+  text-indent: var(--text-indent-size);
+}
+
+.indent-pars p.no-indent,
+p.no-indent {
+  text-indent: 0;
+}
+
+.indent-pars ol p,
+.indent-pars ul p {
+  text-indent: 0;
+}
+
+.indent-pars h2 + p,
+.indent-pars h3 + p,
+.indent-pars h4 + p {
+  text-indent: 0;
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -168,12 +235,12 @@ a:not([class]) {
 /* Make links red */
 a,
 a:visited {
-  color: #a00;
+  color: var(--link-visited);
 }
 
 a:focus {
   outline-offset: 2px;
-  outline: 2px solid hsl(220, 90%, 52%);
+  outline: 2px solid var(--link-focus-outline);
 }
 
 /* Make images easier to work with */
@@ -214,15 +281,15 @@ pre {
   max-width: 100%;
   overflow: auto;
   border-radius: 4px;
-  background: hsl(210, 28%, 93%);
+  background: var(--pre-bg-color);
 }
 pre code {
   font-size: 95%;
   position: relative;
 }
 kbd {
-  background: hsl(210, 5%, 100%);
-  border: 1px solid hsl(210, 5%, 70%);
+  background: var(--kbd-bg-color);
+  border: 1px solid var(--kbd-border-color);
   border-radius: 2px;
   padding: 2px 4px;
   font-size: 75%;
@@ -234,8 +301,8 @@ table {
   border-spacing: 0;
   width: auto;
   max-width: 100%;
-  border-top: 2.27px solid black;
-  border-bottom: 2.27px solid black;
+  border-top: 2.27px solid var(--table-border-color);
+  border-bottom: 2.27px solid var(--table-border-color);
   /* display: block; */
   overflow-x: auto; /* does not work because element is not block */
   /* white-space: nowrap; */
@@ -243,19 +310,19 @@ table {
 }
 /* add bottom border on column table headings  */
 table tr > th[scope='col'] {
-  border-bottom: 1.36px solid black;
+  border-bottom: 1.36px solid var(--table-border-color);
 }
 /* add right border on row table headings  */
 table tr > th[scope='row'] {
-  border-right: 1.36px solid black;
+  border-right: 1.36px solid var(--table-border-color);
 }
 table > tbody > tr:first-child > td,
 table > tbody > tr:first-child > th {
-  border-top: 1.36px solid black;
+  border-top: 1.36px solid var(--table-border-color);
 }
 table > tbody > tr:last-child > td,
 table > tbody > tr:last-child > th {
-  border-bottom: 1.36px solid black;
+  border-bottom: 1.36px solid var(--table-border-color);
 }
 
 th,
@@ -353,6 +420,7 @@ dl dd {
 }
 .proof:after {
   content: '◾️';
+  filter: var(--proof-symbol-filter);
   position: absolute;
   right: -12px;
   bottom: -2px;
@@ -387,17 +455,19 @@ dl dd {
   width: 18vw;
   margin-right: -20vw;
   margin-bottom: 1em;
+  text-indent: 0;
 }
 
 .sidenote.left {
   float: left;
   margin-left: -20vw;
   margin-bottom: 1em;
+  text-indent: 0;
 }
 
 /* (WIP) add border when a sidenote is clicked on */
 .sidenote:target {
-  border: hsl(55, 55%, 70%) 1.5px solid;
+  border: var(--sidenote-target-border-color) 1.5px solid;
   padding: 0 .5rem;
   scroll-margin-block-start: 10rem;
 }
@@ -478,7 +548,7 @@ input.sidenote-toggle {
   margin-bottom: 0.4rem;
 }
 .footnotes {
-  border-top: 1px solid hsl(0, 0%, 39%);
+  border-top: 1px solid var(--footnotes-border-color);
 }
 
 /* Center title and paragraph */

@@ -7,6 +7,22 @@
   <meta name="author" content="Garrick Aden-Buie" />
   <title>cleanrmd</title>
 
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+  body doesn't go all the way up to the screen edge */
+  margin: 0.5em auto;
+  padding: 0.5em;
+  max-width: 48em;
+}
+code, code * { font-family: inherit; }
+
+@media only screen and (max-width: 768px) {
+  body { max-width: 100%; }
+}
+</style>
+
   
   <link href="libs/cleanrmd/theme-picker.css" rel="stylesheet" />
   <script src="libs/cleanrmd/theme-picker.js"></script>
@@ -28,23 +44,8 @@
   <meta property="og:locale" content="en_US"/>
 
 <style type="text/css" charset="utf-8">
-/* cleanrmd basic defaults */
-body {
-  /* at least one is usually overridden by the theme, but these ensure the
-     body doesn't go all the way up to the screen edge */
-  margin: 0.5em;
-  padding: 0.5em;
-}
-main {
-  max-width: 48em;
-  margin: auto;
-}
+/* cleanrmd overrides */
 img { max-width: 100%; }
-code, code * { font-family: inherit; }
-
-@media only screen and (max-width: 768px) {
-  main { max-width: 100%; }
-}
 </style>
 
 
@@ -158,7 +159,7 @@ pre code, pre code:not([class]) { white-space: unset; }
 <h1 id="title" class="toc-ignore">cleanrmd</h1>
 <h2 id="subtitle" class="toc-ignore">Clean HTML R Markdown
 Documents</h2>
-<p id="date">Updated: June 14, 2022<br>Version: 0.1.0</p>
+<p id="date">Updated: May 19, 2023<br>Version: 0.1.0.9000</p>
 <p id="author">Garrick Aden-Buie</p>
 
 </header>

@@ -15,28 +15,29 @@ $if(keywords)$
 $endif$
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 
+<style type="text/css" charset="utf-8">
+/* cleanrmd basic defaults */
+body {
+  /* at least one is usually overridden by the theme, but these ensure the
+  body doesn't go all the way up to the screen edge */
+  margin: 0.5em auto;
+  padding: 0.5em;
+  max-width: 48em;
+}
+code, code * { font-family: inherit; }
+
+@media only screen and (max-width: 768px) {
+  body { max-width: 100%; }
+}
+</style>
+
 $for(header-includes)$
   $header-includes$
 $endfor$
 
 <style type="text/css" charset="utf-8">
-/* cleanrmd basic defaults */
-body {
-  /* at least one is usually overridden by the theme, but these ensure the
-     body doesn't go all the way up to the screen edge */
-  margin: 0.5em;
-  padding: 0.5em;
-}
-main {
-  max-width: 48em;
-  margin: auto;
-}
+/* cleanrmd overrides */
 img { max-width: 100%; }
-code, code * { font-family: inherit; }
-
-@media only screen and (max-width: 768px) {
-  main { max-width: 100%; }
-}
 </style>
 
 $if(use-prism)$$use-prism$$endif$

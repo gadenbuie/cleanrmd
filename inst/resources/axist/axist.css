@@ -47,7 +47,7 @@
     courier new,
     monospace,
     serif;
-  --boder-radius: 0.2rem;
+  --border-radius: 0.2rem;
 }
 
 * {
@@ -195,7 +195,7 @@ input:not([type]) {
   border: 2px solid var(--lighter-gray);
   color: var(--black);
   appearance: none;
-  border-radius: var(--boder-radius);
+  border-radius: var(--border-radius);
   background-color: var(--lighter-gray);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -206,7 +206,7 @@ select {
   padding: 1rem;
   font-size: 1em;
   border: 2px solid var(--lighter-gray);
-  border-radius: var(--boder-radius);
+  border-radius: var(--border-radius);
   color: var(--black);
   background-color: var(--lighter-gray);
   appearance: none;
@@ -220,7 +220,7 @@ textarea {
   padding: 1rem;
   line-height: 1rem;
   color: var(--black);
-  border-radius: var(--boder-radius);
+  border-radius: var(--border-radius);
   border: 2px solid var(--lighter-gray);
   background-color: var(--lighter-gray);
   box-sizing: border-box;
@@ -256,7 +256,7 @@ button {
   padding: 0.5rem 1.25rem;
   font-size: 1rem;
   border: 0;
-  border-radius: var(--boder-radius);
+  border-radius: var(--border-radius);
   color: var(--lighter-gray);
   height: 2.5rem;
   background-color: var(--primary);
@@ -317,7 +317,7 @@ pre {
   font-size: 0.8rem;
   vertical-align: middle;
   overflow: scroll;
-  border-radius: var(--boder-radius);
+  border-radius: var(--border-radius);
 }
 
 code {
