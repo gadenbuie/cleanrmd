@@ -9,6 +9,8 @@
 
 * cleanrmd now bundles the Libertinus font for `latex.css` (thanks @edarin #35).
 
+* The `html_document_clean()` format now supports `toc-title` when passed as a
+  top-level YAML argument or as a pandoc argument (#30).
 # cleanrmd 0.1.0
 
 * First CRAN release of cleanrmd

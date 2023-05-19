@@ -111,7 +111,7 @@ $if(author)$
 $endif$
 
 $if(title-in-header)$</header>$else$$endif$
-$if(toc)$$toc$$endif$
+$if(toc)$$if(toc-title)$<h2 class="toc-ignore">$toc-title$</h2>$endif$$toc$$endif$
 
 $body$
 
