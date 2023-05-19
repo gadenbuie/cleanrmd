@@ -4,7 +4,7 @@
   file: almond.css
 
 - name: awsm.css
-  url: https://igoradamenko.github.io/awsm.css/
+  url: https://github.com/schollz/awsm.css
   src: https://unpkg.com/awsm.css/dist/awsm.min.css
   file: awsm.css
 
@@ -19,7 +19,7 @@
   file: bamboo.css
 
 - name: bullframe
-  url: https://marcopontili.com/projects/bullframe-css/
+  url: https://github.com/marcop135/bullframe.css
   src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:

@@ -18,10 +18,10 @@ Lists the available themes in \pkg{cleanrmd}
 \pkg{cleanrmd} includes the following no-class CSS themes:
 \itemize{
 \item \href{https://github.com/alvaromontoro/almond.css}{almond}
-\item \href{https://igoradamenko.github.io/awsm.css/}{awsm.css}
+\item \href{https://github.com/schollz/awsm.css}{awsm.css}
 \item \href{https://ruanmartinelli.github.io/axist/}{axist}
 \item \href{https://rilwis.github.io/bamboo/}{bamboo}
-\item \href{https://marcopontili.com/projects/bullframe-css/}{bullframe}
+\item \href{https://github.com/marcop135/bullframe.css}{bullframe}
 \item \href{https://holidaycss.js.org/}{holiday}
 \item \href{https://hakanalpay.com/kacit/}{kacit}
 \item \href{https://github.com/vincentdoerig/latex-css}{latex.css}
