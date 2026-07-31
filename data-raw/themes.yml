@@ -20,10 +20,10 @@
 
 - name: bullframe
   url: https://github.com/marcop135/bullframe.css
-  src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css
+  src: https://cdn.jsdelivr.net/npm/bullframe.css@6.0.0/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:
-    - src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css.map
+    - src: https://cdn.jsdelivr.net/npm/bullframe.css@6.0.0/dist/css/bullframe-classless.min.css.map
       dest: bullframe-classless.min.css.map
 
 - name: holiday
