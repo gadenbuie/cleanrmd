@@ -1,5 +1,7 @@
 # cleanrmd (development version)
 
+* `html_document_clean()` now passes `--syntax-highlighting` instead of the deprecated `--no-highlight` and `--highlight-style` flags when rendering with Pandoc >= 3.8, avoiding Pandoc deprecation warnings (rstudio/rmarkdown#2640).
+
 # cleanrmd 0.1.1
 
 * The `html_document_clean()` template now sets a few fallback CSS rules
