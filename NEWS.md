@@ -7,6 +7,11 @@
   reader's system light/dark mode preference. The always-dark `water-dark`
   theme remains available (#33).
 
+* Updated all bundled CSS themes to their latest versions. The `vanilla`
+  theme now downloads from its GitHub repository (`bradleytaunt/vanilla-css`)
+  because the previous `vanillacss.com` domain now redirects to an unrelated
+  site.
+
 * The theme picker now remembers the reader's most recently selected theme in
   their browser's local storage. Documents can choose the initial theme with
   the new `default` argument to `use_cleanrmd()`; the default remains

@@ -169,8 +169,8 @@
   file: tacit.css
 
 - name: vanilla
-  url: https://vanillacss.com/
-  src: https://vanillacss.com/vanilla.css
+  url: https://github.com/bradleytaunt/vanilla-css
+  src: https://github.com/bradleytaunt/vanilla-css/raw/master/vanilla.css
   file: vanilla.css
 
 - name: water
