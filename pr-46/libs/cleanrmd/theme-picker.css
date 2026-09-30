@@ -1,0 +1,11 @@
+#theme-picker {
+  display: block;
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  padding: 10px;
+  background: inherit;
+  z-index: 100;
+  width: unset;
+}
+#theme-picker select { margin: 0; }
