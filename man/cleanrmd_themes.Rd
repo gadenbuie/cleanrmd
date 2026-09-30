@@ -23,10 +23,10 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://rilwis.github.io/bamboo/}{bamboo}
 \item \href{https://vladocar.github.io/Basic.css/}{basic.css}
 \item \href{https://boltcss.com/}{bolt.css}
-\item \href{https://bullframecss.marcopontili.com}{bullframe}
-\item \href{https://emareg.github.io/classlesscss/}{classlesscss}
+\item \href{https://github.com/marcop135/bullframe.css}{bullframe}
+\item \href{https://classless.de/}{classlesscss}
 \item \href{https://holidaycss.js.org/}{holiday}
-\item \href{https://hakanalpay.com/kacit/}{kacit}
+\item \href{https://kimeiga.github.io/kacit/}{kacit}
 \item \href{https://github.com/vincentdoerig/latex-css}{latex.css}
 \item \href{http://markdowncss.github.io/splendor/}{markdown-splendor}
 \item \href{http://markdowncss.github.io/retro/}{markdown-retro}
@@ -35,7 +35,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://mblode.github.io/marx/}{marx}
 \item \href{https://minicss.us/}{minicss}
 \item \href{https://andybrewer.github.io/mvp/}{mvp.css}
-\item \href{https://codazoda.github.io/neatcss/}{neat.css}
+\item \href{https://neat.joeldare.com/}{neat.css}
 \item \href{https://newcss.net/}{new.css}
 \item \href{https://davidpaulsson.github.io/no-class/}{no-class}
 \item \href{https://picocss.com/}{picocss}

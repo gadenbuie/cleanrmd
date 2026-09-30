@@ -23,6 +23,7 @@ _*/
 
 # Output files from R CMD check
 /*.Rcheck/
+revdep/
 
 # RStudio files
 .Rproj.user/

@@ -69,7 +69,7 @@ URL: https://pkg.garrickadenbuie.com/cleanrmd/,
     https://github.com/gadenbuie/cleanrmd
 BugReports: https://github.com/gadenbuie/cleanrmd/issues
 Depends:
-    R (>= 2.10)
+    R (>= 3.5)
 Imports: 
     htmltools,
     jsonlite,

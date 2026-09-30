@@ -29,7 +29,7 @@
   file: bolt.css
 
 - name: bullframe
-  url: https://bullframecss.marcopontili.com
+  url: https://github.com/marcop135/bullframe.css
   src: https://cdn.jsdelivr.net/npm/bullframe.css@6/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:
@@ -37,7 +37,7 @@
       dest: bullframe-classless.min.css.map
 
 - name: classlesscss
-  url: https://emareg.github.io/classlesscss/
+  url: https://classless.de/
   src: https://github.com/emareg/classlesscss/raw/main/docs/classless.css
   file: classless.css
 
@@ -47,7 +47,7 @@
   file: holiday.css
 
 - name: kacit
-  url: https://hakanalpay.com/kacit/
+  url: https://kimeiga.github.io/kacit/
   src: https://cdn.jsdelivr.net/gh/Kimeiga/kacit/kacit.min.css
   file: kacit.css
 
@@ -129,7 +129,7 @@
   file: mvp.css
 
 - name: neat.css
-  url: https://codazoda.github.io/neatcss/
+  url: https://neat.joeldare.com/
   src: https://github.com/codazoda/neatcss/raw/master/neat.css
   file: neat.css
 
