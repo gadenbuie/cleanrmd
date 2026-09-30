@@ -1,388 +1,458 @@
-/*
-- 3.815rem
-- 3.052rem
-- 2.441rem
-- 1.953rem
-- 1.563rem
-- 1.25rem
-- 1rem
-- 0.8rem
-- 0.64rem
-- 0.512rem
-- 0.41rem
-- 0.328rem
-- 0.262rem
-- 0.209rem
-*/
+/*!
+ * axist — Minimal classless CSS library.
+ * https://github.com/ruanmartinelli/axist · MIT License
+ */
 
 :root {
-  --primary: #1524d9;
-  --light-primary: #2332ea;
-  --secondary: #ff2e88;
-  --light-secondary: #fc77b1;
-  --red: red;
-  --black: #212529;
-  --white: #fdfdfd;
-  --dark-gray: #343334;
-  --gray: #616060;
-  --light-gray: #ccc;
-  --lighter-gray: #f6f6f6;
-  --font-sans-serif:
-    system-ui,
-    -apple-system,
-    segoe ui,
-    roboto,
-    ubuntu,
-    helvetica,
-    cantarell,
-    noto sans,
-    sans-serif;
-  --font-monospace:
-    menlo,
-    monaco,
-    lucida console,
-    liberation mono,
-    dejavu sans mono,
-    bitstream vera sans mono,
-    courier new,
-    monospace,
-    serif;
-  --border-radius: 0.2rem;
+  color-scheme: light;
+
+  --background: #fff;
+  --foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --destructive: #dc2626;
+  --ring: #a1a1aa;
+  --radius: 0.985rem;
+  --radius-button: 9999px;
+  --radius-input: 0.65rem;
+  --shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", roboto, ubuntu, helvetica,
+    "Noto Sans", sans-serif;
+  --font-mono:
+    ui-monospace, "SF Mono", menlo, consolas, "Liberation Mono", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --background: #09090b;
+    --foreground: #fafafa;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --border: #27272a;
+    --input: #27272a;
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+    --destructive: #ef4444;
+    --ring: #71717a;
+  }
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  text-rendering: geometricPrecision;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(html) {
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  font-family: var(--font-sans-serif);
-}
-
-html {
-  font-size: calc(16px + ((100vw - 600px) / 250));
-  padding: 0;
-  text-decoration-skip-ink: "auto";
-  line-height: 1.953rem;
-  margin: auto;
   min-height: 100%;
-  overflow-x: hidden;
-  max-width: 1140px;
 }
 
-body {
-  padding: 0;
-  margin: calc((100vh / 25) * 1.563) calc((100vw / 25) * 1.563);
-  background-color: var(--white);
-  color: var(--black);
-  caret-color: var(--black);
-  word-wrap: break-word;
+:where(body) {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  line-height: 1.6;
+  background-color: var(--background);
+  color: var(--foreground);
+  caret-color: var(--foreground);
+  overflow-wrap: break-word;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-bottom: 1rem;
-  margin-top: 1em;
-  font-weight: bold;
+:where(h1, h2, h3, h4, h5, h6) {
+  margin-top: 1.5em;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
 }
 
-h1 {
-  font-size: 3.052rem;
-  letter-spacing: -0.15rem;
-  line-height: 1;
+:where(h1) {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-h2 {
-  font-size: 2.441rem;
-  letter-spacing: -0.12rem;
-  line-height: 1.2;
+:where(h2) {
+  font-size: 1.875rem;
+  letter-spacing: -0.025em;
 }
 
-h3 {
-  font-size: 1.953rem;
-  letter-spacing: -0.09rem;
-  line-height: 1.2;
+:where(h3) {
+  font-size: 1.5rem;
 }
 
-h4 {
-  font-size: 1.563rem;
-  letter-spacing: -0.06rem;
-  line-height: 1.3;
-}
-
-h5 {
+:where(h4) {
   font-size: 1.25rem;
-  letter-spacing: -0.03rem;
-  line-height: 1.4;
 }
 
-h6 {
+:where(h5) {
+  font-size: 1.125rem;
+}
+
+:where(h6) {
   font-size: 1rem;
-  letter-spacing: 0;
-  line-height: 1.5;
 }
 
-p {
-  margin-bottom: 1.563rem;
+:where(p) {
+  margin-bottom: 1rem;
 }
 
-p > *:last-child {
+:where(p > *:last-child) {
   margin-bottom: 0;
 }
 
-blockquote {
-  border-left: 1px solid var(--light-gray);
-  padding: 0 1rem;
-  margin-bottom: 1.563rem;
+:where(blockquote) {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin: 1.5rem 0;
 }
 
-a {
-  color: var(--primary);
-  text-decoration: none;
+:where(figure) {
+  margin: 1.5rem 0;
+}
+
+:where(figcaption) {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+}
+
+:where(a) {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--muted-foreground);
 }
 
 @media (hover: hover) {
-  a:hover {
-    text-decoration: underline;
+  :where(a:hover) {
+    text-decoration-color: currentcolor;
   }
 }
 
-small {
-  font-size: 0.888rem;
+:where(small) {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
 }
 
-hr {
+:where(mark) {
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+:where(sub, sup) {
+  font-size: 0.75em;
+  line-height: 0;
+}
+
+:where(hr) {
   border: 0;
-  height: 2px;
-  margin: 1rem 0;
-  background: var(--light-gray);
+  height: 1px;
+  margin: 2rem 0;
+  background: var(--border);
 }
 
-fieldset {
+:where(img, video) {
+  max-width: 100%;
+  height: auto;
+}
+
+:where(fieldset) {
   border: none;
   padding: 0;
   margin: 0;
 }
 
-label,
-legend {
-  font-weight: bold;
+:where(button, input, select, textarea) {
+  font: inherit;
+}
+
+:where(label, legend) {
   display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
-input[type="email"],
-input[type="text"],
-input[type="number"],
-input[type="password"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input:not([type]) {
+:where(
+  input[type="email"],
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input:not([type]),
+  select,
+  textarea
+) {
   display: block;
-  padding: 1rem;
-  font-size: 1rem;
-  border: 2px solid var(--lighter-gray);
-  color: var(--black);
+  height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  background-color: var(--background);
+  border: 1px solid var(--input);
+  border-radius: var(--radius-input);
+  box-shadow: var(--shadow);
   appearance: none;
-  border-radius: var(--border-radius);
-  background-color: var(--lighter-gray);
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 
-select {
-  display: block;
-  padding: 1rem;
-  font-size: 1em;
-  border: 2px solid var(--lighter-gray);
-  border-radius: var(--border-radius);
-  color: var(--black);
-  background-color: var(--lighter-gray);
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+:where(select) {
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
 }
 
-textarea {
-  display: block;
-  font-size: 1rem;
-  padding: 1rem;
-  line-height: 1rem;
-  color: var(--black);
-  border-radius: var(--border-radius);
-  border: 2px solid var(--lighter-gray);
-  background-color: var(--lighter-gray);
-  box-sizing: border-box;
-  resize: none;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+:where(textarea) {
+  height: auto;
+  min-height: 4rem;
+  resize: vertical;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border: 2px solid var(--primary);
+::placeholder {
+  color: var(--muted-foreground);
+  opacity: 1;
 }
 
-input:invalid,
-select:invalid,
-textarea:invalid {
-  border: 2px solid var(--red);
-  outline: none;
+:where(input[type="checkbox"], input[type="radio"]) {
+  accent-color: var(--primary);
 }
 
-input[type="checkbox"]:hover,
-input[type="radio"]:hover {
+:where(input[type="checkbox"], input[type="radio"]):hover {
   cursor: pointer;
 }
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-button {
-  padding: 0.5rem 1.25rem;
-  font-size: 1rem;
-  border: 0;
-  border-radius: var(--border-radius);
-  color: var(--lighter-gray);
-  height: 2.5rem;
+:where(
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  button
+) {
+  display: inline-block;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-foreground);
   background-color: var(--primary);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  font-weight: bold;
+  border: 0;
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow);
+  appearance: none;
+  /* stylelint-disable-next-line property-no-unknown */
+  corner-shape: superellipse(1.125);
+}
+
+:where(input, select, textarea, button):focus-visible {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 35%, transparent);
+}
+
+:where(input, select, textarea):user-invalid {
+  border-color: var(--destructive);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--destructive) 25%, transparent);
 }
 
 @media (hover: hover) {
-  input[type="reset"]:hover,
-  input[type="submit"]:hover,
-  input[type="button"]:hover,
-  button:hover {
+  :where(
+    input[type="reset"],
+    input[type="submit"],
+    input[type="button"],
+    button
+  ):hover {
     cursor: pointer;
-    background-color: var(--light-primary);
+    background-color: color-mix(in srgb, var(--primary) 90%, var(--background));
   }
 }
 
-button:focus-visible,
-input[type="submit"]:focus-visible,
-input[type="reset"]:focus-visible,
-input[type="button"]:focus-visible {
-  border-color: var(--light-primary);
-  outline: none;
+:where(input, select, textarea, button):disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
-input[disabled],
-button:disabled {
-  background-color: var(--gray);
-}
-
-table {
+:where(table) {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
-th,
-td {
+:where(th, td) {
   vertical-align: top;
-  border-bottom: 2px solid var(--light-gray);
-  line-height: 15px;
-  padding: 15px;
-}
-
-th {
-  font-weight: bold;
   text-align: left;
-  color: var(--dark-gray);
+  border-bottom: 1px solid var(--border);
+  padding: 0.625rem 0.75rem;
 }
 
-code,
-pre {
-  font-family: var(--font-monospace);
-  color: var(--dark-gray);
-  background-color: var(--lighter-gray);
-  font-size: 0.8rem;
-  vertical-align: middle;
-  overflow: scroll;
-  border-radius: var(--border-radius);
+:where(th) {
+  font-weight: 500;
+  color: var(--muted-foreground);
 }
 
-code {
+@media (hover: hover) {
+  :where(tbody tr:hover) {
+    background-color: var(--muted);
+  }
+}
+
+:where(code, pre) {
+  font-family: var(--font-mono);
+  background-color: var(--muted);
+}
+
+:where(code) {
+  font-size: 0.875em;
+  padding: 0.2rem 0.35rem;
+  border-radius: 0.25rem;
   white-space: nowrap;
-  vertical-align: baseline;
-  padding: 0 0.328rem;
 }
 
-pre {
+:where(pre) {
+  font-size: 0.875rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto;
   white-space: pre;
-  margin: 0.262rem 0;
-  padding: 0.64rem 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
 }
 
-pre::after {
-  content: " ";
+:where(pre)::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
 }
 
-ul {
-  margin: 0;
-  padding: 0 1px;
+:where(pre)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+:where(pre)::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: 9999px;
+}
+
+:where(pre)::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ring);
+}
+
+:where(pre code) {
+  background-color: transparent;
+  padding: 0;
+  white-space: inherit;
+}
+
+:where(ul) {
   list-style: disc outside;
   font-variant-numeric: tabular-nums;
 }
 
-ol {
+:where(ol) {
   list-style: decimal outside;
 }
 
-ol,
-ul {
-  padding-left: 1rem;
+:where(ol, ul) {
+  padding-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
-li {
-  list-style-position: inside;
+:where(li) {
+  margin-top: 0.25rem;
 }
 
-kbd {
+:where(dl) {
+  margin-bottom: 1rem;
+}
+
+:where(dt) {
+  font-weight: 500;
+}
+
+:where(dd) {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+:where(kbd) {
   display: inline-block;
-  padding: 0 0.328rem;
-  font-family:
-    "SFMono-Regular",
-    Consolas,
-    "Liberation Mono",
-    Menlo,
-    Courier,
-    monospace;
-  font-size: 0.64rem;
-  color: var(--dark-gray);
-  vertical-align: middle;
-  background-color: #f9f9f9;
-  border: solid 1px #d8d8d8;
-  border-bottom: solid 2px #a6a5a6;
-  border-radius: 5px;
+  padding: 0.125rem 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--foreground);
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 0.25rem;
 }
 
-abbr {
-  text-decoration: none;
-  border-bottom: 2px dashed #949394;
+:where(details) {
+  margin: 1.5rem 0;
+}
+
+:where(summary) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+}
+
+:where(summary)::-webkit-details-marker {
+  display: none;
+}
+
+:where(summary)::after {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  transition: transform 0.2s;
+}
+
+:where(details[open] summary) {
+  margin-bottom: 0.5rem;
+}
+
+:where(details[open] summary)::after {
+  transform: rotate(180deg);
+}
+
+:where(abbr) {
+  text-decoration: underline dashed;
+  text-decoration-color: var(--muted-foreground);
+  text-underline-offset: 4px;
 }
 
 @media (hover: hover) {
-  abbr:hover {
+  :where(abbr:hover) {
     cursor: help;
   }
 }

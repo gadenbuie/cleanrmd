@@ -87,7 +87,7 @@ refs <- lapply(rd_files, rewrite_rd)
 refs <- lapply(refs, reference_md) |> unlist()
 
 file.copy("_reference.Rmd", "reference.Rmd", overwrite = TRUE)
-cat(refs, file = "reference.Rmd", sep = "\n", append = TRUE)
+cat(refs, file = here::here("docs/reference.Rmd"), sep = "\n", append = TRUE)
 
 devtools::build_rmd("docs/reference.Rmd")
 devtools::build_rmd("docs/index.Rmd")
