@@ -118,6 +118,12 @@ cleanrmd_theme_dependency <- function(name = NULL, default = "new.css") {
       paste0(
         '<script id="theme-picker-themes" type="application/json">',
         cleanrmd_theme_json(default = default),
+        "</script>\n",
+        "<script>",
+        paste(
+          readLines(cleanrmd_file("resources", "theme-picker-init.js")),
+          collapse = "\n"
+        ),
         "</script>"
       )
     },

@@ -105,7 +105,7 @@ HTML dependencies, such as Shiny apps.
 To include a theme in your app or page, use
 
 ``` r
-cleanrmd::use_cleanrmd(theme = "new.css")
+cleanrmd::use_cleanrmd(name = "new.css")
 ```
 
 To view the list of theme options view the help pages of

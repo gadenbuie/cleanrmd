@@ -25,6 +25,11 @@
   initial theme with the new `default` argument to `use_cleanrmd()`;
   the default remains `"new.css"` (#31).
 
+* The theme picker now applies the saved or default theme stylesheet
+  while the page is still loading — before the document body is
+  parsed — avoiding a flash of unstyled content before the picker UI
+  appears. The picker UI itself is built once the DOM is ready.
+
 * `html_document_clean()` now passes `--syntax-highlighting` instead of
   the deprecated `--no-highlight` and `--highlight-style` flags when
   rendering with Pandoc >= 3.8, avoiding Pandoc deprecation warnings
