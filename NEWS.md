@@ -7,6 +7,11 @@
   reader's system light/dark mode preference. The always-dark `water-dark`
   theme remains available (#33).
 
+* The theme picker now remembers the reader's most recently selected theme in
+  their browser's local storage. Documents can choose the initial theme with
+  the new `default` argument to `use_cleanrmd()`; the default remains
+  `"new.css"` (#31).
+
 * `html_document_clean()` now passes `--syntax-highlighting` instead of the deprecated `--no-highlight` and `--highlight-style` flags when rendering with Pandoc >= 3.8, avoiding Pandoc deprecation warnings (rstudio/rmarkdown#2640).
 
 # cleanrmd 0.1.1

@@ -45,6 +45,31 @@ describe("use_cleanrmd()", {
     expect_error(use_cleanrmd("floofly"))
     expect_error(use_cleanrmd(c("picocss", "minicss")))
   })
+
+  it("errors with a bad default theme", {
+    expect_error(use_cleanrmd(default = "floofly"))
+    expect_error(use_cleanrmd("new.css", default = "floofly"), NA)
+  })
+})
+
+describe("theme picker JSON", {
+  picker_json <- function(x) {
+    json <- sub('^.*application/json">', "", sub("</script>$", "", x$head))
+    jsonlite::fromJSON(json)
+  }
+
+  it("embeds the theme list and default theme", {
+    json <- picker_json(cleanrmd_theme_dependency())
+    expect_setequal(names(json), c("default", "themes"))
+    expect_equal(json$default, "new.css")
+    expect_true(all(c("name", "src") %in% names(json$themes)))
+    expect_true("water" %in% json$themes$name)
+  })
+
+  it("honors a custom default theme", {
+    json <- picker_json(cleanrmd_theme_dependency(default = "sakura"))
+    expect_equal(json$default, "sakura")
+  })
 })
 
 describe("cleanrmd_theme_picker()", {
