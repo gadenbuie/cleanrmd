@@ -5,7 +5,11 @@ describe("use_cleanrmd()", {
     x <- use_cleanrmd()
     expect_s3_class(x, "shiny.tag.list")
 
-    is_dep <- vapply(x, function(d) identical(class(d), "html_dependency"), logical(1))
+    is_dep <- vapply(
+      x,
+      function(d) identical(class(d), "html_dependency"),
+      logical(1)
+    )
     expect_true(all(is_dep))
 
     dep_names <- lapply(x[is_dep], function(dep) dep$name)
@@ -21,7 +25,11 @@ describe("use_cleanrmd()", {
     x <- use_cleanrmd("new.css")
     expect_s3_class(x, "shiny.tag.list")
 
-    is_dep <- vapply(x, function(d) identical(class(d), "html_dependency"), logical(1))
+    is_dep <- vapply(
+      x,
+      function(d) identical(class(d), "html_dependency"),
+      logical(1)
+    )
     expect_true(all(is_dep))
 
     dep_names <- lapply(x[is_dep], function(dep) dep$name)

@@ -168,5 +168,8 @@ cleanrmd_file <- function(...) {
 }
 
 suppress_header_attrs <- function() {
-  attr(htmltools::suppressDependencies("header-attrs")[[1]], "html_dependencies")
+  attr(
+    htmltools::suppressDependencies("header-attrs")[[1]],
+    "html_dependencies"
+  )
 }

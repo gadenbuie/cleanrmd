@@ -105,11 +105,13 @@ cleanrmd_theme_dependency <- function(name = NULL) {
     version = utils::packageVersion("cleanrmd"),
     src = src,
     script = if (is.null(name)) "theme-picker.js",
-    head = if (is.null(name)) paste0(
-      '<script id="theme-picker-themes" type="application/json">',
-      cleanrmd_theme_json(),
-      "</script>"
-    ),
+    head = if (is.null(name)) {
+      paste0(
+        '<script id="theme-picker-themes" type="application/json">',
+        cleanrmd_theme_json(),
+        "</script>"
+      )
+    },
     stylesheet = css_file,
     all_files = TRUE
   )

@@ -17,12 +17,15 @@ html_to_md <- function(html) {
 
   html <- html |> as.character() |> paste(collapse = "\n")
   writeLines(html, tmp_h)
-  rmarkdown::pandoc_convert(tmp_h, to = "commonmark_x+pipe_tables", output = tmp_md)
+  rmarkdown::pandoc_convert(
+    tmp_h,
+    to = "commonmark_x+pipe_tables",
+    output = tmp_md
+  )
   paste(readLines(tmp_md), collapse = "\n")
 }
 
 rewrite_rd <- function(rd_file) {
-
   h <-
     rd_to_html(rd_file) |>
     read_html() |>
@@ -41,14 +44,23 @@ rewrite_rd <- function(rd_file) {
   ex_heading <- h |> xml_find_first('//h3[text()="Examples"]')
   examples <- ex_heading |> xml_find_first("./following-sibling::pre")
   example_code <- examples |> xml_text() |> trimws()
-  example_code <- gsub("## Not run: ", "if (interactive()) {", example_code, fixed = TRUE)
+  example_code <- gsub(
+    "## Not run: ",
+    "if (interactive()) {",
+    example_code,
+    fixed = TRUE
+  )
   example_code <- gsub("## End(Not run)", "}", example_code, fixed = TRUE)
 
   xml_remove(ex_heading)
   xml_remove(examples)
 
   md <- h |> xml_children() |> html_to_md()
-  md <- sub("REPLACE_ME_TITLE", sprintf("`%s()` - %s {#%s}", title, subtitle, title), md)
+  md <- sub(
+    "REPLACE_ME_TITLE",
+    sprintf("`%s()` - %s {#%s}", title, subtitle, title),
+    md
+  )
 
   list(
     title = title,
@@ -66,7 +78,9 @@ reference_md <- function(ref) {
 ```{r}
 {{{ examples }}}
 ```
-", data = ref)
+",
+    data = ref
+  )
 }
 
 refs <- lapply(rd_files, rewrite_rd)

@@ -8,3 +8,4 @@
 ^_dev$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
+^\./issues$
