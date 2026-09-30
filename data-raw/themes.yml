@@ -18,6 +18,16 @@
   src: https://unpkg.com/bamboo.css@latest/dist/bamboo.min.css
   file: bamboo.css
 
+- name: basic.css
+  url: https://vladocar.github.io/Basic.css/
+  src: https://github.com/vladocar/Basic.css/raw/master/css/basic.css
+  file: basic.css
+
+- name: bolt.css
+  url: https://boltcss.com/
+  src: https://github.com/tbolt/boltcss/raw/main/bolt.min.css
+  file: bolt.css
+
 - name: bullframe
   url: https://bullframecss.marcopontili.com
   src: https://cdn.jsdelivr.net/npm/bullframe.css@6/dist/css/bullframe-classless.min.css
@@ -25,6 +35,11 @@
   extra:
     - src: https://cdn.jsdelivr.net/npm/bullframe.css@6/dist/css/bullframe-classless.min.css.map
       dest: bullframe-classless.min.css.map
+
+- name: classlesscss
+  url: https://emareg.github.io/classlesscss/
+  src: https://github.com/emareg/classlesscss/raw/main/docs/classless.css
+  file: classless.css
 
 - name: holiday
   url: https://holidaycss.js.org/
@@ -107,6 +122,16 @@
   url: https://minicss.us/
   src: https://cdn.jsdelivr.net/gh/Chalarangelo/mini.css@v3.0.1/dist/mini-default.min.css
   file: minicss.css
+
+- name: mvp.css
+  url: https://andybrewer.github.io/mvp/
+  src: https://github.com/andybrewer/mvp/raw/master/mvp.css
+  file: mvp.css
+
+- name: neat.css
+  url: https://codazoda.github.io/neatcss/
+  src: https://github.com/codazoda/neatcss/raw/master/neat.css
+  file: neat.css
 
 - name: new.css
   url: https://newcss.net/

@@ -54,7 +54,7 @@ You can also load the CSS theme dependencies in other places where [htmltools](h
 To include a theme in your app or page, use
 
 ```{r eval=FALSE}
-cleanrmd::use_cleanrmd(theme = "new.css")
+cleanrmd::use_cleanrmd(name = "new.css")
 ```
 
 To view the list of theme options view the help pages of [cleanrmd_themes()](https://pkg.garrickadenbuie.com/cleanrmd/reference.html#cleanrmd_themes) or use its output:

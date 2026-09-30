@@ -1,7 +1,15 @@
 # cleanrmd (development version)
 
+* Added five new themes: `basic.css`, `bolt.css`, `classlesscss`,
+  `mvp.css`, and `neat.css` (#12, #15, #17, #22).
+
 * Updated the bundled `bullframe` theme to bullframe.css v6
   (classless build) (thanks @marcop135 #40).
+
+* The HTML template now applies `body { margin-inline: auto }` after
+  the theme's stylesheet, so themes that reset the body margins
+  without providing their own width container (e.g. `bullframe`) no
+  longer pin the content to the left edge of the page.
 
 * The `water` theme now uses the "automatic" stylesheet that follows
   the reader's system light/dark mode preference. The always-dark
@@ -16,6 +24,11 @@
   theme in their browser's local storage. Documents can choose the
   initial theme with the new `default` argument to `use_cleanrmd()`;
   the default remains `"new.css"` (#31).
+
+* The theme picker now applies the saved or default theme stylesheet
+  while the page is still loading — before the document body is
+  parsed — avoiding a flash of unstyled content before the picker UI
+  appears. The picker UI itself is built once the DOM is ready.
 
 * `html_document_clean()` now passes `--syntax-highlighting` instead of
   the deprecated `--no-highlight` and `--highlight-style` flags when

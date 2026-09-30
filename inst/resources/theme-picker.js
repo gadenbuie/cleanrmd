@@ -1,75 +1,97 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const resourceDir = [...document.getElementsByTagName("script")]
-    .filter(e => e.src.match('theme-picker.js'))
-    .map(e => e.src)[0]
-    .replace('theme-picker.js', '')
+  var resourceDir = ''
+  var scripts = document.getElementsByTagName('script')
+  for (var i = 0; i < scripts.length; i++) {
+    var src = scripts[i].src || ''
+    if (src.indexOf('theme-picker.js') >= 0) {
+      resourceDir = src.replace('theme-picker.js', '')
+      break
+    }
+  }
 
-  const themePickerCssLink = document.createElement('link')
-  themePickerCssLink.id = 'theme-picker-style'
-  themePickerCssLink.rel = 'stylesheet'
-  document.head.appendChild(themePickerCssLink)
+  // The early-init script (inlined in <head>, see theme-picker-init.js)
+  // has usually already applied the theme stylesheet and stashed the
+  // picker state. Fall back to the full setup if it didn't run.
+  var state = window.__cleanrmdThemePicker
+  var data, themes, defaultTheme, initialSrc
 
-  const picker = document.createElement('div')
+  if (state) {
+    data = state.data
+    themes = data.themes || []
+    defaultTheme = data.default || 'new.css'
+    initialSrc = state.initialSrc
+    if (state.resourceDir) {
+      resourceDir = state.resourceDir
+    }
+  } else {
+    data = JSON.parse(document.getElementById('theme-picker-themes').textContent)
+    themes = data.themes
+    defaultTheme = data.default || 'new.css'
+
+    var getStoredTheme = function () {
+      try {
+        return window.localStorage.getItem('cleanrmd-theme')
+      } catch (e) {
+        return null
+      }
+    }
+    var themeSrcs = themes.map(function (t) { return t.src })
+    var stored = getStoredTheme()
+    initialSrc =
+      stored !== null && (stored === '' || themeSrcs.indexOf(stored) >= 0)
+        ? stored
+        : (themes.filter(function (t) { return t.name === defaultTheme })[0] ||
+            themes[0]).src
+  }
+
+  var themePickerCssLink = document.getElementById('theme-picker-style')
+  if (!themePickerCssLink) {
+    themePickerCssLink = document.createElement('link')
+    themePickerCssLink.id = 'theme-picker-style'
+    themePickerCssLink.rel = 'stylesheet'
+    document.head.appendChild(themePickerCssLink)
+  }
+
+  var setCSS = function (href) {
+    themePickerCssLink.setAttribute('href', resourceDir + href)
+  }
+
+  var picker = document.createElement('div')
   picker.id = 'theme-picker'
   document.body.appendChild(picker)
 
-  const data = JSON.parse(document.getElementById('theme-picker-themes').textContent)
-  const themes = data.themes
-  const defaultTheme = data.default || 'new.css'
-  const STORAGE_KEY = 'cleanrmd-theme'
+  var tps = document.createElement('select')
 
-  const getStoredTheme = () => {
-    try {
-      return window.localStorage.getItem(STORAGE_KEY)
-    } catch (e) {
-      // localStorage may be unavailable (e.g. sandboxed iframes, private mode)
-      return null
-    }
-  }
-
-  const storeTheme = (value) => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, value)
-    } catch (e) {
-      // fail silently if storage is unavailable
-    }
-  }
-
-  const tps = document.createElement('select')
-
-  const setCSS = (href) => {
-    document
-      .getElementById('theme-picker-style')
-      .setAttribute('href', resourceDir + href)
-  }
-
-  const optBlank = document.createElement('option')
+  var optBlank = document.createElement('option')
   optBlank.setAttribute('value', '')
   optBlank.textContent = '-- Bare HTML --'
   tps.appendChild(optBlank)
 
-  for (const theme of themes) {
-    const opt = document.createElement('option')
-    opt.setAttribute('value', theme.src)
-    opt.textContent = theme.name
+  for (var j = 0; j < themes.length; j++) {
+    var opt = document.createElement('option')
+    opt.setAttribute('value', themes[j].src)
+    opt.textContent = themes[j].name
     tps.appendChild(opt)
   }
 
   picker.appendChild(tps)
 
-  // Restore the reader's last selection, falling back to the default theme
-  // when nothing was stored or the stored theme no longer exists.
-  const themeSrcs = themes.map(t => t.src)
-  const stored = getStoredTheme()
-  const initialSrc = stored !== null && (stored === '' || themeSrcs.includes(stored))
-    ? stored
-    : (themes.find(t => t.name === defaultTheme) || themes[0]).src
-
   tps.value = initialSrc
-  setCSS(initialSrc)
+  if (!state) {
+    // The early-init script didn't run, so apply the theme now.
+    setCSS(initialSrc)
+  }
 
-  picker.addEventListener('change', () => {
-    const themeHref = document.querySelector('#theme-picker select').value
+  var storeTheme = function (value) {
+    try {
+      window.localStorage.setItem('cleanrmd-theme', value)
+    } catch (e) {
+      // fail silently if storage is unavailable
+    }
+  }
+
+  picker.addEventListener('change', function () {
+    var themeHref = document.querySelector('#theme-picker select').value
     storeTheme(themeHref)
     setCSS(themeHref)
   })

@@ -54,7 +54,8 @@ describe("use_cleanrmd()", {
 
 describe("theme picker JSON", {
   picker_json <- function(x) {
-    json <- sub('^.*application/json">', "", sub("</script>$", "", x$head))
+    json <- sub('^.*application/json">', "", x$head)
+    json <- sub("</script>.*$", "", json)
     jsonlite::fromJSON(json)
   }
 
