@@ -19,11 +19,11 @@
   file: bamboo.css
 
 - name: bullframe
-  url: https://github.com/marcop135/bullframe.css
-  src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css
+  url: https://bullframecss.marcopontili.com
+  src: https://cdn.jsdelivr.net/npm/bullframe.css@6/dist/css/bullframe-classless.min.css
   file: bullframe.css
   extra:
-    - src: https://github.com/marcop135/bullframe.css/raw/master/dist/css/bullframe-classless.min.css.map
+    - src: https://cdn.jsdelivr.net/npm/bullframe.css@6/dist/css/bullframe-classless.min.css.map
       dest: bullframe-classless.min.css.map
 
 - name: holiday
@@ -110,7 +110,7 @@
 
 - name: new.css
   url: https://newcss.net/
-  src: https://github.com/xz/new.css/raw/master/new.css
+  src: https://github.com/xz/new.css/raw/main/new.css
   file: new.css
 
 - name: 'no-class'
@@ -175,7 +175,7 @@
 
 - name: water
   url: https://kognise.github.io/water.css/
-  src: https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.css
+  src: https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
   file: water.css
 
 - name: water-dark
