@@ -84,6 +84,16 @@ $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
 
+<style type="text/css" charset="utf-8">
+/* cleanrmd post-theme overrides. Themes that reset the body margins
+without providing their own width container (e.g. bullframe) would
+otherwise pin the content to the left edge of the viewport. The html
+body selector out-specifies the theme's `body` rules because the theme
+picker injects theme styles at the end of <head>.
+*/
+html body { margin-inline: auto; }
+</style>
+
 $if(disable-fontawesome)$
 $else$
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>

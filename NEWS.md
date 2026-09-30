@@ -6,6 +6,11 @@
 * Updated the bundled `bullframe` theme to bullframe.css v6
   (classless build) (thanks @marcop135 #40).
 
+* The HTML template now applies `body { margin-inline: auto }` after
+  the theme's stylesheet, so themes that reset the body margins
+  without providing their own width container (e.g. `bullframe`) no
+  longer pin the content to the left edge of the page.
+
 * The `water` theme now uses the "automatic" stylesheet that follows
   the reader's system light/dark mode preference. The always-dark
   `water-dark` theme remains available (#33).
