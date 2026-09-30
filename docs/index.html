@@ -27,6 +27,64 @@ code, code * { font-family: inherit; }
   <link href="libs/cleanrmd/theme-picker.css" rel="stylesheet" />
   <script src="libs/cleanrmd/theme-picker.js"></script>
   <script id="theme-picker-themes" type="application/json">{"default":"new.css","themes":[{"name":"almond","src":"almond/almond.css"},{"name":"awsm.css","src":"awsm.css/awsm.css"},{"name":"axist","src":"axist/axist.css"},{"name":"bamboo","src":"bamboo/bamboo.css"},{"name":"basic.css","src":"basic.css/basic.css"},{"name":"bolt.css","src":"bolt.css/bolt.css"},{"name":"bullframe","src":"bullframe/bullframe.css"},{"name":"classlesscss","src":"classlesscss/classless.css"},{"name":"holiday","src":"holiday/holiday.css"},{"name":"kacit","src":"kacit/kacit.css"},{"name":"latex.css","src":"latex.css/latex.css"},{"name":"markdown-splendor","src":"markdown-splendor/markdown-splendor.css"},{"name":"markdown-retro","src":"markdown-retro/markdown-retro.css"},{"name":"markdown-air","src":"markdown-air/markdown-air.css"},{"name":"markdown-modest","src":"markdown-modest/markdown-modest.css"},{"name":"marx","src":"marx/marx.css"},{"name":"minicss","src":"minicss/minicss.css"},{"name":"mvp.css","src":"mvp.css/mvp.css"},{"name":"neat.css","src":"neat.css/neat.css"},{"name":"new.css","src":"new.css/new.css"},{"name":"no-class","src":"no-class/no-class.css"},{"name":"picocss","src":"picocss/pico.css"},{"name":"sakura","src":"sakura/sakura.css"},{"name":"sakura-vader","src":"sakura-vader/sakura-vader.css"},{"name":"semantic","src":"semantic/semantic.css"},{"name":"simplecss","src":"simplecss/simple.css"},{"name":"style-sans","src":"style-sans/style-sans.css"},{"name":"style-serif","src":"style-serif/style-serif.css"},{"name":"stylize","src":"stylize/stylize.css"},{"name":"superstylin","src":"superstylin/superstylin.css"},{"name":"tacit","src":"tacit/tacit.css"},{"name":"vanilla","src":"vanilla/vanilla.css"},{"name":"water","src":"water/water.css"},{"name":"water-dark","src":"water-dark/water-dark.css"},{"name":"writ","src":"writ/writ.css"}]}</script>
+  <script>/* cleanrmd theme picker: early theme application.
+   *
+   * This script is inlined into <head> immediately after the theme picker
+   * JSON. Because it runs while the document head is still being parsed —
+   * before anything is painted — it resolves the reader's saved theme (or
+   * the default theme) and starts loading its stylesheet right away,
+   * avoiding a flash of unstyled content before the picker UI appears.
+   *
+   * It stashes the resolved state on `window.__cleanrmdThemePicker` for
+   * `theme-picker.js`, which builds the picker UI once the DOM is ready.
+   */
+  (function () {
+    var STORAGE_KEY = 'cleanrmd-theme'
+    try {
+      var data = JSON.parse(
+        document.getElementById('theme-picker-themes').textContent
+      )
+      var themes = data.themes || []
+      var defaultTheme = data.default || 'new.css'
+
+      var resourceDir = ''
+      for (var i = 0; i < document.scripts.length; i++) {
+        var src = document.scripts[i].src || ''
+        if (src.indexOf('theme-picker.js') >= 0) {
+          resourceDir = src.replace('theme-picker.js', '')
+          break
+        }
+      }
+
+      var stored
+      try {
+        stored = window.localStorage.getItem(STORAGE_KEY)
+      } catch (e) {
+        stored = null
+      }
+      var srcs = themes.map(function (t) { return t.src })
+      var initialSrc =
+        stored !== null && (stored === '' || srcs.indexOf(stored) >= 0)
+          ? stored
+          : (themes.filter(function (t) { return t.name === defaultTheme })[0] ||
+              themes[0]).src
+
+      var link = document.createElement('link')
+      link.id = 'theme-picker-style'
+      link.rel = 'stylesheet'
+      link.href = resourceDir + initialSrc
+      document.head.appendChild(link)
+
+      window.__cleanrmdThemePicker = {
+        data: data,
+        initialSrc: initialSrc,
+        resourceDir: resourceDir
+      }
+    } catch (e) {
+      // If anything goes wrong, do nothing here: theme-picker.js will set
+      // up the stylesheet and picker as before once the DOM is ready.
+    }
+  })()</script>
   <meta name="twitter:title" content="cleanrmd"/>
   <meta name="twitter:description" content="Classy light-weight R Markdown themes."/>
   <meta name="twitter:url" content="https://pkg.garrickadenbuie.com/cleanrmd/"/>
@@ -278,7 +336,7 @@ class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="
 href="https://rstudio.github.io/htmltools/">htmltools</a> can be used to
 provide HTML dependencies, such as Shiny apps.</p>
 <p>To include a theme in your app or page, use</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cleanrmd<span class="sc">::</span><span class="fu">use_cleanrmd</span>(<span class="at">theme =</span> <span class="st">&quot;new.css&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cleanrmd<span class="sc">::</span><span class="fu">use_cleanrmd</span>(<span class="at">name =</span> <span class="st">&quot;new.css&quot;</span>)</span></code></pre></div>
 <p>To view the list of theme options view the help pages of <a
 href="https://pkg.garrickadenbuie.com/cleanrmd/reference.html#cleanrmd_themes">cleanrmd_themes()</a>
 or use its output:</p>
