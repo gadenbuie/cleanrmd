@@ -71,6 +71,11 @@
 #' @param name The name of the theme, see [cleanrmd_themes()] for a list of
 #'   available themes. If `NULL`, all themes will be loaded with a simple
 #'   drop down theme picker.
+#' @param default The theme used by the theme picker when the reader hasn't
+#'   chosen a theme yet. The theme picker remembers the reader's most recent
+#'   choice in their browser's local storage and restores it on their next
+#'   visit; `default` is used when nothing has been stored yet (or when the
+#'   stored theme is no longer available). Defaults to `"new.css"`.
 #'
 #' @return `use_cleanrmd()` returns an [htmltools::tagList()] with an
 #'   [htmltools::htmlDependency()]. `cleanrmd_theme_dependency()` returns only
@@ -79,13 +84,17 @@
 #' @describeIn use_cleanrmd Use a clean CSS theme in the current document or app
 #'   (general usage)
 #' @export
-use_cleanrmd <- function(name = NULL) {
-  htmltools::tagList(cleanrmd_theme_dependency(name))
+use_cleanrmd <- function(name = NULL, default = "new.css") {
+  htmltools::tagList(cleanrmd_theme_dependency(name, default))
 }
 
 #' @describeIn use_cleanrmd Use a clean CSS theme dependency (advanced usage)
 #' @export
-cleanrmd_theme_dependency <- function(name = NULL) {
+cleanrmd_theme_dependency <- function(name = NULL, default = "new.css") {
+  if (is.null(name)) {
+    default <- match.arg(default, cleanrmd_themes())
+  }
+
   css_file <- if (!is.null(name)) {
     name <- match.arg(name, cleanrmd_themes())
     if (name == "latex.css") {
@@ -108,7 +117,7 @@ cleanrmd_theme_dependency <- function(name = NULL) {
     head = if (is.null(name)) {
       paste0(
         '<script id="theme-picker-themes" type="application/json">',
-        cleanrmd_theme_json(),
+        cleanrmd_theme_json(default = default),
         "</script>"
       )
     },
@@ -136,7 +145,7 @@ cleanrmd_themes <- function() {
   cleanrmd_theme_list$name
 }
 
-cleanrmd_theme_json <- function(fields = c("name", src = "file")) {
+cleanrmd_theme_json <- function(default = "new.css", fields = c("name", src = "file")) {
   if (is.null(names(fields))) {
     names(fields) <- fields
   } else {
@@ -146,7 +155,7 @@ cleanrmd_theme_json <- function(fields = c("name", src = "file")) {
   out$file <- file.path(out$name, out$file)
   out <- out[, unname(fields)]
   names(out) <- names(fields)
-  jsonlite::toJSON(out)
+  jsonlite::toJSON(list(default = default, themes = out), auto_unbox = TRUE)
 }
 
 # nocov start

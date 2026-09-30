@@ -1,5 +1,22 @@
 # cleanrmd (development version)
 
+* Updated the bundled `bullframe` theme to bullframe.css v6 (classless build)
+  (@marcop135, #40).
+
+* The `water` theme now uses the "automatic" stylesheet that follows the
+  reader's system light/dark mode preference. The always-dark `water-dark`
+  theme remains available (#33).
+
+* Updated all bundled CSS themes to their latest versions. The `vanilla`
+  theme now downloads from its GitHub repository (`bradleytaunt/vanilla-css`)
+  because the previous `vanillacss.com` domain now redirects to an unrelated
+  site.
+
+* The theme picker now remembers the reader's most recently selected theme in
+  their browser's local storage. Documents can choose the initial theme with
+  the new `default` argument to `use_cleanrmd()`; the default remains
+  `"new.css"` (#31).
+
 * `html_document_clean()` now passes `--syntax-highlighting` instead of the deprecated `--no-highlight` and `--highlight-style` flags when rendering with Pandoc >= 3.8, avoiding Pandoc deprecation warnings (rstudio/rmarkdown#2640).
 
 # cleanrmd 0.1.1

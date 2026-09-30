@@ -1,5 +1,5 @@
 /*!
- * LaTeX.css (https://latex.now.sh/)
+ * LaTeX.css (https://latex.vercel.app/)
  *
  * Source: https://github.com/vincentdoerig/latex-css
  * Licensed under MIT (https://github.com/vincentdoerig/latex-css/blob/master/LICENSE)
@@ -109,12 +109,14 @@
   --kbd-bg-color: hsl(210, 5%, 100%);
   --kbd-border-color: hsl(210, 5%, 70%);
   --table-border-color: black;
+  --border-width-thin: 1.36px;
+  --border-width-thick: 2.27px;
   --sidenote-target-border-color: hsl(55, 55%, 70%);
   --footnotes-border-color: hsl(0, 0%, 39%);
   --text-indent-size: 1.463rem; /* In 12pt [Latin Modern font] LaTeX article
   \parindent =~ 17.625pt; taking also into account the ratio
   1pt[LaTeX] = (72 / 72.27) * 1pt[HTML], with default 12pt/1rem LaTeX.css font
-  size, the identation value in rem CSS units is: 
+  size, the identation value in rem CSS units is:
   \parindent =~ 17.625 * (72 / 72.27) / 12 = 1.463rem. */
 }
 
@@ -179,6 +181,10 @@ body.libertinus {
   font-family: 'Libertinus', Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 body {
   font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
   line-height: 1.8;
@@ -195,14 +201,14 @@ body {
   background-color: var(--body-bg-color);
 
   text-rendering: optimizeLegibility;
-}
 
-/* Justify and hyphenate all paragraphs */
-p {
-  text-align: justify;
+  /* Allow automatic hyphenation for all text in the document */
   hyphens: auto;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
+}
+
+p {
   margin-top: 1rem;
 }
 
@@ -243,6 +249,15 @@ a:focus {
   outline: 2px solid var(--link-focus-outline);
 }
 
+/* Allow line breaks between any two characters */
+.break-all {
+  /*
+    NOTE: Whith `break-all` value no hyphens are shown, even if the word breaks
+    at a hyphenation point
+  */
+  word-break: break-all;
+}
+
 /* Make images easier to work with */
 img {
   max-width: 100%;
@@ -275,6 +290,7 @@ kbd {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
   font-size: 85%;
+  hyphens: none;
 }
 pre {
   padding: 1rem 1.4rem;
@@ -296,33 +312,33 @@ kbd {
 }
 
 /* Better tables */
-table {
+table:not(.borders-custom) {
   border-collapse: collapse;
   border-spacing: 0;
   width: auto;
   max-width: 100%;
-  border-top: 2.27px solid var(--table-border-color);
-  border-bottom: 2.27px solid var(--table-border-color);
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
   /* display: block; */
   overflow-x: auto; /* does not work because element is not block */
   /* white-space: nowrap; */
   counter-increment: caption;
 }
 /* add bottom border on column table headings  */
-table tr > th[scope='col'] {
-  border-bottom: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) tr > th[scope='col'] {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
 /* add right border on row table headings  */
-table tr > th[scope='row'] {
-  border-right: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) tr > th[scope='row'] {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
 }
-table > tbody > tr:first-child > td,
-table > tbody > tr:first-child > th {
-  border-top: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) > tbody > tr:first-child > td,
+table:not(.borders-custom) > tbody > tr:first-child > th {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
 }
-table > tbody > tr:last-child > td,
-table > tbody > tr:last-child > th {
-  border-bottom: 1.36px solid var(--table-border-color);
+table:not(.borders-custom) > tbody > tr:last-child > td,
+table:not(.borders-custom) > tbody > tr:last-child > th {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
 }
 
 th,
@@ -357,6 +373,102 @@ caption::before {
   white-space: nowrap;
 }
 
+/* Table custom borders */
+table.borders-custom {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;
+  counter-increment: caption;
+}
+
+.border-top-thick {
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-right-thick {
+  border-right: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-bottom-thick {
+  border-bottom: var(--border-width-thick) solid var(--table-border-color);
+}
+.border-left-thick {
+  border-left: var(--border-width-thick) solid var(--table-border-color);
+}
+
+.border-top-thin {
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-right-thin {
+  border-right: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-bottom-thin {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+.border-left-thin {
+  border-left: var(--border-width-thin) solid var(--table-border-color);
+}
+
+/* Table column alignment */
+.col-1-l tr > :nth-child(1),
+.col-2-l tr > :nth-child(2),
+.col-3-l tr > :nth-child(3),
+.col-4-l tr > :nth-child(4),
+.col-5-l tr > :nth-child(5),
+.col-6-l tr > :nth-child(6),
+.col-7-l tr > :nth-child(7),
+.col-8-l tr > :nth-child(8),
+.col-9-l tr > :nth-child(9),
+.col-10-l tr > :nth-child(10),
+.col-11-l tr > :nth-child(11),
+.col-12-l tr > :nth-child(12) {
+  text-align: left;
+}
+.col-1-c tr > :nth-child(1),
+.col-2-c tr > :nth-child(2),
+.col-3-c tr > :nth-child(3),
+.col-4-c tr > :nth-child(4),
+.col-5-c tr > :nth-child(5),
+.col-6-c tr > :nth-child(6),
+.col-7-c tr > :nth-child(7),
+.col-8-c tr > :nth-child(8),
+.col-9-c tr > :nth-child(9),
+.col-10-c tr > :nth-child(10),
+.col-11-c tr > :nth-child(11),
+.col-12-c tr > :nth-child(12) {
+  text-align: center;
+}
+.col-1-r tr > :nth-child(1),
+.col-2-r tr > :nth-child(2),
+.col-3-r tr > :nth-child(3),
+.col-4-r tr > :nth-child(4),
+.col-5-r tr > :nth-child(5),
+.col-6-r tr > :nth-child(6),
+.col-7-r tr > :nth-child(7),
+.col-8-r tr > :nth-child(8),
+.col-9-r tr > :nth-child(9),
+.col-10-r tr > :nth-child(10),
+.col-11-r tr > :nth-child(11),
+.col-12-r tr > :nth-child(12) {
+  text-align: right;
+}
+
+/* Format figure captions (based on table captions) */
+figure {
+  counter-increment: figcaption;
+}
+figcaption {
+  text-align: left;
+  font-size: 0.923em;
+  padding: 0.25em 0.25em 0;
+  width: 100%;
+  margin-left: 0;
+}
+figcaption::before {
+  content: 'Figure ' counter(figcaption) '. ';
+  font-weight: bold;
+}
+
 /* Center align the title */
 h1:first-child {
   text-align: center;
@@ -367,10 +479,10 @@ nav ol {
   counter-reset: item;
   padding-left: 2rem;
 }
-nav li {
+nav ol > li {
   display: block;
 }
-nav li:before {
+nav ol > li::before {
   content: counters(item, '.') ' ';
   counter-increment: item;
   padding-right: 0.85rem;
@@ -418,7 +530,7 @@ dl dd {
   content: 'Proof. ' attr(title);
   font-style: italic;
 }
-.proof:after {
+.proof::after {
   content: '◾️';
   filter: var(--proof-symbol-filter);
   position: absolute;
@@ -456,6 +568,8 @@ dl dd {
   margin-right: -20vw;
   margin-bottom: 1em;
   text-indent: 0;
+  /* Right sidenotes explicitly aligned to left for wide screens */
+  text-align: left;
 }
 
 .sidenote.left {
@@ -463,6 +577,14 @@ dl dd {
   margin-left: -20vw;
   margin-bottom: 1em;
   text-indent: 0;
+  /* Left sidenotes explicitly aligned to right for wide screens */
+  text-align: right;
+}
+
+/* Justify all sidenotes for wide screens when `text-justify` class is used */
+body.text-justify .sidenote,
+body.text-justify .sidenote.left {
+    text-align: justify;
 }
 
 /* (WIP) add border when a sidenote is clicked on */
@@ -533,6 +655,17 @@ input.sidenote-toggle {
     clear: both;
     width: 95%;
   }
+
+  /* All sidenotes explicitly aligned to left for narrow screens */
+  .sidenote-toggle:checked + .sidenote.left {
+    text-align: left;
+  }
+
+  /* Justify all sidenotes for narrow screens when `text-justify` class is used */
+  body.text-justify .sidenote-toggle:checked + .sidenote.left {
+    text-align: justify;
+  }
+
   /* tweak indentation of sidenote inside a blockquote */
   blockquote .sidenote {
     margin-right: -25vw;
@@ -540,9 +673,8 @@ input.sidenote-toggle {
   }
 }
 
-/* Make footnote text smaller and left align it (looks bad with long URLs) */
+/* Make footnote text smaller */
 .footnotes p {
-  text-align: left;
   line-height: 1.5;
   font-size: 85%;
   margin-bottom: 0.4rem;
@@ -581,6 +713,11 @@ input.sidenote-toggle {
   margin-left: -0.1667em;
   margin-right: -0.125em;
   line-height: 1ex;
+}
+
+/* Prevent line breaks inside an element */
+.whitespace-nowrap {
+  white-space: nowrap;
 }
 
 /* Heading typography */

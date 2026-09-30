@@ -21,7 +21,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://github.com/schollz/awsm.css}{awsm.css}
 \item \href{https://ruanmartinelli.github.io/axist/}{axist}
 \item \href{https://rilwis.github.io/bamboo/}{bamboo}
-\item \href{https://github.com/marcop135/bullframe.css}{bullframe}
+\item \href{https://bullframecss.marcopontili.com}{bullframe}
 \item \href{https://holidaycss.js.org/}{holiday}
 \item \href{https://hakanalpay.com/kacit/}{kacit}
 \item \href{https://github.com/vincentdoerig/latex-css}{latex.css}
@@ -43,7 +43,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://pkg.garrickadenbuie.com/stylize.css/}{stylize}
 \item \href{https://caiogondim.github.io/superstylin/}{superstylin}
 \item \href{https://yegor256.github.io/tacit/}{tacit}
-\item \href{https://vanillacss.com/}{vanilla}
+\item \href{https://github.com/bradleytaunt/vanilla-css}{vanilla}
 \item \href{https://kognise.github.io/water.css/}{water}
 \item \href{https://kognise.github.io/water.css/}{water-dark}
 \item \href{https://writ.cmcenroe.me/}{writ}

@@ -5,14 +5,20 @@
 \alias{cleanrmd_theme_dependency}
 \title{Use a clean CSS theme from cleanrmd}
 \usage{
-use_cleanrmd(name = NULL)
+use_cleanrmd(name = NULL, default = "new.css")
 
-cleanrmd_theme_dependency(name = NULL)
+cleanrmd_theme_dependency(name = NULL, default = "new.css")
 }
 \arguments{
 \item{name}{The name of the theme, see \code{\link[=cleanrmd_themes]{cleanrmd_themes()}} for a list of
 available themes. If \code{NULL}, all themes will be loaded with a simple
 drop down theme picker.}
+
+\item{default}{The theme used by the theme picker when the reader hasn't
+chosen a theme yet. The theme picker remembers the reader's most recent
+choice in their browser's local storage and restores it on their next
+visit; \code{default} is used when nothing has been stored yet (or when the
+stored theme is no longer available). Defaults to \code{"new.css"}.}
 }
 \value{
 \code{use_cleanrmd()} returns an \code{\link[htmltools:tagList]{htmltools::tagList()}} with an
