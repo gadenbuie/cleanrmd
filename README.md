@@ -114,29 +114,35 @@ or use its output:
 
 ``` r
 cleanrmd::cleanrmd_themes()
-#>  [1] "almond"            "awsm.css"          "axist"            
-#>  [4] "bamboo"            "bullframe"         "holiday"          
-#>  [7] "kacit"             "latex.css"         "markdown-splendor"
-#> [10] "markdown-retro"    "markdown-air"      "markdown-modest"  
-#> [13] "marx"              "minicss"           "new.css"          
-#> [16] "no-class"          "picocss"           "sakura"           
-#> [19] "sakura-vader"      "semantic"          "simplecss"        
-#> [22] "style-sans"        "style-serif"       "stylize"          
-#> [25] "superstylin"       "tacit"             "vanilla"          
-#> [28] "water"             "water-dark"        "writ"
+#>  [1] "almond"            "attricss"          "awsm.css"         
+#>  [4] "axist"             "bamboo"            "basic.css"        
+#>  [7] "bolt.css"          "bullframe"         "classlesscss"     
+#> [10] "holiday"           "kacit"             "latex.css"        
+#> [13] "markdown-splendor" "markdown-retro"    "markdown-air"     
+#> [16] "markdown-modest"   "marx"              "minicss"          
+#> [19] "mvp.css"           "neat.css"          "new.css"          
+#> [22] "no-class"          "picocss"           "sakura"           
+#> [25] "sakura-vader"      "semantic"          "simplecss"        
+#> [28] "style-sans"        "style-serif"       "stylize"          
+#> [31] "superstylin"       "tacit"             "vanilla"          
+#> [34] "water"             "water-dark"        "writ"
 ```
 
 ## Themes
 
 The following CSS themes are included in this package and you can
-preview [all 30 themes in one place
+preview [all 36 themes in one place
 here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 
 - [almond](https://github.com/alvaromontoro/almond.css)
+- [attricss](https://raj457036.github.io/attriCSS/)
 - [awsm.css](https://github.com/schollz/awsm.css)
 - [axist](https://ruanmartinelli.github.io/axist/)
 - [bamboo](https://rilwis.github.io/bamboo/)
+- [basic.css](https://vladocar.github.io/Basic.css/)
+- [bolt.css](https://boltcss.com/)
 - [bullframe](https://bullframecss.marcopontili.com)
+- [classlesscss](https://emareg.github.io/classlesscss/)
 - [holiday](https://holidaycss.js.org/)
 - [kacit](https://hakanalpay.com/kacit/)
 - [latex.css](https://github.com/vincentdoerig/latex-css)
@@ -146,6 +152,8 @@ here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 - [markdown-modest](http://markdowncss.github.io/modest/)
 - [marx](https://mblode.github.io/marx/)
 - [minicss](https://minicss.us/)
+- [mvp.css](https://andybrewer.github.io/mvp/)
+- [neat.css](https://codazoda.github.io/neatcss/)
 - [new.css](https://newcss.net/)
 - [no-class](https://davidpaulsson.github.io/no-class/)
 - [picocss](https://picocss.com/)
