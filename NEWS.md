@@ -1,4 +1,4 @@
-# cleanrmd (development version)
+# cleanrmd 0.2.0
 
 * Added five new themes: `basic.css`, `bolt.css`, `classlesscss`,
   `mvp.css`, and `neat.css` (#12, #15, #17, #22).
