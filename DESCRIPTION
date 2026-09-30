@@ -8,8 +8,6 @@ Authors@R: c(
            comment = "Author of awsm.css"),
     person("Alvaro", "Montoro", role = c("ctb", "cph"),
            comment = "Author of almond.css"),
-    person("Raj", "Singh", role = c("ctb", "cph"),
-           comment = "Author of attriCSS"),
     person("Vladimir", "Carrer", role = c("ctb", "cph"),
            comment = "Author of Basic.css"),
     person("Ty", "Bolt", role = c("ctb", "cph"),

@@ -74,3 +74,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 tests/manual
+
+# rmarkdown render artifacts
+README.html

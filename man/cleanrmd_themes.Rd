@@ -18,7 +18,6 @@ Lists the available themes in \pkg{cleanrmd}
 \pkg{cleanrmd} includes the following no-class CSS themes:
 \itemize{
 \item \href{https://github.com/alvaromontoro/almond.css}{almond}
-\item \href{https://raj457036.github.io/attriCSS/}{attricss}
 \item \href{https://github.com/schollz/awsm.css}{awsm.css}
 \item \href{https://ruanmartinelli.github.io/axist/}{axist}
 \item \href{https://rilwis.github.io/bamboo/}{bamboo}

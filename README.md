@@ -114,28 +114,27 @@ or use its output:
 
 ``` r
 cleanrmd::cleanrmd_themes()
-#>  [1] "almond"            "attricss"          "awsm.css"         
-#>  [4] "axist"             "bamboo"            "basic.css"        
-#>  [7] "bolt.css"          "bullframe"         "classlesscss"     
-#> [10] "holiday"           "kacit"             "latex.css"        
-#> [13] "markdown-splendor" "markdown-retro"    "markdown-air"     
-#> [16] "markdown-modest"   "marx"              "minicss"          
-#> [19] "mvp.css"           "neat.css"          "new.css"          
-#> [22] "no-class"          "picocss"           "sakura"           
-#> [25] "sakura-vader"      "semantic"          "simplecss"        
-#> [28] "style-sans"        "style-serif"       "stylize"          
-#> [31] "superstylin"       "tacit"             "vanilla"          
-#> [34] "water"             "water-dark"        "writ"
+#>  [1] "almond"            "awsm.css"          "axist"            
+#>  [4] "bamboo"            "basic.css"         "bolt.css"         
+#>  [7] "bullframe"         "classlesscss"      "holiday"          
+#> [10] "kacit"             "latex.css"         "markdown-splendor"
+#> [13] "markdown-retro"    "markdown-air"      "markdown-modest"  
+#> [16] "marx"              "minicss"           "mvp.css"          
+#> [19] "neat.css"          "new.css"           "no-class"         
+#> [22] "picocss"           "sakura"            "sakura-vader"     
+#> [25] "semantic"          "simplecss"         "style-sans"       
+#> [28] "style-serif"       "stylize"           "superstylin"      
+#> [31] "tacit"             "vanilla"           "water"            
+#> [34] "water-dark"        "writ"
 ```
 
 ## Themes
 
 The following CSS themes are included in this package and you can
-preview [all 36 themes in one place
+preview [all 35 themes in one place
 here](https://pkg.garrickadenbuie.com/cleanrmd/index.html).
 
 - [almond](https://github.com/alvaromontoro/almond.css)
-- [attricss](https://raj457036.github.io/attriCSS/)
 - [awsm.css](https://github.com/schollz/awsm.css)
 - [axist](https://ruanmartinelli.github.io/axist/)
 - [bamboo](https://rilwis.github.io/bamboo/)

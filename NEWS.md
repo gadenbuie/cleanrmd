@@ -1,8 +1,7 @@
 # cleanrmd (development version)
 
-* Added six new themes: `attricss`, `basic.css`, `bolt.css`,
-  `classlesscss`, `mvp.css`, and `neat.css`
-  (#10, #12, #15, #17, #22).
+* Added five new themes: `basic.css`, `bolt.css`, `classlesscss`,
+  `mvp.css`, and `neat.css` (#12, #15, #17, #22).
 
 * Updated the bundled `bullframe` theme to bullframe.css v6
   (classless build) (thanks @marcop135 #40).
