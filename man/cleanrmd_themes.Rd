@@ -43,7 +43,7 @@ Lists the available themes in \pkg{cleanrmd}
 \item \href{https://pkg.garrickadenbuie.com/stylize.css/}{stylize}
 \item \href{https://caiogondim.github.io/superstylin/}{superstylin}
 \item \href{https://yegor256.github.io/tacit/}{tacit}
-\item \href{https://vanillacss.com/}{vanilla}
+\item \href{https://github.com/bradleytaunt/vanilla-css}{vanilla}
 \item \href{https://kognise.github.io/water.css/}{water}
 \item \href{https://kognise.github.io/water.css/}{water-dark}
 \item \href{https://writ.cmcenroe.me/}{writ}
