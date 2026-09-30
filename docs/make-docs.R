@@ -86,8 +86,76 @@ reference_md <- function(ref) {
 refs <- lapply(rd_files, rewrite_rd)
 refs <- lapply(refs, reference_md) |> unlist()
 
-file.copy("_reference.Rmd", "reference.Rmd", overwrite = TRUE)
-cat(refs, file = here::here("docs/reference.Rmd"), sep = "\n", append = TRUE)
+render_docs <- function(refs) {
+  docs_dir <- here::here("docs")
+  site_dir <- Sys.getenv(
+    "CLEANRMD_DOCS_OUTPUT",
+    unset = file.path(tempdir(), "cleanrmd-docs-site")
+  )
+  if (!grepl("^(/|~)", site_dir)) {
+    site_dir <- here::here(site_dir)
+  }
+  reference_template <- file.path(docs_dir, "_reference.Rmd")
+  index_rmd <- file.path(docs_dir, "index.Rmd")
+  reference_rmd <- tempfile(
+    pattern = ".reference-",
+    tmpdir = docs_dir,
+    fileext = ".Rmd"
+  )
 
-devtools::build_rmd("docs/reference.Rmd")
-devtools::build_rmd("docs/index.Rmd")
+  on.exit(unlink(reference_rmd), add = TRUE)
+
+  source_assets <- fs::dir_ls(docs_dir, recurse = TRUE, type = "file")
+  relative_assets <- fs::path_rel(source_assets, start = docs_dir)
+  source_assets <- source_assets[
+    !grepl("[.](R|Rmd|html)$", relative_assets, ignore.case = TRUE) &
+      !grepl("(^|/)[.]", relative_assets) &
+      !grepl("^(libs|index_files|reference_files)(/|$)", relative_assets)
+  ]
+
+  generated_paths <- c(
+    "index.html",
+    "reference.html",
+    "libs",
+    "index_files",
+    "reference_files"
+  )
+
+  if (dir.exists(site_dir)) {
+    unlink(site_dir, recursive = TRUE)
+  }
+  dir.create(site_dir, recursive = TRUE)
+
+  writeLines(readLines(reference_template), reference_rmd)
+  cat(refs, file = reference_rmd, sep = "\n", append = TRUE)
+
+  rmarkdown::render(
+    input = reference_rmd,
+    output_file = "reference.html",
+    output_dir = docs_dir
+  )
+  rmarkdown::render(
+    input = index_rmd,
+    output_file = "index.html",
+    output_dir = docs_dir
+  )
+
+  for (path in generated_paths) {
+    source <- file.path(docs_dir, path)
+    destination <- file.path(site_dir, path)
+    if (dir.exists(source)) {
+      fs::dir_copy(source, destination, overwrite = TRUE)
+    } else if (file.exists(source)) {
+      file.copy(source, destination, overwrite = TRUE)
+    }
+  }
+  for (asset in source_assets) {
+    relative_path <- fs::path_rel(asset, start = docs_dir)
+    destination <- file.path(site_dir, relative_path)
+    dir.create(dirname(destination), recursive = TRUE, showWarnings = FALSE)
+    file.copy(asset, destination, overwrite = TRUE)
+  }
+  file.create(file.path(site_dir, ".nojekyll"))
+}
+
+render_docs(refs)

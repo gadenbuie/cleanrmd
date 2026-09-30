@@ -60,7 +60,7 @@ Feel free to use these themes as a starting point to add your own style and cust
 ## It's still R Markdown
 
 This is an R Markdown document.
-(View [the source for this file](https://github.com/gadenbuie/cleanrmd/blob/master/docs/index.Rmd).)
+(View [the source for this file](https://github.com/gadenbuie/cleanrmd/blob/main/docs/index.Rmd).)
 Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. 
 For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 

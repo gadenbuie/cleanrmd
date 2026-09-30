@@ -1,0 +1,116 @@
+name: Preview documentation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, closed]
+
+concurrency:
+  group: cleanrmd-docs-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      docs: ${{ steps.filter.outputs.docs }}
+    steps:
+      - name: Check for documentation changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            docs:
+              - "docs/**"
+              - "man/**"
+              - "R/**"
+              - "inst/**"
+              - "DESCRIPTION"
+              - "NAMESPACE"
+
+  render:
+    needs: changes
+    if: needs.changes.outputs.docs == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+    uses: ./.github/workflows/render-docs.yaml
+    permissions:
+      contents: read
+
+  deploy:
+    needs: render
+    if: needs.render.outputs.valid == 'true' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: cleanrmd-docs-site
+          path: publish
+
+      - name: Deploy PR preview
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: publish
+          target-folder: pr-${{ github.event.pull_request.number }}
+          clean: true
+          force: false
+          attempt-limit: 5
+
+      - name: Find existing preview comment
+        id: find-comment
+        uses: peter-evans/find-comment@v3
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: "<!-- cleanrmd-docs-preview -->"
+
+      - name: Create or update preview comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- cleanrmd-docs-preview -->
+            Documentation preview for this pull request:
+            https://pkg.garrickadenbuie.com/cleanrmd/pr-${{ github.event.pull_request.number }}/
+
+  cleanup:
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - name: Prepare empty site
+        run: mkdir empty-site
+
+      - name: Remove PR preview
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: empty-site
+          target-folder: pr-${{ github.event.pull_request.number }}
+          clean: true
+          force: false
+          attempt-limit: 5

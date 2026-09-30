@@ -1,0 +1,58 @@
+name: Deploy documentation
+
+on:
+  push:
+    branches: [main]
+    tags:
+      - "v*"
+    paths:
+      - "docs/**"
+      - "man/**"
+      - "R/**"
+      - "inst/**"
+      - DESCRIPTION
+      - NAMESPACE
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-gh-pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    uses: ./.github/workflows/render-docs.yaml
+    permissions:
+      contents: read
+
+  deploy:
+    needs: render
+    if: needs.render.outputs.valid == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: cleanrmd-docs-site
+          path: publish
+
+      - name: Deploy documentation
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: publish
+          target-folder: ${{ needs.render.outputs.destination }}
+          clean: true
+          clean-exclude: |
+            v*/
+            pr-*/
+          force: false
+          attempt-limit: 5

@@ -1,0 +1,73 @@
+name: Render documentation
+
+on:
+  workflow_call:
+    outputs:
+      valid:
+        description: Whether this event should publish a documentation site
+        value: ${{ jobs.validate.outputs.valid }}
+      destination:
+        description: gh-pages destination directory, empty for the main site
+        value: ${{ jobs.validate.outputs.destination }}
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    outputs:
+      valid: ${{ steps.destination.outputs.valid }}
+      destination: ${{ steps.destination.outputs.path }}
+    steps:
+      - name: Select publication destination
+        id: destination
+        env:
+          REF: ${{ github.ref }}
+          REF_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ "$REF" == "refs/heads/main" || "$REF" == refs/pull/* ]]; then
+            echo "valid=true" >> "$GITHUB_OUTPUT"
+            echo "path=" >> "$GITHUB_OUTPUT"
+          elif [[ "$REF_NAME" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "valid=true" >> "$GITHUB_OUTPUT"
+            echo "path=$REF_NAME" >> "$GITHUB_OUTPUT"
+          else
+            echo "valid=false" >> "$GITHUB_OUTPUT"
+            echo "Skipping unsupported ref: $REF_NAME" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  render:
+    needs: validate
+    if: needs.validate.outputs.valid == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      CLEANRMD_DOCS_OUTPUT: publish
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          needs: website
+          extra-packages: local::.
+
+      - name: Render documentation
+        run: Rscript docs/make-docs.R
+
+      - name: Upload rendered site
+        uses: actions/upload-artifact@v4
+        with:
+          name: cleanrmd-docs-site
+          path: publish/
+          include-hidden-files: true
+          if-no-files-found: error
