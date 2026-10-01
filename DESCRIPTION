@@ -1,6 +1,6 @@
 Package: cleanrmd
 Title: Clean Class-Less 'R Markdown' HTML Documents
-Version: 0.1.1.9000
+Version: 0.2.0
 Authors@R: c(
     person("Garrick", "Aden-Buie", , "garrick@adenbuie.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-7111-0077")),
@@ -69,7 +69,7 @@ URL: https://pkg.garrickadenbuie.com/cleanrmd/,
     https://github.com/gadenbuie/cleanrmd
 BugReports: https://github.com/gadenbuie/cleanrmd/issues
 Depends:
-    R (>= 2.10)
+    R (>= 3.5)
 Imports: 
     htmltools,
     jsonlite,

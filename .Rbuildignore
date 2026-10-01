@@ -8,4 +8,5 @@
 ^_dev$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
-^\./issues$
+^\.pi-loop\.json\.lock$
+^issues$

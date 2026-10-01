@@ -1,39 +1,39 @@
-# cleanrmd (development version)
+# cleanrmd 0.2.0
 
-* Added five new themes: `basic.css`, `bolt.css`, `classlesscss`,
+## New themes and theme picker
+
+* `cleanrmd` adds five themes: `basic.css`, `bolt.css`, `classlesscss`,
   `mvp.css`, and `neat.css` (#12, #15, #17, #22).
 
-* Updated the bundled `bullframe` theme to bullframe.css v6
-  (classless build) (thanks @marcop135 #40).
+* The theme picker remembers the reader's most recently selected theme in
+  browser local storage. `use_cleanrmd()` gains a `default` argument for
+  choosing the initial theme; the default remains `"new.css"` (#31).
 
-* The HTML template now applies `body { margin-inline: auto }` after
-  the theme's stylesheet, so themes that reset the body margins
-  without providing their own width container (e.g. `bullframe`) no
-  longer pin the content to the left edge of the page.
+* The theme picker applies the saved or default stylesheet before the
+  document body is parsed, preventing a flash of unstyled content. The
+  picker UI is built once the DOM is ready.
 
-* The `water` theme now uses the "automatic" stylesheet that follows
-  the reader's system light/dark mode preference. The always-dark
-  `water-dark` theme remains available (#33).
+## Theme updates
 
-* Updated all bundled CSS themes to their latest versions. The
-  `vanilla` theme now downloads from its GitHub repository
-  (`bradleytaunt/vanilla-css`) because the previous `vanillacss.com`
-  domain now redirects to an unrelated site.
+* The bundled `bullframe` theme is updated to bullframe.css v6 (classless
+  build) (@marcop135, #40).
 
-* The theme picker now remembers the reader's most recently selected
-  theme in their browser's local storage. Documents can choose the
-  initial theme with the new `default` argument to `use_cleanrmd()`;
-  the default remains `"new.css"` (#31).
+* The `water` theme uses the automatic stylesheet to follow the reader's
+  system light/dark preference. The always-dark `water-dark` theme remains
+  available (#33).
 
-* The theme picker now applies the saved or default theme stylesheet
-  while the page is still loading — before the document body is
-  parsed — avoiding a flash of unstyled content before the picker UI
-  appears. The picker UI itself is built once the DOM is ready.
+* All bundled CSS themes are refreshed. The `vanilla` theme now uses its
+  GitHub repository (`bradleytaunt/vanilla-css`), since `vanillacss.com`
+  redirects to an unrelated site.
 
-* `html_document_clean()` now passes `--syntax-highlighting` instead of
-  the deprecated `--no-highlight` and `--highlight-style` flags when
-  rendering with Pandoc >= 3.8, avoiding Pandoc deprecation warnings
-  (rstudio/rmarkdown#2640).
+## Other improvements
+
+* The HTML template centers themes that reset body margins but don't provide
+  their own width container, such as `bullframe`.
+
+* `html_document_clean()` uses `--syntax-highlighting` with Pandoc 3.8 and
+  later, avoiding deprecation warnings from `--no-highlight` and
+  `--highlight-style` (rstudio/rmarkdown#2640).
 
 # cleanrmd 0.1.1
 

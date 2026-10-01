@@ -1,6 +1,6 @@
 # MIT License
 
-Copyright (c) 2022 cleanrmd authors
+Copyright (c) 2022-2026 cleanrmd authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
