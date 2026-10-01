@@ -95,22 +95,66 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          persist-credentials: false
-
-      - name: Prepare empty site
-        run: mkdir empty-site
+          ref: gh-pages
+          fetch-depth: 0
 
       - name: Remove PR preview
-        uses: JamesIves/github-pages-deploy-action@v4
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          git rm -r --ignore-unmatch "pr-${PR_NUMBER}"
+          if git diff --cached --quiet; then
+            echo "No preview files found for PR #${PR_NUMBER}"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Remove docs preview for PR #${PR_NUMBER}"
+
+          # Another preview may update gh-pages while this cleanup runs.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:gh-pages; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 5 ]; then
+              exit 1
+            fi
+            git fetch origin gh-pages
+            git rebase origin/gh-pages
+          done
+
+      - name: Find existing preview comment
+        id: find-comment
+        uses: peter-evans/find-comment@v3
         with:
-          branch: gh-pages
-          folder: empty-site
-          target-folder: pr-${{ github.event.pull_request.number }}
-          clean: true
-          force: false
-          attempt-limit: 5
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: github-actions[bot]
+          body-includes: "<!-- cleanrmd-docs-preview -->"
+
+      - name: Mark preview comment as cleaned up
+        if: steps.find-comment.outputs.comment-id != ''
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- cleanrmd-docs-preview -->
+            The documentation preview files for this pull request have been cleaned up because the pull request was closed.
+
+      - name: Minimize preview comment as outdated
+        if: steps.find-comment.outputs.comment-id != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMENT_ID: ${{ steps.find-comment.outputs.comment-id }}
+        run: |
+          comment_node_id=$(gh api "repos/${GITHUB_REPOSITORY}/issues/comments/${COMMENT_ID}" --jq .node_id)
+          gh api graphql \
+            -f query='mutation($subjectId: ID!) { minimizeComment(input: {subjectId: $subjectId, classifier: OUTDATED}) { minimizedComment { isMinimized minimizedReason } } }' \
+            -f subjectId="$comment_node_id"
